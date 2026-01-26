@@ -1,8 +1,11 @@
-curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | sudo tee /usr/share/keyrings/cloudflare-main.gpg >/dev/null
-
-echo "deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/ bookworm main" \
-| sudo tee /etc/apt/sources.list.d/cloudflare.list
-
+sudo rm -f /etc/apt/sources.list.d/cloudflare.list
+sudo rm -f /usr/share/keyrings/cloudflare-main.gpg
 sudo apt update
-sudo apt install -y cloudflared
+
+curl -L \
+  https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64 \
+  -o cloudflared
+
+chmod +x cloudflared
+sudo mv cloudflared /usr/local/bin/cloudflared
 
