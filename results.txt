@@ -1,2 +1,8 @@
-LISTEN 0      511          0.0.0.0:80        0.0.0.0:*    users:(("nginx",pid=46285,fd=5),("nginx",pid=46284,fd=5),("nginx",pid=46283,fd=5),("nginx",pid=46282,fd=5),("nginx",pid=39299,fd=5))
-LISTEN 0      511             [::]:80           [::]:*    users:(("nginx",pid=46285,fd=6),("nginx",pid=46284,fd=6),("nginx",pid=46283,fd=6),("nginx",pid=46282,fd=6),("nginx",pid=39299,fd=6))
+curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | sudo tee /usr/share/keyrings/cloudflare-main.gpg >/dev/null
+
+echo "deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/ bookworm main" \
+| sudo tee /etc/apt/sources.list.d/cloudflare.list
+
+sudo apt update
+sudo apt install -y cloudflared
+
