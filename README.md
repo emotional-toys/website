@@ -1,3 +1,3 @@
-## emotional toys website
+## emotional toys
 
-The website for emotional.toys.
+The website for emotional.toys
