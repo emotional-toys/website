@@ -1,11 +1,10 @@
-sudo rm -f /etc/apt/sources.list.d/cloudflare.list
-sudo rm -f /usr/share/keyrings/cloudflare-main.gpg
-sudo apt update
+tunnel: <TUNNEL-UUID>
+credentials-file: /home/pi/.cloudflared/<TUNNEL-UUID>.json
 
-curl -L \
-  https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64 \
-  -o cloudflared
-
-chmod +x cloudflared
-sudo mv cloudflared /usr/local/bin/cloudflared
+ingress:
+  - hostname: emotional.toys
+    service: http://localhost:80
+  - hostname: www.emotional.toys
+    service: http://localhost:80
+  - service: http_status:404
 
