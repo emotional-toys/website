@@ -7,103 +7,168 @@
   <title>Emotional Toys — Interactive Emotional Companions</title>
   <meta name="description" content="AI toys that feel and connect with you." />
 
-  <style>
-    :root{
-      --bg: #f7f6fb;
-      --ink: #1f2430;
-      --muted: #5a6273;
-      --card: rgba(255,255,255,.80);
-      --card2: rgba(255,255,255,.92);
-      --stroke: rgba(20, 24, 32, .10);
-      --shadow: 0 18px 50px rgba(20, 24, 32, .12);
-      --shadow2: 0 10px 30px rgba(20, 24, 32, .10);
-      --radius-xl: 24px;
-      --radius-lg: 18px;
-      --radius-md: 14px;
-      --brand: #5b5be8;
-      --brand2: #8a6cff;
-      --brand3: #ff7bb2;
-      --ok: #3ccf91;
-      --warm: #ffb55f;
-      --cool: #67a9ff;
-      --max: 1120px;
-
---su
-
-/* Theme: automatic + optional manual override via [data-theme] */
-@media (prefers-color-scheme: dark){
+  
+<style>
   :root{
+    /* Core theme tokens (LIGHT by default) */
+    --bg: #f7f6fb;
+    --ink: #1f2430;
+    --muted: #4b5366;
+
+    --surface: rgba(255,255,255,.80);
+    --surface2: rgba(255,255,255,.92);
+
+    /* Back-compat aliases */
+    --card: var(--surface);
+    --card2: var(--surface2);
+
+    --stroke: rgba(20,24,32,.10);
+    --shadow: 0 18px 50px rgba(20,24,32,.12);
+    --shadow2: 0 10px 30px rgba(20,24,32,.10);
+
+    --glass: rgba(255,255,255,.65);
+    --glass2: rgba(255,255,255,.90);
+
+    --radius-xl: 24px;
+    --radius-lg: 18px;
+    --radius-md: 14px;
+
+    --brand: #5b5be8;
+    --brand2: #8a6cff;
+    --brand3: #ff7bb2;
+
+    --ok: #3ccf91;
+    --warm: #ffb55f;
+    --cool: #67a9ff;
+
+    --max: 1120px;
+
+    /* Toy palette (LIGHT) — used by inline SVGs */
+    --dot-hi: #3f4453;
+    --dot-lo: #141826;
+    --dot-shadow: rgba(15,18,32,.65);
+    --dot-eye-hi: #d7f7ff;
+    --dot-eye-lo: #4aa9ff;
+
+    --fob-hi: #eef1f7;
+    --fob-lo: #b6becf;
+    --fob-core: #151a27;
+    --fob-eye-hi: #fff2b3;
+    --fob-eye-lo: #ffb74a;
+
+    --letty-hi: #ffe9f4;
+    --letty-lo: #ffb9d8;
+    --letty-accent: #ff6fa9;
+    --letty-eye: #2b2f3a;
+  
+    --bg1: rgba(91,91,232,.16);
+    --bg2: rgba(103,169,255,.14);
+    --bg3: rgba(255,123,178,.12);
+    --bg-noise: .18;
+  }
+
+  /* System dark mode */
+  @media (prefers-color-scheme: dark){
+    :root{
+    --bg1: rgba(140,120,255,.22);
+    --bg2: rgba(80,220,255,.18);
+    --bg3: rgba(255,120,180,.14);
+    --bg-noise: .42;
+
+      --bg: #07080c;
+      --ink: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.74);
+
+      --surface: rgba(255,255,255,.06);
+      --surface2: rgba(255,255,255,.10);
+
+      --card: var(--surface);
+      --card2: var(--surface2);
+
+      --stroke: rgba(255,255,255,.14);
+      --shadow: 0 18px 70px rgba(0,0,0,.55);
+      --shadow2: 0 10px 30px rgba(0,0,0,.45);
+
+      --glass: rgba(255,255,255,.06);
+      --glass2: rgba(255,255,255,.10);
+
+      /* Toy palette (DARK) — a touch brighter for contrast */
+      --dot-hi: #5b6073;
+      --dot-lo: #0f1320;
+      --dot-shadow: rgba(0,0,0,.55);
+      --dot-eye-hi: #e9fbff;
+      --dot-eye-lo: #67c6ff;
+
+      --fob-hi: #f2f5ff;
+      --fob-lo: #b8c2da;
+      --fob-core: rgba(0,0,0,.78);
+      --fob-eye-hi: #fff6c7;
+      --fob-eye-lo: #ffc46b;
+
+      --letty-hi: #ffe9f4;
+      --letty-lo: #ff9fcb;
+      --letty-accent: #ff6fa9;
+      --letty-eye: rgba(0,0,0,.70);
+    }
+  }
+
+  /* Manual override: set <html data-theme="dark|light"> */
+  html[data-theme="light"]{ color-scheme: light; }
+  html[data-theme="dark"]{
+    color-scheme: dark;
     --bg: #07080c;
     --ink: rgba(255,255,255,.92);
-    --muted: rgba(255,255,255,.66);
-    --card: rgba(255,255,255,.06);
-    --card2: rgba(255,255,255,.10);
+    --muted: rgba(255,255,255,.74);
+
+    --surface: rgba(255,255,255,.06);
+    --surface2: rgba(255,255,255,.10);
+
+    --card: var(--surface);
+    --card2: var(--surface2);
+
     --stroke: rgba(255,255,255,.14);
     --shadow: 0 18px 70px rgba(0,0,0,.55);
     --shadow2: 0 10px 30px rgba(0,0,0,.45);
+
     --glass: rgba(255,255,255,.06);
     --glass2: rgba(255,255,255,.10);
+
+    --dot-hi: #5b6073;
+    --dot-lo: #0f1320;
+    --dot-shadow: rgba(0,0,0,.55);
+    --dot-eye-hi: #e9fbff;
+    --dot-eye-lo: #67c6ff;
+
+    --fob-hi: #f2f5ff;
+    --fob-lo: #b8c2da;
+    --fob-core: rgba(0,0,0,.78);
+    --fob-eye-hi: #fff6c7;
+    --fob-eye-lo: #ffc46b;
+
+    --letty-hi: #ffe9f4;
+    --letty-lo: #ff9fcb;
+    --letty-accent: #ff6fa9;
+    --letty-eye: rgba(0,0,0,.70);
+  
+    --bg1: rgba(140,120,255,.22);
+    --bg2: rgba(80,220,255,.18);
+    --bg3: rgba(255,120,180,.14);
+    --bg-noise: .42;
   }
-}
 
-html[data-theme="light"]{
-  color-scheme: light;
-}
-html[data-theme="dark"]{
-  color-scheme: dark;
-  --bg: #07080c;
-  --ink: rgba(255,255,255,.92);
-  --muted: rgba(255,255,255,.66);
-  --card: rgba(255,255,255,.06);
-  --card2: rgba(255,255,255,.10);
-  --stroke: rgba(255,255,255,.14);
-  --shadow: 0 18px 70px rgba(0,0,0,.55);
-  --shadow2: 0 10px 30px rgba(0,0,0,.45);
-  --glass: rgba(255,255,255,.06);
-  --glass2: rgba(255,255,255,.10);
 
-  /* Slightly brighter toy palette for dark backgrounds */
-  --dot-hi: #5b6073;
-  --dot-lo: #0f1320;
-  --dot-shadow: rgba(0,0,0,.45);
-
-  --fob-hi: #f2f5ff;
-  --fob-lo: #9aa6bf;
-  --fob-core: rgba(0,0,0,.78);
-
-  --letty-hi: #ffe9f4;
-  --letty-lo: #ff9fcb;
-}
-rface: var(--card);
---surface2: var(--card2);
---glass: rgba(255,255,255,.65);
---glass2: rgba(255,255,255,.90);
-
-/* Toy palette (theme-aware via overrides below) */
---dot-hi: #3f4453;
---dot-lo: #141826;
---dot-shadow: #0f1220;
---dot-eye-hi: #d7f7ff;
---dot-eye-lo: #4aa9ff;
-
---fob-hi: #eef1f7;
---fob-lo: #b6becf;
---fob-core: #151a27;
---fob-eye-hi: #fff2b3;
---fob-eye-lo: #ffb74a;
-
---letty-hi: #ffe9f4;
---letty-lo: #ffb9d8;
---letty-accent: #ff6fa9;
---letty-eye: #2b2f3a;
+  *{ box-sizing: border-box; }
+    html, body{ height: 100%; 
+      position: relative;
+    
+      background: var(--bg);
     }
-
-    *{ box-sizing: border-box; }
-    html, body{ height: 100%; }
     body{
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
       background: radial-gradient(1200px 900px at 30% -10%, rgba(138,108,255,.22), transparent 55%),
                   radial-gradient(900px 700px at 85% 10%, rgba(255,123,178,.16), transparent 60%),
                   var(--bg);
@@ -119,8 +184,8 @@ rface: var(--card);
       top: 0;
       z-index: 50;
       backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, color-mix(in oklab, var(--bg) 88%, transparent), color-mix(in oklab, var(--bg) 55%, transparent));
-      border-bottom: 1px solid color-mix(in oklab, var(--stroke) 55%, transparent);
+      background: linear-gradient(to bottom, rgba(247,246,251,.86), rgba(247,246,251,.55));
+      border-bottom: 1px solid rgba(20,24,32,.06);
     }
     .topbar{
       display: flex;
@@ -165,7 +230,7 @@ rface: var(--card);
       padding: 8px 10px;
       border-radius: 10px;
     }
-    nav a:hover{ background: color-mix(in oklab, var(--brand) 12%, transparent); color: var(--ink); }
+    nav a:hover{ background: rgba(91,91,232,.08); color: var(--ink); }
 
     .cta{
       display: flex;
@@ -193,16 +258,16 @@ rface: var(--card);
     }
     .btn-primary:hover{ filter: brightness(1.03); box-shadow: 0 14px 38px rgba(91,91,232,.20); }
     .btn-ghost{
-      background: var(--glass);
-      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.65);
+      border: 1px solid rgba(20,24,32,.08);
       color: var(--ink);
     }
-    .btn-ghost:hover{ background: var(--glass2); }
+    .btn-ghost:hover{ background: rgba(255,255,255,.9); }
 
     .hamburger{
       display: none;
-      border: 1px solid var(--stroke);
-      background: var(--glass);
+      border: 1px solid rgba(20,24,32,.10);
+      background: rgba(255,255,255,.65);
       border-radius: 12px;
       padding: 10px;
       cursor: pointer;
@@ -218,7 +283,7 @@ rface: var(--card);
       border-radius: var(--radius-xl);
       overflow: hidden;
       box-shadow: var(--shadow);
-      border: 1px solid var(--stroke);
+      border: 1px solid rgba(20,24,32,.08);
       background:
         radial-gradient(900px 500px at 50% 20%, rgba(255,255,255,.35), rgba(255,255,255,0) 62%),
         linear-gradient(180deg, rgba(91,91,232,.40), rgba(138,108,255,.20) 45%, rgba(255,123,178,.18)),
@@ -240,6 +305,7 @@ rface: var(--card);
       margin: 0 0 24px;
       font-size: 16px;
       color: rgba(255,255,255,.88);
+      line-height: 1.55;
       max-width: 56ch;
     }
 
@@ -264,7 +330,7 @@ rface: var(--card);
     }
 
     .toyBadge{
-      background: color-mix(in oklab, var(--glass) 35%, transparent);
+      background: rgba(255,255,255,.16);
       border: 1px solid rgba(255,255,255,.22);
       border-radius: 18px;
       padding: 14px 14px 10px;
@@ -316,8 +382,8 @@ rface: var(--card);
     /* Features strip */
     .features{
       margin-top: 16px;
-      background: var(--surface);
-      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(20,24,32,.08);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow2);
       overflow: hidden;
@@ -333,7 +399,7 @@ rface: var(--card);
       grid-template-columns: 38px 1fr;
       gap: 12px;
       align-items: start;
-      border-right: 1px solid color-mix(in oklab, var(--stroke) 55%, transparent);
+      border-right: 1px solid rgba(20,24,32,.06);
     }
     .feature:last-child{ border-right: 0; }
     .icon{
@@ -341,8 +407,8 @@ rface: var(--card);
       border-radius: 14px;
       display: grid;
       place-items: center;
-      border: 1px solid var(--stroke);
-      background: var(--glass2);
+      border: 1px solid rgba(20,24,32,.08);
+      background: rgba(255,255,255,.75);
     }
     .feature h3{
       margin: 2px 0 4px;
@@ -351,9 +417,9 @@ rface: var(--card);
     }
     .feature p{
       margin: 0;
-      font-size: 12.5px;
+      font-size: 13.5px;
       color: var(--muted);
-      line-height: 1.45;
+      line-height: 1.5;
     }
 
     /* Section headings */
@@ -372,7 +438,7 @@ rface: var(--card);
     .sectionTitle p{
       margin: 0;
       color: var(--muted);
-      font-size: 14.5px;
+      font-size: 15px;
     }
 
     /* Cards */
@@ -384,7 +450,7 @@ rface: var(--card);
     }
     .card{
       background: var(--card2);
-      border: 1px solid var(--stroke);
+      border: 1px solid rgba(20,24,32,.08);
       border-radius: var(--radius-xl);
       overflow: hidden;
       box-shadow: var(--shadow2);
@@ -419,7 +485,7 @@ rface: var(--card);
     .cardTag{
       margin: 0 0 14px;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 15px;
     }
     .cardActions{
       display: flex;
@@ -431,12 +497,12 @@ rface: var(--card);
     /* CTA banner */
     .ctaBanner{
       border-radius: var(--radius-xl);
-      border: 1px solid var(--stroke);
+      border: 1px solid rgba(20,24,32,.08);
       box-shadow: var(--shadow);
       background:
         radial-gradient(900px 420px at 50% 0%, rgba(255,255,255,.40), transparent 60%),
         linear-gradient(180deg, rgba(91,91,232,.20), rgba(255,123,178,.10)),
-        var(--surface);
+        rgba(255,255,255,.72);
       overflow: hidden;
       position: relative;
     }
@@ -452,7 +518,7 @@ rface: var(--card);
     .ctaInner p{
       margin: 0 0 18px;
       color: var(--muted);
-      font-size: 14.5px;
+      font-size: 15px;
     }
 
     /* Footer */
@@ -483,11 +549,17 @@ rface: var(--card);
     }
     .modal{
       width: min(720px, 100%);
-      background: var(--surface2);
+      background: var(--card2);
+      color: var(--ink);
       border: 1px solid var(--stroke);
       border-radius: 20px;
       box-shadow: 0 30px 90px rgba(0,0,0,.30);
       overflow: hidden;
+    }
+    .modal.modal-companion{
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.24), rgba(255,255,255,.12)),
+        var(--card2);
     }
     .modalHead{
       padding: 16px 16px 12px;
@@ -495,12 +567,13 @@ rface: var(--card);
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      border-bottom: 1px solid rgba(20,24,32,.08);
+      border-bottom: 1px solid var(--stroke);
     }
-    .modalHead strong{ font-size: 14px; letter-spacing: -0.01em; }
+    .modalHead strong{ font-size: 15px; letter-spacing: -0.01em; }
     .x{
       border: 1px solid var(--stroke);
       background: var(--glass2);
+      color: var(--ink);
       border-radius: 12px;
       padding: 8px 10px;
       cursor: pointer;
@@ -516,8 +589,8 @@ rface: var(--card);
     .modalBody p{
       margin: 0 0 10px;
       color: var(--muted);
-      line-height: 1.55;
-      font-size: 14px;
+      line-height: 1.6;
+      font-size: 15.5px;
     }
     .pillRow{
       display: flex;
@@ -526,12 +599,12 @@ rface: var(--card);
       margin-top: 10px;
     }
     .pill{
-      font-size: 12px;
-      padding: 8px 10px;
+      font-size: 12.5px;
+      padding: 8px 11px;
       border-radius: 999px;
       border: 1px solid var(--stroke);
-      background: var(--glass2);
-      color: rgba(20,24,32,.78);
+      background: var(--card);
+      color: var(--ink);
       font-weight: 700;
     }
 
@@ -541,7 +614,7 @@ rface: var(--card);
       .toysRow{ grid-template-columns: repeat(3, 1fr); }
       .featuresGrid{ grid-template-columns: repeat(2, 1fr); }
       .feature:nth-child(2){ border-right: 0; }
-      .feature:nth-child(1), .feature:nth-child(2){ border-bottom: 1px solid color-mix(in oklab, var(--stroke) 55%, transparent); }
+      .feature:nth-child(1), .feature:nth-child(2){ border-bottom: 1px solid rgba(20,24,32,.06); }
       .cards{ grid-template-columns: 1fr; }
       .card{ grid-template-rows: 240px auto; }
       .modalBody{ grid-template-columns: 1fr; }
@@ -552,21 +625,130 @@ rface: var(--card);
       .toysRow{ grid-template-columns: 1fr; }
       .feature{ border-right: 0; }
       .featuresGrid{ grid-template-columns: 1fr; }
-      .feature{ border-bottom: 1px solid color-mix(in oklab, var(--stroke) 55%, transparent); }
+      .feature{ border-bottom: 1px solid rgba(20,24,32,.06); }
       .feature:last-child{ border-bottom: 0; }
     }
   
-/* SVG rendering: crisper + a touch of depth */
-svg{ shape-rendering: geometricPrecision; }
-.toyBadge svg, .cardMedia svg{ filter: drop-shadow(0 18px 28px rgba(0,0,0,.20)); }
-@media (prefers-color-scheme: light){
-  .toyBadge svg, .cardMedia svg{ filter: drop-shadow(0 14px 22px rgba(20,24,32,.16)); }
-}
+    /* --- Theme + SVG refinements (added) --- */
+    :root{
+      --accent: var(--brand3);
+      --svg-ink: #0f1220;
+      --svg-ink2: #1b1f2a;
+      --svg-paper: #ffffff;
+      --toy-shadow: drop-shadow(0 12px 22px rgba(20,24,32,.18));
+    }
 
+    .btn-ghost{
+      background: transparent;
+      border: 1px solid var(--stroke);
+      color: var(--ink);
+    }
+    .btn-ghost:hover{ background: rgba(255,255,255,.35); }
+
+    /* Dark mode tokens (system preference) */
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg: #07080c;
+        --ink: rgba(255,255,255,.92);
+        --muted: rgba(255,255,255,.74);
+        --card: rgba(255,255,255,.06);
+        --card2: rgba(255,255,255,.10);
+        --stroke: rgba(255,255,255,.12);
+        --shadow: 0 22px 70px rgba(0,0,0,.55);
+        --shadow2: 0 12px 40px rgba(0,0,0,.45);
+        --svg-ink: rgba(255,255,255,.94);
+        --svg-ink2: rgba(255,255,255,.78);
+        --svg-paper: rgba(255,255,255,.94);
+      }
+      .btn-ghost:hover{ background: rgba(255,255,255,.10); }
+    }
+
+    /* Manual overrides: set html[data-theme="dark|light"] */
+    html[data-theme="light"]{ color-scheme: light; }
+    html[data-theme="dark"]{
+      color-scheme: dark;
+      --bg: #07080c;
+      --ink: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.74);
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.10);
+      --stroke: rgba(255,255,255,.12);
+      --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --shadow2: 0 12px 40px rgba(0,0,0,.45);
+      --svg-ink: rgba(255,255,255,.94);
+      --svg-ink2: rgba(255,255,255,.78);
+      --svg-paper: rgba(255,255,255,.94);
+    }
+
+    /* Refine inline SVG toys */
+    svg.toy, .toy svg{ filter: var(--toy-shadow); }
+
+
+  /* Make theme switching visually obvious */
+  @media (prefers-color-scheme: dark){
+    body{
+      background: radial-gradient(1200px 900px at 30% -10%, rgba(138,108,255,.14), transparent 60%),
+                  radial-gradient(900px 700px at 85% 10%, rgba(255,123,178,.10), transparent 65%),
+                  var(--bg);
+    }
+    header{
+      background: linear-gradient(to bottom, rgba(7,8,12,.82), rgba(7,8,12,.55));
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    nav a:hover{ background: rgba(255,255,255,.08); color: var(--ink); }
+    .heroCard{ border-color: rgba(255,255,255,.12); }
+    .toyBadge{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.14); }
+    .feature:nth-child(1), .feature:nth-child(2){ border-bottom-color: rgba(255,255,255,.10); }
+    .feature{ border-right-color: rgba(255,255,255,.10); }
+    .feature p{ color: var(--muted); }
+  }
+
+  html[data-theme="dark"] body{
+    background: radial-gradient(1200px 900px at 30% -10%, rgba(138,108,255,.14), transparent 60%),
+                radial-gradient(900px 700px at 85% 10%, rgba(255,123,178,.10), transparent 65%),
+                var(--bg);
+  }
+  html[data-theme="dark"] header{
+    background: linear-gradient(to bottom, rgba(7,8,12,.82), rgba(7,8,12,.55));
+    border-bottom: 1px solid rgba(255,255,255,.10);
+  }
+  html[data-theme="dark"] nav a:hover{ background: rgba(255,255,255,.08); color: var(--ink); }
+  html[data-theme="dark"] .heroCard{ border-color: rgba(255,255,255,.12); }
+  html[data-theme="dark"] .toyBadge{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.14); }
+  html[data-theme="dark"] .feature:nth-child(1),
+  html[data-theme="dark"] .feature:nth-child(2){ border-bottom-color: rgba(255,255,255,.10); }
+  html[data-theme="dark"] .feature{ border-right-color: rgba(255,255,255,.10); }
+
+  
+    body::before{
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(1200px 700px at 20% 10%, var(--bg1), transparent 60%),
+        radial-gradient(900px 500px at 85% 20%, var(--bg2), transparent 55%),
+        radial-gradient(700px 480px at 55% 90%, var(--bg3), transparent 60%);
+      opacity: 1;
+      z-index: 0;
+    }
+    body::after{
+      content:"";
+      position: fixed;
+      inset:0;
+      pointer-events:none;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,var(--bg-noise)) 1px, transparent 0);
+      background-size: 3px 3px;
+      opacity: .18;
+      mix-blend-mode: overlay;
+      z-index: 0;
+    }
+    main, header, section, .wrap{ position: relative; z-index: 1; }
 </style>
 </head>
 
 <body>
+  <!-- BUILD: v4 unique-svg-ids + visible-theming -->
   <header>
     <div class="wrap topbar">
       <a class="brand" href="#top" aria-label="Emotional Toys Home">
@@ -583,19 +765,12 @@ svg{ shape-rendering: geometricPrecision; }
       </nav>
 
       <div class="cta">
+        <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Toggle theme" title="Toggle theme">Theme</button>
         <button class="hamburger" id="menuBtn" aria-label="Open menu" title="Menu">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </button>
-        <button class="hamburger" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 3v2M12 19v2M4.2 6.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 17.8l1.4-1.4M18.4 5.6l1.4-1.4"
-                  stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
-            <path d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10Z" stroke="currentColor" stroke-width="1.7"/>
-          </svg>
-        </button>
-
         <button class="btn btn-primary" id="buyNowTop">BUY NOW</button>
       </div>
     </div>
@@ -629,22 +804,22 @@ svg{ shape-rendering: geometricPrecision; }
                 <!-- DOT SVG -->
                 <svg width="100%" height="140" viewBox="0 0 220 170" fill="none" aria-hidden="true">
                   <defs>
-                    <radialGradient id="gDot" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(90 52) rotate(60) scale(140 120)">
-                      <stop style="stop-color: var(--dot-hi)" stop-opacity=".95"/>
-                      <stop offset="1" style="stop-color: var(--dot-lo)" stop-opacity=".98"/>
+                    <radialGradient id="gDot__s2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(90 52) rotate(60) scale(140 120)">
+                      <stop stop-color="var(--dot-hi)" stop-opacity=".95"/>
+                      <stop offset="1" stop-color="var(--dot-lo)" stop-opacity=".98"/>
                     </radialGradient>
-                    <radialGradient id="eyeBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(18)">
-                      <stop style="stop-color: var(--dot-eye-hi)"/>
-                      <stop offset="1" style="stop-color: var(--dot-eye-lo)"/>
+                    <radialGradient id="eyeBlue__s2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(18)">
+                      <stop stop-color="var(--dot-eye-hi)"/>
+                      <stop offset="1" stop-color="var(--dot-eye-lo)"/>
                     </radialGradient>
                   </defs>
-                  <ellipse cx="110" cy="110" rx="88" ry="62" fill="url(#gDot)"/>
-                  <ellipse cx="68" cy="120" rx="26" ry="18" fill="var(--dot-shadow)" opacity=".55"/>
-                  <ellipse cx="152" cy="120" rx="26" ry="18" fill="var(--dot-shadow)" opacity=".55"/>
-                  <circle cx="82" cy="102" r="16" fill="url(#eyeBlue)"/>
-                  <circle cx="138" cy="102" r="16" fill="url(#eyeBlue)"/>
-                  <circle cx="78" cy="98" r="5" fill="#fff" opacity=".8"/>
-                  <circle cx="134" cy="98" r="5" fill="#fff" opacity=".8"/>
+                  <ellipse cx="110" cy="110" rx="88" ry="62" fill="url(#gDot__s2)"/>
+                  <ellipse cx="68" cy="120" rx="26" ry="18" fill="var(--svg-ink)" opacity=".55"/>
+                  <ellipse cx="152" cy="120" rx="26" ry="18" fill="var(--svg-ink)" opacity=".55"/>
+                  <circle cx="82" cy="102" r="16" fill="url(#eyeBlue__s2)"/>
+                  <circle cx="138" cy="102" r="16" fill="url(#eyeBlue__s2)"/>
+                  <circle cx="78" cy="98" r="5" fill="var(--svg-paper)" opacity=".8"/>
+                  <circle cx="134" cy="98" r="5" fill="var(--svg-paper)" opacity=".8"/>
                 </svg>
                 <div class="name">dot</div>
               </div>
@@ -653,19 +828,19 @@ svg{ shape-rendering: geometricPrecision; }
                 <!-- LETTY SVG -->
                 <svg width="100%" height="140" viewBox="0 0 220 170" fill="none" aria-hidden="true">
                   <defs>
-                    <radialGradient id="gLetty" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(88 58) rotate(55) scale(150 150)">
-                      <stop style="stop-color: var(--letty-hi)"/>
-                      <stop offset="1" style="stop-color: var(--letty-lo)"/>
+                    <radialGradient id="gLetty__s3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(88 58) rotate(55) scale(150 150)">
+                      <stop stop-color="var(--letty-hi)"/>
+                      <stop offset="1" stop-color="var(--letty-lo)"/>
                     </radialGradient>
                   </defs>
-                  <ellipse cx="110" cy="118" rx="74" ry="54" fill="url(#gLetty)"/>
-                  <ellipse cx="78" cy="62" rx="24" ry="48" fill="url(#gLetty)"/>
-                  <ellipse cx="142" cy="62" rx="24" ry="48" fill="url(#gLetty)"/>
-                  <ellipse cx="110" cy="116" rx="52" ry="36" fill="#fff" opacity=".35"/>
-                  <circle cx="88" cy="112" r="9" fill="var(--letty-eye)"/>
-                  <circle cx="132" cy="112" r="9" fill="var(--letty-eye)"/>
-                  <circle cx="110" cy="125" r="5" fill="var(--letty-accent)"/>
-                  <path d="M105 131 C108 136, 112 136, 115 131" stroke="var(--letty-accent)" stroke-width="3" stroke-linecap="round"/>
+                  <ellipse cx="110" cy="118" rx="74" ry="54" fill="url(#gLetty__s3)"/>
+                  <ellipse cx="78" cy="62" rx="24" ry="48" fill="url(#gLetty__s3)"/>
+                  <ellipse cx="142" cy="62" rx="24" ry="48" fill="url(#gLetty__s3)"/>
+                  <ellipse cx="110" cy="116" rx="52" ry="36" fill="var(--svg-paper)" opacity=".35"/>
+                  <circle cx="88" cy="112" r="9" fill="var(--svg-ink2)"/>
+                  <circle cx="132" cy="112" r="9" fill="var(--svg-ink2)"/>
+                  <circle cx="110" cy="125" r="5" fill="var(--accent)"/>
+                  <path d="M105 131 C108 136, 112 136, 115 131" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
                 </svg>
                 <div class="name">letty</div>
               </div>
@@ -674,20 +849,20 @@ svg{ shape-rendering: geometricPrecision; }
                 <!-- FOB SVG -->
                 <svg width="100%" height="140" viewBox="0 0 220 170" fill="none" aria-hidden="true">
                   <defs>
-                    <linearGradient id="gFob" x1="40" y1="40" x2="180" y2="150" gradientUnits="userSpaceOnUse">
-                      <stop style="stop-color: var(--fob-hi)"/>
-                      <stop offset="1" style="stop-color: var(--fob-lo)"/>
+                    <linearGradient id="gFob__s4" x1="40" y1="40" x2="180" y2="150" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="var(--fob-hi)"/>
+                      <stop offset="1" stop-color="var(--fob-lo)"/>
                     </linearGradient>
-                    <radialGradient id="eyeGold" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(18)">
-                      <stop style="stop-color: var(--fob-eye-hi)"/>
-                      <stop offset="1" style="stop-color: var(--fob-eye-lo)"/>
+                    <radialGradient id="eyeGold__s4" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(18)">
+                      <stop stop-color="var(--fob-eye-hi)"/>
+                      <stop offset="1" stop-color="var(--fob-eye-lo)"/>
                     </radialGradient>
                   </defs>
-                  <ellipse cx="110" cy="112" rx="78" ry="58" fill="url(#gFob)"/>
+                  <ellipse cx="110" cy="112" rx="78" ry="58" fill="url(#gFob__s4)"/>
                   <path d="M68 100 C88 72, 132 72, 152 100 C156 106, 156 126, 152 132 C132 160, 88 160, 68 132 C64 126, 64 106, 68 100 Z"
-                        fill="var(--fob-core)" opacity=".92"/>
-                  <circle cx="110" cy="115" r="14" fill="url(#eyeGold)"/>
-                  <circle cx="106" cy="111" r="4" fill="#fff" opacity=".85"/>
+                        fill="var(--svg-ink2)" opacity=".92"/>
+                  <circle cx="110" cy="115" r="14" fill="url(#eyeGold__s4)"/>
+                  <circle cx="106" cy="111" r="4" fill="var(--svg-paper)" opacity=".85"/>
                 </svg>
                 <div class="name">fob</div>
               </div>
@@ -773,22 +948,22 @@ svg{ shape-rendering: geometricPrecision; }
               <!-- Larger DOT -->
               <svg width="250" height="180" viewBox="0 0 260 190" fill="none" aria-hidden="true">
                 <defs>
-                  <radialGradient id="gDotBig" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(105 62) rotate(60) scale(170 150)">
-                    <stop style="stop-color: var(--dot-hi)" stop-opacity=".95"/>
-                    <stop offset="1" style="stop-color: var(--dot-lo)" stop-opacity=".98"/>
+                  <radialGradient id="gDotBig__s9" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(105 62) rotate(60) scale(170 150)">
+                    <stop stop-color="var(--dot-hi)" stop-opacity=".95"/>
+                    <stop offset="1" stop-color="#141826" stop-opacity=".98"/>
                   </radialGradient>
-                  <radialGradient id="eyeBlueBig" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(20)">
-                    <stop style="stop-color: var(--dot-eye-hi)"/>
-                    <stop offset="1" style="stop-color: var(--dot-eye-lo)"/>
+                  <radialGradient id="eyeBlueBig__s9" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(20)">
+                    <stop stop-color="#d7f7ff"/>
+                    <stop offset="1" stop-color="var(--dot-eye-lo)"/>
                   </radialGradient>
                 </defs>
-                <ellipse cx="130" cy="120" rx="98" ry="68" fill="url(#gDotBig)"/>
-                <ellipse cx="78" cy="130" rx="30" ry="20" fill="var(--dot-shadow)" opacity=".55"/>
-                <ellipse cx="182" cy="130" rx="30" ry="20" fill="var(--dot-shadow)" opacity=".55"/>
-                <circle cx="102" cy="112" r="18" fill="url(#eyeBlueBig)"/>
-                <circle cx="158" cy="112" r="18" fill="url(#eyeBlueBig)"/>
-                <circle cx="96" cy="106" r="6" fill="#fff" opacity=".8"/>
-                <circle cx="152" cy="106" r="6" fill="#fff" opacity=".8"/>
+                <ellipse cx="130" cy="120" rx="98" ry="68" fill="url(#gDotBig__s9)"/>
+                <ellipse cx="78" cy="130" rx="30" ry="20" fill="var(--svg-ink)" opacity=".55"/>
+                <ellipse cx="182" cy="130" rx="30" ry="20" fill="var(--svg-ink)" opacity=".55"/>
+                <circle cx="102" cy="112" r="18" fill="url(#eyeBlueBig__s9)"/>
+                <circle cx="158" cy="112" r="18" fill="url(#eyeBlueBig__s9)"/>
+                <circle cx="96" cy="106" r="6" fill="var(--svg-paper)" opacity=".8"/>
+                <circle cx="152" cy="106" r="6" fill="var(--svg-paper)" opacity=".8"/>
               </svg>
             </div>
             <div class="cardBody">
@@ -805,20 +980,20 @@ svg{ shape-rendering: geometricPrecision; }
               <!-- Larger FOB -->
               <svg width="250" height="180" viewBox="0 0 260 190" fill="none" aria-hidden="true">
                 <defs>
-                  <linearGradient id="gFobBig" x1="60" y1="50" x2="200" y2="170" gradientUnits="userSpaceOnUse">
-                    <stop style="stop-color: var(--fob-hi)"/>
-                    <stop offset="1" style="stop-color: var(--fob-lo)"/>
+                  <linearGradient id="gFobBig__s10" x1="60" y1="50" x2="200" y2="170" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#eef1f7"/>
+                    <stop offset="1" stop-color="#b6becf"/>
                   </linearGradient>
-                  <radialGradient id="eyeGoldBig" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(20)">
-                    <stop style="stop-color: var(--fob-eye-hi)"/>
-                    <stop offset="1" style="stop-color: var(--fob-eye-lo)"/>
+                  <radialGradient id="eyeGoldBig__s10" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(20)">
+                    <stop stop-color="var(--fob-eye-hi)"/>
+                    <stop offset="1" stop-color="var(--fob-eye-lo)"/>
                   </radialGradient>
                 </defs>
-                <ellipse cx="130" cy="122" rx="88" ry="64" fill="url(#gFobBig)"/>
+                <ellipse cx="130" cy="122" rx="88" ry="64" fill="url(#gFobBig__s10)"/>
                 <path d="M84 108 C106 78, 154 78, 176 108 C182 116, 182 138, 176 146 C154 176, 106 176, 84 146 C78 138, 78 116, 84 108 Z"
-                      fill="var(--fob-core)" opacity=".92"/>
-                <circle cx="130" cy="128" r="16" fill="url(#eyeGoldBig)"/>
-                <circle cx="125" cy="122" r="5" fill="#fff" opacity=".85"/>
+                      fill="var(--svg-ink2)" opacity=".92"/>
+                <circle cx="130" cy="128" r="16" fill="url(#eyeGoldBig__s10)"/>
+                <circle cx="125" cy="122" r="5" fill="var(--svg-paper)" opacity=".85"/>
               </svg>
             </div>
             <div class="cardBody">
@@ -835,19 +1010,19 @@ svg{ shape-rendering: geometricPrecision; }
               <!-- Larger LETTY -->
               <svg width="250" height="180" viewBox="0 0 260 190" fill="none" aria-hidden="true">
                 <defs>
-                  <radialGradient id="gLettyBig" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(105 66) rotate(55) scale(180 180)">
-                    <stop style="stop-color: var(--letty-hi)"/>
-                    <stop offset="1" style="stop-color: var(--letty-lo)"/>
+                  <radialGradient id="gLettyBig__s11" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(105 66) rotate(55) scale(180 180)">
+                    <stop stop-color="#ffe9f4"/>
+                    <stop offset="1" stop-color="var(--letty-lo)"/>
                   </radialGradient>
                 </defs>
-                <ellipse cx="130" cy="132" rx="84" ry="60" fill="url(#gLettyBig)"/>
-                <ellipse cx="98" cy="70" rx="26" ry="56" fill="url(#gLettyBig)"/>
-                <ellipse cx="162" cy="70" rx="26" ry="56" fill="url(#gLettyBig)"/>
-                <ellipse cx="130" cy="130" rx="58" ry="40" fill="#fff" opacity=".35"/>
-                <circle cx="106" cy="126" r="10" fill="var(--letty-eye)"/>
-                <circle cx="154" cy="126" r="10" fill="var(--letty-eye)"/>
-                <circle cx="130" cy="140" r="6" fill="var(--letty-accent)"/>
-                <path d="M124 146 C127 152, 133 152, 136 146" stroke="var(--letty-accent)" stroke-width="3.2" stroke-linecap="round"/>
+                <ellipse cx="130" cy="132" rx="84" ry="60" fill="url(#gLettyBig__s11)"/>
+                <ellipse cx="98" cy="70" rx="26" ry="56" fill="url(#gLettyBig__s11)"/>
+                <ellipse cx="162" cy="70" rx="26" ry="56" fill="url(#gLettyBig__s11)"/>
+                <ellipse cx="130" cy="130" rx="58" ry="40" fill="var(--svg-paper)" opacity=".35"/>
+                <circle cx="106" cy="126" r="10" fill="var(--svg-ink2)"/>
+                <circle cx="154" cy="126" r="10" fill="var(--svg-ink2)"/>
+                <circle cx="130" cy="140" r="6" fill="var(--accent)"/>
+                <path d="M124 146 C127 152, 133 152, 136 146" stroke="var(--accent)" stroke-width="3.2" stroke-linecap="round"/>
               </svg>
             </div>
             <div class="cardBody">
@@ -912,7 +1087,7 @@ svg{ shape-rendering: geometricPrecision; }
 
   <!-- Modal -->
   <div class="modalBackdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-label="Companion details">
-    <div class="modal">
+    <div class="modal modal-companion">
       <div class="modalHead">
         <strong id="modalTitle">Companion</strong>
         <button class="x" id="closeModal" aria-label="Close">X</button>
@@ -974,53 +1149,6 @@ svg{ shape-rendering: geometricPrecision; }
       }
     };
 
-    
-// Theme toggle (light/dark) with persistence
-const THEME_KEY = "et_theme";
-const root = document.documentElement;
-
-function getPreferredTheme(){
-  const saved = localStorage.getItem(THEME_KEY);
-  if(saved === "light" || saved === "dark") return saved;
-  return null; // follow OS
-}
-function applyTheme(theme){
-  if(theme === "light" || theme === "dark"){
-    root.setAttribute("data-theme", theme);
-  }else{
-    root.removeAttribute("data-theme"); // OS preference
-  }
-}
-function currentEffectiveTheme(){
-  const explicit = root.getAttribute("data-theme");
-  if(explicit) return explicit;
-  return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
-
-applyTheme(getPreferredTheme());
-
-// Keep in sync if user is on OS theme and OS changes
-if(window.matchMedia){
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
-    if(!localStorage.getItem(THEME_KEY)) applyTheme(null);
-  });
-}
-
-document.getElementById("themeToggle")?.addEventListener("click", () => {
-  const next = currentEffectiveTheme() === "dark" ? "light" : "dark";
-  localStorage.setItem(THEME_KEY, next);
-  applyTheme(next);
-});
-
-// Right-click the toggle to revert to system theme
-document.getElementById("themeToggle")?.addEventListener("contextmenu", (e) => {
-  e.preventDefault();
-  localStorage.removeItem(THEME_KEY);
-  applyTheme(null);
-});
-
-
-
     // Helpers
     const $ = (sel) => document.querySelector(sel);
     const $$ = (sel) => Array.from(document.querySelectorAll(sel));
@@ -1061,8 +1189,8 @@ document.getElementById("themeToggle")?.addEventListener("contextmenu", (e) => {
 
       modalArt.innerHTML = `
         <div style="
-          border: 1px solid var(--stroke);
-          background: var(--glass2);
+          border: 1px solid rgba(20,24,32,.10);
+          background: rgba(255,255,255,.75);
           border-radius: 18px;
           padding: 14px;
           box-shadow: 0 18px 40px rgba(20,24,32,.10);
@@ -1105,7 +1233,7 @@ document.getElementById("themeToggle")?.addEventListener("contextmenu", (e) => {
 
     // BUY NOW (demo)
     function buyNow(){
-      alert("When available for order, this button will be active.");
+      alert("Demo action: connect this button to your checkout flow.");
     }
     $("#buyNowTop").addEventListener("click", buyNow);
     $("#heroBuy").addEventListener("click", buyNow);
@@ -1145,6 +1273,41 @@ document.getElementById("themeToggle")?.addEventListener("contextmenu", (e) => {
 
     // Year
     $("#year").textContent = new Date().getFullYear();
+  
+    // Theme: system by default, toggle cycles light/dark, right-click resets to system.
+    (function(){
+      const root = document.documentElement;
+      const btn = document.getElementById("themeToggle");
+      if(!btn) return;
+
+      const key = "et_theme";
+      const apply = (mode) => {
+        if(mode === "system"){
+          root.removeAttribute("data-theme");
+          btn.textContent = "Theme";
+          return;
+        }
+        root.setAttribute("data-theme", mode);
+        btn.textContent = mode === "dark" ? "Dark" : "Light";
+      };
+
+      const stored = localStorage.getItem(key) || "system";
+      apply(stored);
+
+      btn.addEventListener("click", () => {
+        const current = localStorage.getItem(key) || "system";
+        const next = current === "dark" ? "light" : "dark";
+        localStorage.setItem(key, next);
+        apply(next);
+      });
+
+      btn.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+        localStorage.setItem(key, "system");
+        apply("system");
+      });
+    })();
+
   </script>
 </body>
 </html>
