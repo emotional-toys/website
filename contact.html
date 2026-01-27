@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emotional Toys — Contact</title>
+  <meta name="description" content="Emotional Toys — contact" />
+
+  <style>
+    :root{
+      --bg: #f7f6fb;
+      --ink: #1f2430;
+      --muted: #4b5366;
+      --card: rgba(255,255,255,.80);
+      --card2: rgba(255,255,255,.92);
+      --stroke: rgba(20,24,32,.10);
+      --shadow: 0 18px 50px rgba(20,24,32,.12);
+      --shadow2: 0 10px 30px rgba(20,24,32,.10);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --brand: #5b5be8;
+      --brand2: #8a6cff;
+      --brand3: #ff7bb2;
+      --max: 980px;
+    }
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--ink);
+      background: radial-gradient(1200px 900px at 30% -10%, rgba(138,108,255,.22), transparent 55%),
+                  radial-gradient(900px 700px at 85% 10%, rgba(255,123,178,.16), transparent 60%),
+                  var(--bg);
+    }
+    a{ color: inherit; text-decoration: none; }
+    .wrap{ width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(247,246,251,.86), rgba(247,246,251,.55));
+      border-bottom: 1px solid rgba(20,24,32,.06);
+    }
+    .topbar{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .brand .mark{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      background:
+        conic-gradient(from 210deg, rgba(255,255,255,.18), rgba(255,255,255,0) 25%, rgba(255,255,255,.22) 60%, rgba(255,255,255,0) 100%),
+        radial-gradient(12px 12px at 35% 35%, rgba(255,255,255,.9), rgba(255,255,255,0) 55%),
+        linear-gradient(135deg, #5a7bff, #8a5bff);
+      box-shadow: 0 10px 25px rgba(91,91,232,.18);
+      position: relative;
+    }
+    .brand .mark:before{
+      content:"";
+      position: absolute; inset: 8px 9px 10px 9px;
+      border-radius: 999px 999px 18px 18px;
+      background: rgba(255,255,255,.92);
+      transform: rotate(-8deg);
+      clip-path: path("M 10 6 C 10 2 7 0 5 0 C 3 0 0 2 0 6 C 0 10 5 12 5 12 C 5 12 10 10 10 6 Z");
+    }
+    .brand .mark:after{
+      content:"";
+      position: absolute;
+      inset: 6px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.45);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+    nav{ display: flex; gap: 12px; flex-wrap: wrap; }
+    nav a{ font-size: 14px; color: var(--muted); padding: 6px 8px; border-radius: 10px; }
+    nav a:hover{ background: rgba(91,91,232,.08); color: var(--ink); }
+
+    .btn{
+      appearance: none; border: 0; cursor: pointer; font-weight: 700;
+      border-radius: 999px; padding: 10px 14px; font-size: 14px;
+      box-shadow: var(--shadow2);
+    }
+    .btn-primary{ color: rgba(255,255,255,.88); background: linear-gradient(135deg, var(--brand), var(--brand2)); }
+    .btn-ghost{ background: rgba(255,255,255,.75); border: 1px solid var(--stroke); color: var(--ink); }
+
+    .hero{ padding: 32px 0 18px; }
+    .heroCard{
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(20,24,32,.08);
+      background:
+        radial-gradient(900px 500px at 50% 20%, rgba(255,255,255,.35), rgba(255,255,255,0) 62%),
+        linear-gradient(180deg, rgba(91,91,232,.40), rgba(138,108,255,.20) 45%, rgba(255,123,178,.18));
+      padding: 28px;
+      color: rgba(255,255,255,.88);
+    }
+    .hero h1{ margin: 0 0 10px; font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -0.02em; }
+    .hero p{ margin: 0; font-size: 16px; opacity: .82; max-width: 60ch; line-height: 1.55; }
+
+    .content{ padding: 24px 0 48px; }
+    .grid{ display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: center; }
+    .panel{
+      background: var(--card2);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow2);
+    }
+    .panel h2{ margin: 0 0 8px; font-size: 20px; }
+    .panel p{ margin: 0 0 10px; color: var(--muted); line-height: 1.55; }
+    .pillRow{ display: flex; gap: 8px; flex-wrap: wrap; }
+    .pill{
+      font-size: 12.5px; padding: 7px 10px; border-radius: 999px;
+      border: 1px solid var(--stroke); background: var(--card); color: var(--ink); font-weight: 700;
+    }
+
+    .ovalFrame{
+      width: var(--oval-w, 100%);
+      height: var(--oval-h, 220px);
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.55);
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      filter: var(--shadow2);
+    }
+    .ovalFrame::before{
+      content: "";
+      position: absolute;
+      inset: -12%;
+      background: var(--img) var(--img-pos, 50% 50%) / cover no-repeat;
+      opacity: .22;
+    }
+    .ovalFrame img{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: var(--img-pos, 50% 50%);
+      display: block;
+    }
+
+    footer{ padding: 26px 0 42px; color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+      .heroCard{ padding: 22px; }
+    }
+
+
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg: #07080c;
+        --ink: rgba(255,255,255,.92);
+        --muted: rgba(255,255,255,.74);
+        --card: rgba(255,255,255,.06);
+        --card2: rgba(255,255,255,.10);
+        --stroke: rgba(255,255,255,.12);
+        --shadow: 0 22px 70px rgba(0,0,0,.55);
+        --shadow2: 0 12px 40px rgba(0,0,0,.45);
+      }
+      body{
+        background: radial-gradient(1200px 900px at 30% -10%, rgba(138,108,255,.14), transparent 60%),
+                    radial-gradient(900px 700px at 85% 10%, rgba(255,123,178,.10), transparent 65%),
+                    var(--bg);
+      }
+      header{
+        background: linear-gradient(to bottom, rgba(7,8,12,.82), rgba(7,8,12,.55));
+        border-bottom: 1px solid rgba(255,255,255,.10);
+      }
+      nav a:hover{ background: rgba(255,255,255,.08); color: var(--ink); }
+    }
+
+    html[data-theme="light"]{ color-scheme: light; }
+    html[data-theme="dark"]{
+      color-scheme: dark;
+      --bg: #07080c;
+      --ink: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.74);
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.10);
+      --stroke: rgba(255,255,255,.12);
+      --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --shadow2: 0 12px 40px rgba(0,0,0,.45);
+    }
+    html[data-theme="dark"] body{
+      background: radial-gradient(1200px 900px at 30% -10%, rgba(138,108,255,.14), transparent 60%),
+                  radial-gradient(900px 700px at 85% 10%, rgba(255,123,178,.10), transparent 65%),
+                  var(--bg);
+    }
+    html[data-theme="dark"] header{
+      background: linear-gradient(to bottom, rgba(7,8,12,.82), rgba(7,8,12,.55));
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    html[data-theme="dark"] nav a:hover{ background: rgba(255,255,255,.08); color: var(--ink); }
+
+  </style>
+
+</head>
+<body>
+  <header>
+    <div class="wrap topbar">
+      <a class="brand" href="index.html" aria-label="Emotional Toys Home">
+        <div class="mark" aria-hidden="true"></div>
+        <span>emotional toys</span>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a href="dot.html">dot</a>
+        <a href="fob.html">fob</a>
+        <a href="letty.html">letty</a>
+        <a href="about.html">about</a>
+        <a href="contact.html">contact</a>
+      </nav>
+
+      <a class="btn btn-ghost" href="index.html">Back</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap heroCard">
+        <h1>Contact</h1>
+        <p>Questions, partnerships, or press inquiries—reach out and we’ll get back to you soon.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="wrap grid">
+        <div class="ovalFrame" style="--img: url('assets/sample.jpg'); --img-pos: 50% 45%;">
+          <img src="assets/sample.jpg" alt="Contact companion" />
+        </div>
+        <div class="panel">
+                    <p>Questions, partnerships, or press inquiries—reach out and we’ll get back to you soon.</p>
+          <p><strong>Email:</strong> toys@ratio.club</p>
+          <div class="pillRow"><span class="pill">toys@ratio.club</span><span class="pill">Press kit available</span><span class="pill">Partnerships</span></div>
+          <div style="margin-top: 14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="index.html">Shop</a>
+            <a class="btn btn-ghost" href="index.html">Back to Home</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2016 - 2026 cartheur. All rights reserved.</div>
+  </footer>
+  <script>
+    // Carry theme choice from index page
+    (function(){
+      const root = document.documentElement;
+      const key = "et_theme";
+      const stored = localStorage.getItem(key) || "system";
+      if(stored === "system"){
+        root.removeAttribute("data-theme");
+      }else{
+        root.setAttribute("data-theme", stored);
+      }
+    })();
+  </script>
+</body>
+</html>
