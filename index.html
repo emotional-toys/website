@@ -204,8 +204,10 @@
     .brand .mark{
       width: 34px; height: 34px;
       border-radius: 12px;
-      background: radial-gradient(12px 12px at 35% 35%, rgba(255,255,255,.9), rgba(255,255,255,0) 55%),
-                  linear-gradient(135deg, var(--brand3), var(--brand2));
+      background:
+        conic-gradient(from 210deg, rgba(255,255,255,.18), rgba(255,255,255,0) 25%, rgba(255,255,255,.22) 60%, rgba(255,255,255,0) 100%),
+        radial-gradient(12px 12px at 35% 35%, rgba(255,255,255,.9), rgba(255,255,255,0) 55%),
+        linear-gradient(135deg, #5a7bff, #8a5bff);
       box-shadow: 0 10px 25px rgba(91,91,232,.18);
       position: relative;
     }
@@ -217,6 +219,16 @@
       transform: rotate(-8deg);
       clip-path: path("M 10 6 C 10 2 7 0 5 0 C 3 0 0 2 0 6 C 0 10 5 12 5 12 C 5 12 10 10 10 6 Z");
       /* fallback: if clip-path path unsupported, it still looks like a blob */
+    }
+    .brand .mark:after{
+      content:"";
+      position: absolute;
+      inset: 6px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.45);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+      mix-blend-mode: screen;
+      pointer-events: none;
     }
     .brand span{ font-size: 18px; }
     nav{
@@ -694,7 +706,7 @@
     .ovalFrame{
       width: var(--oval-w, 100%);
       height: var(--oval-h, 140px);
-      padding: var(--oval-pad-y, 6px) var(--oval-pad-x, 10px);
+      padding: 0;
       border-radius: 999px;
       border: 1px solid var(--stroke);
       background: rgba(255,255,255,.55);
@@ -709,9 +721,8 @@
       content: "";
       position: absolute;
       inset: -12%;
-      background: var(--img) center / 140% no-repeat;
-      filter: blur(18px) saturate(1.05);
-      opacity: .45;
+      background: var(--img) center / cover no-repeat;
+      opacity: .22;
     }
     .ovalFrame img{
       position: relative;
@@ -719,6 +730,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
+      display: block;
     }
     .ovalFrame--card{
       --oval-w: 240px;
@@ -742,6 +754,17 @@
     nav a:hover{ background: rgba(255,255,255,.08); color: var(--ink); }
     .heroCard{ border-color: rgba(255,255,255,.12); }
     .toyBadge{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.14); }
+    .features{
+      background: rgba(15,18,26,.72);
+      border-color: rgba(255,255,255,.12);
+    }
+    .ctaBanner{
+      background:
+        radial-gradient(900px 420px at 50% 0%, rgba(255,255,255,.06), transparent 60%),
+        linear-gradient(180deg, rgba(20,24,32,.55), rgba(12,15,22,.65)),
+        rgba(15,18,26,.72);
+      border-color: rgba(255,255,255,.12);
+    }
     .feature:nth-child(1), .feature:nth-child(2){ border-bottom-color: rgba(255,255,255,.10); }
     .feature{ border-right-color: rgba(255,255,255,.10); }
     .feature p{ color: var(--muted); }
@@ -759,6 +782,17 @@
   html[data-theme="dark"] nav a:hover{ background: rgba(255,255,255,.08); color: var(--ink); }
   html[data-theme="dark"] .heroCard{ border-color: rgba(255,255,255,.12); }
   html[data-theme="dark"] .toyBadge{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.14); }
+  html[data-theme="dark"] .features{
+    background: rgba(15,18,26,.72);
+    border-color: rgba(255,255,255,.12);
+  }
+  html[data-theme="dark"] .ctaBanner{
+    background:
+      radial-gradient(900px 420px at 50% 0%, rgba(255,255,255,.06), transparent 60%),
+      linear-gradient(180deg, rgba(20,24,32,.55), rgba(12,15,22,.65)),
+      rgba(15,18,26,.72);
+    border-color: rgba(255,255,255,.12);
+  }
   html[data-theme="dark"] .feature:nth-child(1),
   html[data-theme="dark"] .feature:nth-child(2){ border-bottom-color: rgba(255,255,255,.10); }
   html[data-theme="dark"] .feature{ border-right-color: rgba(255,255,255,.10); }
@@ -979,7 +1013,7 @@
             </div>
             <div class="cardBody">
               <h3 class="cardName">letty</h3>
-              <p class="cardTag">Soft, brave, and affectionate.</p>
+              <p class="cardTag">The robotic fawn companion.</p>
               <div class="cardActions">
                 <button class="btn btn-primary btn-wide" data-open="letty">LEARN MORE</button>
               </div>
@@ -1095,8 +1129,8 @@
       },
       letty: {
         title: "letty",
-        copy: "Letty is soft and affectionate. A companion with a playful energy—designed to encourage consistency and emotional engagement.",
-        pills: ["Affectionate", "Playful", "Gentle prompts", "Soft aesthetic"],
+        copy: "Letty is a robotic fawn with a gentle, affectionate presence—designed to encourage calm routines and emotional connection.",
+        pills: ["Robotic fawn", "Affectionate", "Gentle prompts", "Soft aesthetic"],
         art: document.querySelector('[data-open="letty"] .ovalFrame').outerHTML
       }
     };
