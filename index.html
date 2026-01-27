@@ -420,7 +420,11 @@
       display: grid;
       place-items: center;
       border: 1px solid rgba(20,24,32,.08);
-      background: rgba(255,255,255,.75);
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.95), rgba(255,255,255,.55)),
+        rgba(255,255,255,.75);
+      box-shadow: 0 8px 18px rgba(20,24,32,.12);
+      color: #2b2f3a;
     }
     .feature h3{
       margin: 2px 0 4px;
@@ -765,6 +769,14 @@
         rgba(15,18,26,.72);
       border-color: rgba(255,255,255,.12);
     }
+    .icon{
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.24), rgba(255,255,255,.10)),
+        rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.18);
+      color: rgba(255,255,255,.92);
+      box-shadow: 0 10px 22px rgba(0,0,0,.45);
+    }
     .feature:nth-child(1), .feature:nth-child(2){ border-bottom-color: rgba(255,255,255,.10); }
     .feature{ border-right-color: rgba(255,255,255,.10); }
     .feature p{ color: var(--muted); }
@@ -792,6 +804,14 @@
       linear-gradient(180deg, rgba(20,24,32,.55), rgba(12,15,22,.65)),
       rgba(15,18,26,.72);
     border-color: rgba(255,255,255,.12);
+  }
+  html[data-theme="dark"] .icon{
+    background:
+      radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.24), rgba(255,255,255,.10)),
+      rgba(255,255,255,.06);
+    border-color: rgba(255,255,255,.18);
+    color: rgba(255,255,255,.92);
+    box-shadow: 0 10px 22px rgba(0,0,0,.45);
   }
   html[data-theme="dark"] .feature:nth-child(1),
   html[data-theme="dark"] .feature:nth-child(2){ border-bottom-color: rgba(255,255,255,.10); }
