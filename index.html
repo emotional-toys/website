@@ -558,7 +558,7 @@
     }
     .modal.modal-companion{
       background:
-        linear-gradient(180deg, rgba(255,255,255,.24), rgba(255,255,255,.12)),
+        linear-gradient(180deg, rgba(255,255,255,.50), rgba(255,255,255,.36)),
         var(--card2);
     }
     .modalHead{
@@ -661,6 +661,11 @@
         --svg-paper: rgba(255,255,255,.94);
       }
       .btn-ghost:hover{ background: rgba(255,255,255,.10); }
+      .modal.modal-companion{
+        background:
+          linear-gradient(180deg, rgba(20,24,32,.92), rgba(12,15,22,.88)),
+          rgba(15,18,26,.90);
+      }
     }
 
     /* Manual overrides: set html[data-theme="dark|light"] */
@@ -679,9 +684,48 @@
       --svg-ink2: rgba(255,255,255,.78);
       --svg-paper: rgba(255,255,255,.94);
     }
+    html[data-theme="dark"] .modal.modal-companion{
+      background:
+        linear-gradient(180deg, rgba(20,24,32,.92), rgba(12,15,22,.88)),
+        rgba(15,18,26,.90);
+    }
 
-    /* Refine inline SVG toys */
-    svg.toy, .toy svg{ filter: var(--toy-shadow); }
+    /* Toy images */
+    .ovalFrame{
+      width: var(--oval-w, 100%);
+      height: var(--oval-h, 140px);
+      padding: var(--oval-pad-y, 6px) var(--oval-pad-x, 10px);
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.55);
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      filter: var(--toy-shadow);
+    }
+    .ovalFrame::before{
+      content: "";
+      position: absolute;
+      inset: -12%;
+      background: var(--img) center / 140% no-repeat;
+      filter: blur(18px) saturate(1.05);
+      opacity: .45;
+    }
+    .ovalFrame img{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .ovalFrame--card{
+      --oval-w: 240px;
+      --oval-h: 160px;
+      --oval-pad-y: 10px;
+      --oval-pad-x: 18px;
+    }
 
 
   /* Make theme switching visually obvious */
@@ -801,69 +845,23 @@
 
             <div class="toysRow" aria-label="Companion preview">
               <div class="toyBadge" role="button" tabindex="0" data-open="dot" aria-label="Open Dot details">
-                <!-- DOT SVG -->
-                <svg width="100%" height="140" viewBox="0 0 220 170" fill="none" aria-hidden="true">
-                  <defs>
-                    <radialGradient id="gDot__s2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(90 52) rotate(60) scale(140 120)">
-                      <stop stop-color="var(--dot-hi)" stop-opacity=".95"/>
-                      <stop offset="1" stop-color="var(--dot-lo)" stop-opacity=".98"/>
-                    </radialGradient>
-                    <radialGradient id="eyeBlue__s2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(18)">
-                      <stop stop-color="var(--dot-eye-hi)"/>
-                      <stop offset="1" stop-color="var(--dot-eye-lo)"/>
-                    </radialGradient>
-                  </defs>
-                  <ellipse cx="110" cy="110" rx="88" ry="62" fill="url(#gDot__s2)"/>
-                  <ellipse cx="68" cy="120" rx="26" ry="18" fill="var(--svg-ink)" opacity=".55"/>
-                  <ellipse cx="152" cy="120" rx="26" ry="18" fill="var(--svg-ink)" opacity=".55"/>
-                  <circle cx="82" cy="102" r="16" fill="url(#eyeBlue__s2)"/>
-                  <circle cx="138" cy="102" r="16" fill="url(#eyeBlue__s2)"/>
-                  <circle cx="78" cy="98" r="5" fill="var(--svg-paper)" opacity=".8"/>
-                  <circle cx="134" cy="98" r="5" fill="var(--svg-paper)" opacity=".8"/>
-                </svg>
+                <div class="ovalFrame ovalFrame--badge" style="--img: url('assets/dot.jpg');">
+                  <img src="assets/dot.jpg" alt="Dot companion" />
+                </div>
                 <div class="name">dot</div>
               </div>
 
               <div class="toyBadge" role="button" tabindex="0" data-open="letty" aria-label="Open Letty details">
-                <!-- LETTY SVG -->
-                <svg width="100%" height="140" viewBox="0 0 220 170" fill="none" aria-hidden="true">
-                  <defs>
-                    <radialGradient id="gLetty__s3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(88 58) rotate(55) scale(150 150)">
-                      <stop stop-color="var(--letty-hi)"/>
-                      <stop offset="1" stop-color="var(--letty-lo)"/>
-                    </radialGradient>
-                  </defs>
-                  <ellipse cx="110" cy="118" rx="74" ry="54" fill="url(#gLetty__s3)"/>
-                  <ellipse cx="78" cy="62" rx="24" ry="48" fill="url(#gLetty__s3)"/>
-                  <ellipse cx="142" cy="62" rx="24" ry="48" fill="url(#gLetty__s3)"/>
-                  <ellipse cx="110" cy="116" rx="52" ry="36" fill="var(--svg-paper)" opacity=".35"/>
-                  <circle cx="88" cy="112" r="9" fill="var(--svg-ink2)"/>
-                  <circle cx="132" cy="112" r="9" fill="var(--svg-ink2)"/>
-                  <circle cx="110" cy="125" r="5" fill="var(--accent)"/>
-                  <path d="M105 131 C108 136, 112 136, 115 131" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
-                </svg>
+                <div class="ovalFrame ovalFrame--badge" style="--img: url('assets/letty-09.jpg');">
+                  <img src="assets/letty-09.jpg" alt="Letty companion" />
+                </div>
                 <div class="name">letty</div>
               </div>
 
               <div class="toyBadge" role="button" tabindex="0" data-open="fob" aria-label="Open Fob details">
-                <!-- FOB SVG -->
-                <svg width="100%" height="140" viewBox="0 0 220 170" fill="none" aria-hidden="true">
-                  <defs>
-                    <linearGradient id="gFob__s4" x1="40" y1="40" x2="180" y2="150" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="var(--fob-hi)"/>
-                      <stop offset="1" stop-color="var(--fob-lo)"/>
-                    </linearGradient>
-                    <radialGradient id="eyeGold__s4" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(18)">
-                      <stop stop-color="var(--fob-eye-hi)"/>
-                      <stop offset="1" stop-color="var(--fob-eye-lo)"/>
-                    </radialGradient>
-                  </defs>
-                  <ellipse cx="110" cy="112" rx="78" ry="58" fill="url(#gFob__s4)"/>
-                  <path d="M68 100 C88 72, 132 72, 152 100 C156 106, 156 126, 152 132 C132 160, 88 160, 68 132 C64 126, 64 106, 68 100 Z"
-                        fill="var(--svg-ink2)" opacity=".92"/>
-                  <circle cx="110" cy="115" r="14" fill="url(#eyeGold__s4)"/>
-                  <circle cx="106" cy="111" r="4" fill="var(--svg-paper)" opacity=".85"/>
-                </svg>
+                <div class="ovalFrame ovalFrame--badge" style="--img: url('assets/fob.jpg');">
+                  <img src="assets/fob.jpg" alt="Fob companion" />
+                </div>
                 <div class="name">fob</div>
               </div>
             </div>
@@ -945,26 +943,9 @@
         <div class="cards">
           <article class="card" id="dot">
             <div class="cardMedia">
-              <!-- Larger DOT -->
-              <svg width="250" height="180" viewBox="0 0 260 190" fill="none" aria-hidden="true">
-                <defs>
-                  <radialGradient id="gDotBig__s9" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(105 62) rotate(60) scale(170 150)">
-                    <stop stop-color="var(--dot-hi)" stop-opacity=".95"/>
-                    <stop offset="1" stop-color="#141826" stop-opacity=".98"/>
-                  </radialGradient>
-                  <radialGradient id="eyeBlueBig__s9" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(20)">
-                    <stop stop-color="#d7f7ff"/>
-                    <stop offset="1" stop-color="var(--dot-eye-lo)"/>
-                  </radialGradient>
-                </defs>
-                <ellipse cx="130" cy="120" rx="98" ry="68" fill="url(#gDotBig__s9)"/>
-                <ellipse cx="78" cy="130" rx="30" ry="20" fill="var(--svg-ink)" opacity=".55"/>
-                <ellipse cx="182" cy="130" rx="30" ry="20" fill="var(--svg-ink)" opacity=".55"/>
-                <circle cx="102" cy="112" r="18" fill="url(#eyeBlueBig__s9)"/>
-                <circle cx="158" cy="112" r="18" fill="url(#eyeBlueBig__s9)"/>
-                <circle cx="96" cy="106" r="6" fill="var(--svg-paper)" opacity=".8"/>
-                <circle cx="152" cy="106" r="6" fill="var(--svg-paper)" opacity=".8"/>
-              </svg>
+              <div class="ovalFrame ovalFrame--card" style="--img: url('assets/dot.jpg');">
+                <img src="assets/dot.jpg" alt="Dot companion" />
+              </div>
             </div>
             <div class="cardBody">
               <h3 class="cardName">dot</h3>
@@ -977,24 +958,9 @@
 
           <article class="card" id="fob">
             <div class="cardMedia">
-              <!-- Larger FOB -->
-              <svg width="250" height="180" viewBox="0 0 260 190" fill="none" aria-hidden="true">
-                <defs>
-                  <linearGradient id="gFobBig__s10" x1="60" y1="50" x2="200" y2="170" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#eef1f7"/>
-                    <stop offset="1" stop-color="#b6becf"/>
-                  </linearGradient>
-                  <radialGradient id="eyeGoldBig__s10" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(20)">
-                    <stop stop-color="var(--fob-eye-hi)"/>
-                    <stop offset="1" stop-color="var(--fob-eye-lo)"/>
-                  </radialGradient>
-                </defs>
-                <ellipse cx="130" cy="122" rx="88" ry="64" fill="url(#gFobBig__s10)"/>
-                <path d="M84 108 C106 78, 154 78, 176 108 C182 116, 182 138, 176 146 C154 176, 106 176, 84 146 C78 138, 78 116, 84 108 Z"
-                      fill="var(--svg-ink2)" opacity=".92"/>
-                <circle cx="130" cy="128" r="16" fill="url(#eyeGoldBig__s10)"/>
-                <circle cx="125" cy="122" r="5" fill="var(--svg-paper)" opacity=".85"/>
-              </svg>
+              <div class="ovalFrame ovalFrame--card" style="--img: url('assets/fob.jpg');">
+                <img src="assets/fob.jpg" alt="Fob companion" />
+              </div>
             </div>
             <div class="cardBody">
               <h3 class="cardName">fob</h3>
@@ -1007,23 +973,9 @@
 
           <article class="card" id="letty">
             <div class="cardMedia">
-              <!-- Larger LETTY -->
-              <svg width="250" height="180" viewBox="0 0 260 190" fill="none" aria-hidden="true">
-                <defs>
-                  <radialGradient id="gLettyBig__s11" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(105 66) rotate(55) scale(180 180)">
-                    <stop stop-color="#ffe9f4"/>
-                    <stop offset="1" stop-color="var(--letty-lo)"/>
-                  </radialGradient>
-                </defs>
-                <ellipse cx="130" cy="132" rx="84" ry="60" fill="url(#gLettyBig__s11)"/>
-                <ellipse cx="98" cy="70" rx="26" ry="56" fill="url(#gLettyBig__s11)"/>
-                <ellipse cx="162" cy="70" rx="26" ry="56" fill="url(#gLettyBig__s11)"/>
-                <ellipse cx="130" cy="130" rx="58" ry="40" fill="var(--svg-paper)" opacity=".35"/>
-                <circle cx="106" cy="126" r="10" fill="var(--svg-ink2)"/>
-                <circle cx="154" cy="126" r="10" fill="var(--svg-ink2)"/>
-                <circle cx="130" cy="140" r="6" fill="var(--accent)"/>
-                <path d="M124 146 C127 152, 133 152, 136 146" stroke="var(--accent)" stroke-width="3.2" stroke-linecap="round"/>
-              </svg>
+              <div class="ovalFrame ovalFrame--card" style="--img: url('assets/letty-09.jpg');">
+                <img src="assets/letty-09.jpg" alt="Letty companion" />
+              </div>
             </div>
             <div class="cardBody">
               <h3 class="cardName">letty</h3>
@@ -1133,19 +1085,19 @@
         title: "dot",
         copy: "Dot is curious, observant, and responsive. Designed to feel like a small presence on your desk or shelf—ready to react to your attention and patterns.",
         pills: ["Curious personality", "Expressive eyes", "Adaptive routines", "Calm presence"],
-        art: document.querySelector('[data-open="dot"] svg').outerHTML
+        art: document.querySelector('[data-open="dot"] .ovalFrame').outerHTML
       },
       fob: {
         title: "fob",
         copy: "Fob is compact and comforting. Built for portability and quick check-ins—ideal for gentle interaction throughout the day.",
         pills: ["Pocket companion", "Warm feedback", "Quick interactions", "Low-friction"],
-        art: document.querySelector('[data-open="fob"] svg').outerHTML
+        art: document.querySelector('[data-open="fob"] .ovalFrame').outerHTML
       },
       letty: {
         title: "letty",
         copy: "Letty is soft and affectionate. A companion with a playful energy—designed to encourage consistency and emotional engagement.",
         pills: ["Affectionate", "Playful", "Gentle prompts", "Soft aesthetic"],
-        art: document.querySelector('[data-open="letty"] svg').outerHTML
+        art: document.querySelector('[data-open="letty"] .ovalFrame').outerHTML
       }
     };
 
@@ -1288,7 +1240,7 @@
           return;
         }
         root.setAttribute("data-theme", mode);
-        btn.textContent = mode === "dark" ? "Dark" : "Light";
+        btn.textContent = mode === "dark" ? "Light" : "Dark";
       };
 
       const stored = localStorage.getItem(key) || "system";
