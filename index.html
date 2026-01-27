@@ -309,7 +309,7 @@
       margin: 0 0 10px;
       font-size: clamp(30px, 4vw, 54px);
       letter-spacing: -0.03em;
-      color: rgba(255,255,255,.96);
+      color: rgba(255,255,255,.80);
       text-shadow: 0 18px 35px rgba(20,24,32,.20);
       font-weight: 900;
     }
@@ -849,17 +849,17 @@
   <!-- BUILD: v4 unique-svg-ids + visible-theming -->
   <header>
     <div class="wrap topbar">
-      <a class="brand" href="#top" aria-label="Emotional Toys Home">
+      <a class="brand" href="index.html" aria-label="Emotional Toys Home">
         <div class="mark" aria-hidden="true"></div>
         <span>emotional toys</span>
       </a>
 
       <nav aria-label="Primary navigation">
-        <a href="#dot">dot</a>
-        <a href="#fob">fob</a>
-        <a href="#letty">letty</a>
-        <a href="#about">about</a>
-        <a href="#contact">contact</a>
+        <a href="dot.html">dot</a>
+        <a href="fob.html">fob</a>
+        <a href="letty.html">letty</a>
+        <a href="about.html">about</a>
+        <a href="contact.html">contact</a>
       </nav>
 
       <div class="cta">
@@ -890,7 +890,7 @@
           <div class="heroGrid">
             <div>
               <h1>Interactive Emotional Companions</h1>
-              <p>AI toys that feel and connect with you. Portable companions with emotive personalities designed for meaningful interaction.</p>
+              <p>Machine-intelligent toys that feel and connect with you. Portable companions with emotive personalities designed for meaningful interactions.</p>
               <div class="heroButtons">
                 <button class="btn btn-primary" id="heroBuy">BUY NOW</button>
                 <button class="btn btn-ghost" id="heroLearn">LEARN MORE</button>
@@ -1083,8 +1083,8 @@
       <div class="wrap foot">
         <div>© 2016 - <span id="year"></span> cartheur. All rights reserved.</div>
         <div style="display:flex; gap:14px; flex-wrap:wrap;">
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
           <a href="#top">Back to top</a>
         </div>
       </div>
@@ -1121,11 +1121,11 @@
       </div>
       <div class="modalBody" style="grid-template-columns: 1fr;">
         <div style="display:grid; gap:10px;">
-          <a class="btn btn-ghost" href="#dot">dot</a>
-          <a class="btn btn-ghost" href="#fob">fob</a>
-          <a class="btn btn-ghost" href="#letty">letty</a>
-          <a class="btn btn-ghost" href="#about">about</a>
-          <a class="btn btn-ghost" href="#contact">contact</a>
+          <a class="btn btn-ghost" href="dot.html">dot</a>
+          <a class="btn btn-ghost" href="fob.html">fob</a>
+          <a class="btn btn-ghost" href="letty.html">letty</a>
+          <a class="btn btn-ghost" href="about.html">about</a>
+          <a class="btn btn-ghost" href="contact.html">contact</a>
           <button class="btn btn-primary" id="menuBuy">BUY NOW</button>
         </div>
       </div>
@@ -1294,7 +1294,7 @@
           return;
         }
         root.setAttribute("data-theme", mode);
-        btn.textContent = mode === "dark" ? "Light" : "Dark";
+        btn.textContent = mode === "dark" ? "☀︎" : "☾";
       };
 
       const stored = localStorage.getItem(key) || "system";
