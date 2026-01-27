@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
   <title>Emotional Toys — Interactive Emotional Companions</title>
   <meta name="description" content="AI toys that feel and connect with you." />
 
@@ -26,6 +27,75 @@
       --warm: #ffb55f;
       --cool: #67a9ff;
       --max: 1120px;
+
+--su
+
+/* Theme: automatic + optional manual override via [data-theme] */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg: #07080c;
+    --ink: rgba(255,255,255,.92);
+    --muted: rgba(255,255,255,.66);
+    --card: rgba(255,255,255,.06);
+    --card2: rgba(255,255,255,.10);
+    --stroke: rgba(255,255,255,.14);
+    --shadow: 0 18px 70px rgba(0,0,0,.55);
+    --shadow2: 0 10px 30px rgba(0,0,0,.45);
+    --glass: rgba(255,255,255,.06);
+    --glass2: rgba(255,255,255,.10);
+  }
+}
+
+html[data-theme="light"]{
+  color-scheme: light;
+}
+html[data-theme="dark"]{
+  color-scheme: dark;
+  --bg: #07080c;
+  --ink: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.66);
+  --card: rgba(255,255,255,.06);
+  --card2: rgba(255,255,255,.10);
+  --stroke: rgba(255,255,255,.14);
+  --shadow: 0 18px 70px rgba(0,0,0,.55);
+  --shadow2: 0 10px 30px rgba(0,0,0,.45);
+  --glass: rgba(255,255,255,.06);
+  --glass2: rgba(255,255,255,.10);
+
+  /* Slightly brighter toy palette for dark backgrounds */
+  --dot-hi: #5b6073;
+  --dot-lo: #0f1320;
+  --dot-shadow: rgba(0,0,0,.45);
+
+  --fob-hi: #f2f5ff;
+  --fob-lo: #9aa6bf;
+  --fob-core: rgba(0,0,0,.78);
+
+  --letty-hi: #ffe9f4;
+  --letty-lo: #ff9fcb;
+}
+rface: var(--card);
+--surface2: var(--card2);
+--glass: rgba(255,255,255,.65);
+--glass2: rgba(255,255,255,.90);
+
+/* Toy palette (theme-aware via overrides below) */
+--dot-hi: #3f4453;
+--dot-lo: #141826;
+--dot-shadow: #0f1220;
+--dot-eye-hi: #d7f7ff;
+--dot-eye-lo: #4aa9ff;
+
+--fob-hi: #eef1f7;
+--fob-lo: #b6becf;
+--fob-core: #151a27;
+--fob-eye-hi: #fff2b3;
+--fob-eye-lo: #ffb74a;
+
+--letty-hi: #ffe9f4;
+--letty-lo: #ffb9d8;
+--letty-accent: #ff6fa9;
+--letty-eye: #2b2f3a;
     }
 
     *{ box-sizing: border-box; }
@@ -49,8 +119,8 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(247,246,251,.86), rgba(247,246,251,.55));
-      border-bottom: 1px solid rgba(20,24,32,.06);
+      background: linear-gradient(to bottom, color-mix(in oklab, var(--bg) 88%, transparent), color-mix(in oklab, var(--bg) 55%, transparent));
+      border-bottom: 1px solid color-mix(in oklab, var(--stroke) 55%, transparent);
     }
     .topbar{
       display: flex;
@@ -95,7 +165,7 @@
       padding: 8px 10px;
       border-radius: 10px;
     }
-    nav a:hover{ background: rgba(91,91,232,.08); color: var(--ink); }
+    nav a:hover{ background: color-mix(in oklab, var(--brand) 12%, transparent); color: var(--ink); }
 
     .cta{
       display: flex;
@@ -123,16 +193,16 @@
     }
     .btn-primary:hover{ filter: brightness(1.03); box-shadow: 0 14px 38px rgba(91,91,232,.20); }
     .btn-ghost{
-      background: rgba(255,255,255,.65);
-      border: 1px solid rgba(20,24,32,.08);
+      background: var(--glass);
+      border: 1px solid var(--stroke);
       color: var(--ink);
     }
-    .btn-ghost:hover{ background: rgba(255,255,255,.9); }
+    .btn-ghost:hover{ background: var(--glass2); }
 
     .hamburger{
       display: none;
-      border: 1px solid rgba(20,24,32,.10);
-      background: rgba(255,255,255,.65);
+      border: 1px solid var(--stroke);
+      background: var(--glass);
       border-radius: 12px;
       padding: 10px;
       cursor: pointer;
@@ -148,7 +218,7 @@
       border-radius: var(--radius-xl);
       overflow: hidden;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(20,24,32,.08);
+      border: 1px solid var(--stroke);
       background:
         radial-gradient(900px 500px at 50% 20%, rgba(255,255,255,.35), rgba(255,255,255,0) 62%),
         linear-gradient(180deg, rgba(91,91,232,.40), rgba(138,108,255,.20) 45%, rgba(255,123,178,.18)),
@@ -194,7 +264,7 @@
     }
 
     .toyBadge{
-      background: rgba(255,255,255,.16);
+      background: color-mix(in oklab, var(--glass) 35%, transparent);
       border: 1px solid rgba(255,255,255,.22);
       border-radius: 18px;
       padding: 14px 14px 10px;
@@ -246,8 +316,8 @@
     /* Features strip */
     .features{
       margin-top: 16px;
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(20,24,32,.08);
+      background: var(--surface);
+      border: 1px solid var(--stroke);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow2);
       overflow: hidden;
@@ -263,7 +333,7 @@
       grid-template-columns: 38px 1fr;
       gap: 12px;
       align-items: start;
-      border-right: 1px solid rgba(20,24,32,.06);
+      border-right: 1px solid color-mix(in oklab, var(--stroke) 55%, transparent);
     }
     .feature:last-child{ border-right: 0; }
     .icon{
@@ -271,8 +341,8 @@
       border-radius: 14px;
       display: grid;
       place-items: center;
-      border: 1px solid rgba(20,24,32,.08);
-      background: rgba(255,255,255,.75);
+      border: 1px solid var(--stroke);
+      background: var(--glass2);
     }
     .feature h3{
       margin: 2px 0 4px;
@@ -314,7 +384,7 @@
     }
     .card{
       background: var(--card2);
-      border: 1px solid rgba(20,24,32,.08);
+      border: 1px solid var(--stroke);
       border-radius: var(--radius-xl);
       overflow: hidden;
       box-shadow: var(--shadow2);
@@ -361,12 +431,12 @@
     /* CTA banner */
     .ctaBanner{
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(20,24,32,.08);
+      border: 1px solid var(--stroke);
       box-shadow: var(--shadow);
       background:
         radial-gradient(900px 420px at 50% 0%, rgba(255,255,255,.40), transparent 60%),
         linear-gradient(180deg, rgba(91,91,232,.20), rgba(255,123,178,.10)),
-        rgba(255,255,255,.72);
+        var(--surface);
       overflow: hidden;
       position: relative;
     }
@@ -413,8 +483,8 @@
     }
     .modal{
       width: min(720px, 100%);
-      background: rgba(255,255,255,.94);
-      border: 1px solid rgba(20,24,32,.10);
+      background: var(--surface2);
+      border: 1px solid var(--stroke);
       border-radius: 20px;
       box-shadow: 0 30px 90px rgba(0,0,0,.30);
       overflow: hidden;
@@ -429,8 +499,8 @@
     }
     .modalHead strong{ font-size: 14px; letter-spacing: -0.01em; }
     .x{
-      border: 1px solid rgba(20,24,32,.10);
-      background: rgba(255,255,255,.75);
+      border: 1px solid var(--stroke);
+      background: var(--glass2);
       border-radius: 12px;
       padding: 8px 10px;
       cursor: pointer;
@@ -459,8 +529,8 @@
       font-size: 12px;
       padding: 8px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(20,24,32,.10);
-      background: rgba(255,255,255,.75);
+      border: 1px solid var(--stroke);
+      background: var(--glass2);
       color: rgba(20,24,32,.78);
       font-weight: 700;
     }
@@ -471,7 +541,7 @@
       .toysRow{ grid-template-columns: repeat(3, 1fr); }
       .featuresGrid{ grid-template-columns: repeat(2, 1fr); }
       .feature:nth-child(2){ border-right: 0; }
-      .feature:nth-child(1), .feature:nth-child(2){ border-bottom: 1px solid rgba(20,24,32,.06); }
+      .feature:nth-child(1), .feature:nth-child(2){ border-bottom: 1px solid color-mix(in oklab, var(--stroke) 55%, transparent); }
       .cards{ grid-template-columns: 1fr; }
       .card{ grid-template-rows: 240px auto; }
       .modalBody{ grid-template-columns: 1fr; }
@@ -482,10 +552,18 @@
       .toysRow{ grid-template-columns: 1fr; }
       .feature{ border-right: 0; }
       .featuresGrid{ grid-template-columns: 1fr; }
-      .feature{ border-bottom: 1px solid rgba(20,24,32,.06); }
+      .feature{ border-bottom: 1px solid color-mix(in oklab, var(--stroke) 55%, transparent); }
       .feature:last-child{ border-bottom: 0; }
     }
-  </style>
+  
+/* SVG rendering: crisper + a touch of depth */
+svg{ shape-rendering: geometricPrecision; }
+.toyBadge svg, .cardMedia svg{ filter: drop-shadow(0 18px 28px rgba(0,0,0,.20)); }
+@media (prefers-color-scheme: light){
+  .toyBadge svg, .cardMedia svg{ filter: drop-shadow(0 14px 22px rgba(20,24,32,.16)); }
+}
+
+</style>
 </head>
 
 <body>
@@ -510,6 +588,14 @@
             <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </button>
+        <button class="hamburger" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3v2M12 19v2M4.2 6.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 17.8l1.4-1.4M18.4 5.6l1.4-1.4"
+                  stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+            <path d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10Z" stroke="currentColor" stroke-width="1.7"/>
+          </svg>
+        </button>
+
         <button class="btn btn-primary" id="buyNowTop">BUY NOW</button>
       </div>
     </div>
@@ -544,17 +630,17 @@
                 <svg width="100%" height="140" viewBox="0 0 220 170" fill="none" aria-hidden="true">
                   <defs>
                     <radialGradient id="gDot" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(90 52) rotate(60) scale(140 120)">
-                      <stop stop-color="#3f4453" stop-opacity=".95"/>
-                      <stop offset="1" stop-color="#1b1f2a" stop-opacity=".98"/>
+                      <stop style="stop-color: var(--dot-hi)" stop-opacity=".95"/>
+                      <stop offset="1" style="stop-color: var(--dot-lo)" stop-opacity=".98"/>
                     </radialGradient>
                     <radialGradient id="eyeBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(18)">
-                      <stop stop-color="#c8f3ff"/>
-                      <stop offset="1" stop-color="#4aa9ff"/>
+                      <stop style="stop-color: var(--dot-eye-hi)"/>
+                      <stop offset="1" style="stop-color: var(--dot-eye-lo)"/>
                     </radialGradient>
                   </defs>
                   <ellipse cx="110" cy="110" rx="88" ry="62" fill="url(#gDot)"/>
-                  <ellipse cx="68" cy="120" rx="26" ry="18" fill="#121521" opacity=".55"/>
-                  <ellipse cx="152" cy="120" rx="26" ry="18" fill="#121521" opacity=".55"/>
+                  <ellipse cx="68" cy="120" rx="26" ry="18" fill="var(--dot-shadow)" opacity=".55"/>
+                  <ellipse cx="152" cy="120" rx="26" ry="18" fill="var(--dot-shadow)" opacity=".55"/>
                   <circle cx="82" cy="102" r="16" fill="url(#eyeBlue)"/>
                   <circle cx="138" cy="102" r="16" fill="url(#eyeBlue)"/>
                   <circle cx="78" cy="98" r="5" fill="#fff" opacity=".8"/>
@@ -568,18 +654,18 @@
                 <svg width="100%" height="140" viewBox="0 0 220 170" fill="none" aria-hidden="true">
                   <defs>
                     <radialGradient id="gLetty" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(88 58) rotate(55) scale(150 150)">
-                      <stop stop-color="#ffe8f3"/>
-                      <stop offset="1" stop-color="#ffb9d8"/>
+                      <stop style="stop-color: var(--letty-hi)"/>
+                      <stop offset="1" style="stop-color: var(--letty-lo)"/>
                     </radialGradient>
                   </defs>
                   <ellipse cx="110" cy="118" rx="74" ry="54" fill="url(#gLetty)"/>
                   <ellipse cx="78" cy="62" rx="24" ry="48" fill="url(#gLetty)"/>
                   <ellipse cx="142" cy="62" rx="24" ry="48" fill="url(#gLetty)"/>
                   <ellipse cx="110" cy="116" rx="52" ry="36" fill="#fff" opacity=".35"/>
-                  <circle cx="88" cy="112" r="9" fill="#2b2f3a"/>
-                  <circle cx="132" cy="112" r="9" fill="#2b2f3a"/>
-                  <circle cx="110" cy="125" r="5" fill="#ff6fa9"/>
-                  <path d="M105 131 C108 136, 112 136, 115 131" stroke="#ff6fa9" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="88" cy="112" r="9" fill="var(--letty-eye)"/>
+                  <circle cx="132" cy="112" r="9" fill="var(--letty-eye)"/>
+                  <circle cx="110" cy="125" r="5" fill="var(--letty-accent)"/>
+                  <path d="M105 131 C108 136, 112 136, 115 131" stroke="var(--letty-accent)" stroke-width="3" stroke-linecap="round"/>
                 </svg>
                 <div class="name">letty</div>
               </div>
@@ -589,17 +675,17 @@
                 <svg width="100%" height="140" viewBox="0 0 220 170" fill="none" aria-hidden="true">
                   <defs>
                     <linearGradient id="gFob" x1="40" y1="40" x2="180" y2="150" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#e9ecf4"/>
-                      <stop offset="1" stop-color="#b5bccd"/>
+                      <stop style="stop-color: var(--fob-hi)"/>
+                      <stop offset="1" style="stop-color: var(--fob-lo)"/>
                     </linearGradient>
                     <radialGradient id="eyeGold" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(18)">
-                      <stop stop-color="#fff2b3"/>
-                      <stop offset="1" stop-color="#ffb74a"/>
+                      <stop style="stop-color: var(--fob-eye-hi)"/>
+                      <stop offset="1" style="stop-color: var(--fob-eye-lo)"/>
                     </radialGradient>
                   </defs>
                   <ellipse cx="110" cy="112" rx="78" ry="58" fill="url(#gFob)"/>
                   <path d="M68 100 C88 72, 132 72, 152 100 C156 106, 156 126, 152 132 C132 160, 88 160, 68 132 C64 126, 64 106, 68 100 Z"
-                        fill="#1b1f2a" opacity=".92"/>
+                        fill="var(--fob-core)" opacity=".92"/>
                   <circle cx="110" cy="115" r="14" fill="url(#eyeGold)"/>
                   <circle cx="106" cy="111" r="4" fill="#fff" opacity=".85"/>
                 </svg>
@@ -688,17 +774,17 @@
               <svg width="250" height="180" viewBox="0 0 260 190" fill="none" aria-hidden="true">
                 <defs>
                   <radialGradient id="gDotBig" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(105 62) rotate(60) scale(170 150)">
-                    <stop stop-color="#3f4453" stop-opacity=".95"/>
-                    <stop offset="1" stop-color="#141826" stop-opacity=".98"/>
+                    <stop style="stop-color: var(--dot-hi)" stop-opacity=".95"/>
+                    <stop offset="1" style="stop-color: var(--dot-lo)" stop-opacity=".98"/>
                   </radialGradient>
                   <radialGradient id="eyeBlueBig" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(20)">
-                    <stop stop-color="#d7f7ff"/>
-                    <stop offset="1" stop-color="#4aa9ff"/>
+                    <stop style="stop-color: var(--dot-eye-hi)"/>
+                    <stop offset="1" style="stop-color: var(--dot-eye-lo)"/>
                   </radialGradient>
                 </defs>
                 <ellipse cx="130" cy="120" rx="98" ry="68" fill="url(#gDotBig)"/>
-                <ellipse cx="78" cy="130" rx="30" ry="20" fill="#0f1220" opacity=".55"/>
-                <ellipse cx="182" cy="130" rx="30" ry="20" fill="#0f1220" opacity=".55"/>
+                <ellipse cx="78" cy="130" rx="30" ry="20" fill="var(--dot-shadow)" opacity=".55"/>
+                <ellipse cx="182" cy="130" rx="30" ry="20" fill="var(--dot-shadow)" opacity=".55"/>
                 <circle cx="102" cy="112" r="18" fill="url(#eyeBlueBig)"/>
                 <circle cx="158" cy="112" r="18" fill="url(#eyeBlueBig)"/>
                 <circle cx="96" cy="106" r="6" fill="#fff" opacity=".8"/>
@@ -720,17 +806,17 @@
               <svg width="250" height="180" viewBox="0 0 260 190" fill="none" aria-hidden="true">
                 <defs>
                   <linearGradient id="gFobBig" x1="60" y1="50" x2="200" y2="170" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#eef1f7"/>
-                    <stop offset="1" stop-color="#b6becf"/>
+                    <stop style="stop-color: var(--fob-hi)"/>
+                    <stop offset="1" style="stop-color: var(--fob-lo)"/>
                   </linearGradient>
                   <radialGradient id="eyeGoldBig" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(0 0) rotate(90) scale(20)">
-                    <stop stop-color="#fff2b3"/>
-                    <stop offset="1" stop-color="#ffb74a"/>
+                    <stop style="stop-color: var(--fob-eye-hi)"/>
+                    <stop offset="1" style="stop-color: var(--fob-eye-lo)"/>
                   </radialGradient>
                 </defs>
                 <ellipse cx="130" cy="122" rx="88" ry="64" fill="url(#gFobBig)"/>
                 <path d="M84 108 C106 78, 154 78, 176 108 C182 116, 182 138, 176 146 C154 176, 106 176, 84 146 C78 138, 78 116, 84 108 Z"
-                      fill="#151a27" opacity=".92"/>
+                      fill="var(--fob-core)" opacity=".92"/>
                 <circle cx="130" cy="128" r="16" fill="url(#eyeGoldBig)"/>
                 <circle cx="125" cy="122" r="5" fill="#fff" opacity=".85"/>
               </svg>
@@ -750,18 +836,18 @@
               <svg width="250" height="180" viewBox="0 0 260 190" fill="none" aria-hidden="true">
                 <defs>
                   <radialGradient id="gLettyBig" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(105 66) rotate(55) scale(180 180)">
-                    <stop stop-color="#ffe9f4"/>
-                    <stop offset="1" stop-color="#ffb9d8"/>
+                    <stop style="stop-color: var(--letty-hi)"/>
+                    <stop offset="1" style="stop-color: var(--letty-lo)"/>
                   </radialGradient>
                 </defs>
                 <ellipse cx="130" cy="132" rx="84" ry="60" fill="url(#gLettyBig)"/>
                 <ellipse cx="98" cy="70" rx="26" ry="56" fill="url(#gLettyBig)"/>
                 <ellipse cx="162" cy="70" rx="26" ry="56" fill="url(#gLettyBig)"/>
                 <ellipse cx="130" cy="130" rx="58" ry="40" fill="#fff" opacity=".35"/>
-                <circle cx="106" cy="126" r="10" fill="#2b2f3a"/>
-                <circle cx="154" cy="126" r="10" fill="#2b2f3a"/>
-                <circle cx="130" cy="140" r="6" fill="#ff6fa9"/>
-                <path d="M124 146 C127 152, 133 152, 136 146" stroke="#ff6fa9" stroke-width="3.2" stroke-linecap="round"/>
+                <circle cx="106" cy="126" r="10" fill="var(--letty-eye)"/>
+                <circle cx="154" cy="126" r="10" fill="var(--letty-eye)"/>
+                <circle cx="130" cy="140" r="6" fill="var(--letty-accent)"/>
+                <path d="M124 146 C127 152, 133 152, 136 146" stroke="var(--letty-accent)" stroke-width="3.2" stroke-linecap="round"/>
               </svg>
             </div>
             <div class="cardBody">
@@ -888,6 +974,53 @@
       }
     };
 
+    
+// Theme toggle (light/dark) with persistence
+const THEME_KEY = "et_theme";
+const root = document.documentElement;
+
+function getPreferredTheme(){
+  const saved = localStorage.getItem(THEME_KEY);
+  if(saved === "light" || saved === "dark") return saved;
+  return null; // follow OS
+}
+function applyTheme(theme){
+  if(theme === "light" || theme === "dark"){
+    root.setAttribute("data-theme", theme);
+  }else{
+    root.removeAttribute("data-theme"); // OS preference
+  }
+}
+function currentEffectiveTheme(){
+  const explicit = root.getAttribute("data-theme");
+  if(explicit) return explicit;
+  return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+applyTheme(getPreferredTheme());
+
+// Keep in sync if user is on OS theme and OS changes
+if(window.matchMedia){
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+    if(!localStorage.getItem(THEME_KEY)) applyTheme(null);
+  });
+}
+
+document.getElementById("themeToggle")?.addEventListener("click", () => {
+  const next = currentEffectiveTheme() === "dark" ? "light" : "dark";
+  localStorage.setItem(THEME_KEY, next);
+  applyTheme(next);
+});
+
+// Right-click the toggle to revert to system theme
+document.getElementById("themeToggle")?.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+  localStorage.removeItem(THEME_KEY);
+  applyTheme(null);
+});
+
+
+
     // Helpers
     const $ = (sel) => document.querySelector(sel);
     const $$ = (sel) => Array.from(document.querySelectorAll(sel));
@@ -928,8 +1061,8 @@
 
       modalArt.innerHTML = `
         <div style="
-          border: 1px solid rgba(20,24,32,.10);
-          background: rgba(255,255,255,.75);
+          border: 1px solid var(--stroke);
+          background: var(--glass2);
           border-radius: 18px;
           padding: 14px;
           box-shadow: 0 18px 40px rgba(20,24,32,.10);
