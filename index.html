@@ -50,11 +50,11 @@
     --dot-eye-hi: #d7f7ff;
     --dot-eye-lo: #4aa9ff;
 
-    --fob-hi: #eef1f7;
-    --fob-lo: #b6becf;
-    --fob-core: #151a27;
-    --fob-eye-hi: #fff2b3;
-    --fob-eye-lo: #ffb74a;
+    --davie-hi: #eef1f7;
+    --davie-lo: #b6becf;
+    --davie-core: #151a27;
+    --davie-eye-hi: #fff2b3;
+    --davie-eye-lo: #ffb74a;
 
     --letty-hi: #ffe9f4;
     --letty-lo: #ffb9d8;
@@ -99,11 +99,11 @@
       --dot-eye-hi: #e9fbff;
       --dot-eye-lo: #67c6ff;
 
-      --fob-hi: #f2f5ff;
-      --fob-lo: #b8c2da;
-      --fob-core: rgba(0,0,0,.78);
-      --fob-eye-hi: #fff6c7;
-      --fob-eye-lo: #ffc46b;
+      --davie-hi: #f2f5ff;
+      --davie-lo: #b8c2da;
+      --davie-core: rgba(0,0,0,.78);
+      --davie-eye-hi: #fff6c7;
+      --davie-eye-lo: #ffc46b;
 
       --letty-hi: #ffe9f4;
       --letty-lo: #ff9fcb;
@@ -139,11 +139,11 @@
     --dot-eye-hi: #e9fbff;
     --dot-eye-lo: #67c6ff;
 
-    --fob-hi: #f2f5ff;
-    --fob-lo: #b8c2da;
-    --fob-core: rgba(0,0,0,.78);
-    --fob-eye-hi: #fff6c7;
-    --fob-eye-lo: #ffc46b;
+    --davie-hi: #f2f5ff;
+    --davie-lo: #b8c2da;
+    --davie-core: rgba(0,0,0,.78);
+    --davie-eye-hi: #fff6c7;
+    --davie-eye-lo: #ffc46b;
 
     --letty-hi: #ffe9f4;
     --letty-lo: #ff9fcb;
@@ -856,7 +856,7 @@
 
       <nav aria-label="Primary navigation">
         <a href="dot.html">dot</a>
-        <a href="fob.html">fob</a>
+        <a href="davie.html">davie</a>
         <a href="letty.html">letty</a>
         <a href="about.html">about</a>
         <a href="contact.html">contact</a>
@@ -892,7 +892,6 @@
               <h1>Interactive Emotional Companions</h1>
               <p>Machine-intelligent toys that feel and connect with you. Portable companions with emotive personalities designed for meaningful interactions.</p>
               <div class="heroButtons">
-                <button class="btn btn-primary" id="heroBuy">ORDER NOW</button>
                 <button class="btn btn-ghost" id="heroLearn">LEARN MORE</button>
               </div>
             </div>
@@ -912,11 +911,11 @@
                 <div class="name">letty</div>
               </div>
 
-              <div class="toyBadge" role="button" tabindex="0" data-open="fob" aria-label="Open Fob details">
-                <div class="ovalFrame ovalFrame--badge" style="--img: url('assets/fob.jpg');">
-                  <img src="assets/fob.jpg" alt="Fob companion" />
+              <div class="toyBadge" role="button" tabindex="0" data-open="davie" aria-label="Open Davie details">
+                <div class="ovalFrame ovalFrame--badge" style="--img: url('assets/davie.jpg');">
+                  <img src="assets/davie.jpg" alt="Davie companion" />
                 </div>
-                <div class="name">fob</div>
+                <div class="name">davie</div>
               </div>
             </div>
           </div>
@@ -1010,17 +1009,17 @@
             </div>
           </article>
 
-          <article class="card" id="fob">
+          <article class="card" id="davie">
             <div class="cardMedia">
-              <div class="ovalFrame ovalFrame--card" style="--img: url('assets/fob.jpg');">
-                <img src="assets/fob.jpg" alt="Fob companion" />
+              <div class="ovalFrame ovalFrame--card" style="--img: url('assets/davie.jpg');">
+                <img src="assets/davie.jpg" alt="Davie companion" />
               </div>
             </div>
             <div class="cardBody">
-              <h3 class="cardName">fob</h3>
-              <p class="cardTag">The caring pocket pal.</p>
+              <h3 class="cardName">davie</h3>
+              <p class="cardTag">The enhanced plush companion.</p>
               <div class="cardActions">
-                <button class="btn btn-primary btn-wide" data-open="fob">LEARN MORE</button>
+                <button class="btn btn-primary btn-wide" data-open="davie">LEARN MORE</button>
               </div>
             </div>
           </article>
@@ -1122,7 +1121,7 @@
       <div class="modalBody" style="grid-template-columns: 1fr;">
         <div style="display:grid; gap:10px;">
           <a class="btn btn-ghost" href="dot.html">dot</a>
-          <a class="btn btn-ghost" href="fob.html">fob</a>
+          <a class="btn btn-ghost" href="davie.html">davie</a>
           <a class="btn btn-ghost" href="letty.html">letty</a>
           <a class="btn btn-ghost" href="about.html">about</a>
           <a class="btn btn-ghost" href="contact.html">contact</a>
@@ -1141,11 +1140,11 @@
         pills: ["Curious personality", "Expressive eyes", "Adaptive routines", "Calm presence"],
         art: document.querySelector('[data-open="dot"] .ovalFrame').outerHTML
       },
-      fob: {
-        title: "fob",
-        copy: "Fob is compact and comforting. Built for portability and quick check-ins—ideal for gentle interaction throughout the day.",
-        pills: ["Pocket companion", "Warm feedback", "Quick interactions", "Low-friction"],
-        art: document.querySelector('[data-open="fob"] .ovalFrame').outerHTML
+      davie: {
+        title: "davie",
+        copy: "Davie is your personal companion, built for highly-engaging and complex interactions--ideal for gentle emotional assurances throughout the day.",
+        pills: ["Enhanced companion", "Warm feedback", "Quick interactions", "Low-friction"],
+        art: document.querySelector('[data-open="davie"] .ovalFrame').outerHTML
       },
       letty: {
         title: "letty",
@@ -1242,7 +1241,10 @@
       alert("When the product is ready for ordering, this button will be active.");
     }
     $("#buyNowTop").addEventListener("click", buyNow);
-    $("#heroBuy").addEventListener("click", buyNow);
+    const heroBuy = $("#heroBuy");
+    if(heroBuy){
+      heroBuy.addEventListener("click", buyNow);
+    }
     $("#buyNowBottom").addEventListener("click", buyNow);
     $("#modalBuy").addEventListener("click", buyNow);
 
