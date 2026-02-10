@@ -209,6 +209,18 @@
       text-shadow: 0 18px 35px rgba(20,24,32,.20);
       font-weight: 900;
     }
+    .heroTitle{
+      display: block;
+      width: 100%;
+      text-align: justify;
+      text-justify: inter-word;
+      white-space: nowrap;
+    }
+    .heroTitle::after{
+      content: "";
+      display: inline-block;
+      width: 100%;
+    }
     .hero p{
       margin: 0 0 24px;
       font-size: 16px;
@@ -239,18 +251,21 @@
     .toysRow{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: 18px;
       margin-top: 14px;
+      transform: translate(-118px, 20px);
     }
 
     .toyBadge{
       background: rgba(255,255,255,.16);
       border: 1px solid rgba(255,255,255,.22);
       border-radius: 18px;
-      padding: 14px 14px 10px;
+      padding: 16px 14px 12px;
       box-shadow: 0 12px 40px rgba(20,24,32,.18);
       backdrop-filter: blur(8px);
       text-align: center;
+      display: grid;
+      place-items: center;
     }
     .toyBadge .name{
       margin-top: 10px;
@@ -390,8 +405,10 @@
     .metricHeader{
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       margin-bottom: 10px;
+      text-align: center;
     }
     .metricBadge{
       font-size: 11px;
@@ -493,10 +510,14 @@
       margin-top: 14px;
       font-size: 12.5px;
       color: var(--muted);
+      text-align: center;
     }
     .metricLegend strong{
       color: var(--ink);
       font-weight: 700;
+    }
+    .metricLegend .span-2{
+      grid-column: 1 / -1;
     }
     .goalNote{
       display: inline-flex;
@@ -776,6 +797,10 @@
       .featuresGrid{ grid-template-columns: 1fr; }
       .feature{ border-bottom: 1px solid rgba(20,24,32,.06); }
       .feature:last-child{ border-bottom: 0; }
+      .heroTitle{
+        white-space: normal;
+        text-align: left;
+      }
     }
   
     /* --- Theme + SVG refinements (added) --- */
@@ -835,6 +860,10 @@
       --oval-h: 160px;
       --oval-pad-y: 10px;
       --oval-pad-x: 18px;
+    }
+    .ovalFrame--badge{
+      --oval-w: 112px;
+      --oval-h: 112px;
     }
 
 
@@ -943,7 +972,7 @@
         <div class="heroInner">
           <div class="heroGrid">
             <div>
-              <h1>SMTWAA-Born Emotional Exploration</h1>
+              <h1 class="heroTitle">Intuitive Emotional Exploration</h1>
               <p>From SMTWAA (Social and Mental Therapy with Artificial Animals), we build research companions that invite discovery—about self, society, and the meaning of emotions.</p>
               <p class="heroNote">A proposal for huggable, animal-inspired companions as gentle mirrors for emotional life.</p>
               <div class="heroButtons">
@@ -1046,11 +1075,11 @@
       <div class="wrap">
         <div class="sectionTitle">
           <h2>About</h2>
-          <p>An exploration into how synthetic companions can help us reflect on emotion, meaning, and social connection. This work builds on SMTWAA: Social and Mental Therapy with Artificial Animals.</p>
+          <p>SMTWAA proposes a novel robotics platform for emotional well‑being, exploring therapy, psychiatric care, and psycho‑emotional comfort through adaptive, huggable artificial animals. It emphasizes privacy‑first interaction, emotional detection, voice and facial presentation, and sustainable, flexible hardware—developed alongside clinicians and care providers. The diagram below shows how KSEM maps experience, feedback, and reflection, and how dot, letty, and davie shape those loops.</p>
         </div>
         <div class="metricBlock">
           <div class="metricHeader">
-            <span class="metricBadge">Primary Lens</span>
+            <span class="metricBadge">Ethical Lens</span>
             <h3 class="metricTitle">Kant–Schopenhauer Emotive Metric (KSEM)</h3>
           </div>
           <div class="metricDiagram" aria-hidden="true">
@@ -1090,20 +1119,20 @@
               <text x="360" y="356" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="12">AWCM is the shade: autonomy–will concordance</text>
 
               <g class="metricHot metricNodeItem" data-focus="experience" data-node="experience">
-                <rect x="314" y="111" width="92" height="22" rx="11" fill="rgba(103,169,255,0.18)" stroke="rgba(103,169,255,0.55)" />
+                <rect x="322" y="111" width="76" height="22" rx="11" fill="rgba(103,169,255,0.18)" stroke="rgba(103,169,255,0.55)" />
                 <text x="360" y="126" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600">Experience</text>
               </g>
               <g class="metricHot metricNodeItem" data-focus="feedback" data-node="feedback">
-                <rect x="474" y="104" width="92" height="22" rx="11" fill="rgba(255,123,178,0.18)" stroke="rgba(255,123,178,0.55)" />
+                <rect x="482" y="104" width="76" height="22" rx="11" fill="rgba(255,123,178,0.18)" stroke="rgba(255,123,178,0.55)" />
                 <text x="520" y="119" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600">Feedback</text>
               </g>
               <g class="metricHot metricNodeItem" data-focus="reinforcement" data-node="reinforcement">
-                <rect x="456" y="224" width="128" height="22" rx="11" fill="rgba(255,123,178,0.18)" stroke="rgba(255,123,178,0.55)" />
+                <rect x="466" y="224" width="108" height="22" rx="11" fill="rgba(255,123,178,0.18)" stroke="rgba(255,123,178,0.55)" />
                 <text x="520" y="239" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600">Reinforcement</text>
               </g>
               <g class="metricHot metricNodeItem" data-focus="reflection" data-node="reflection">
-                <rect x="312" y="317" width="96" height="22" rx="11" fill="rgba(103,169,255,0.18)" stroke="rgba(103,169,255,0.55)" />
-                <text x="360" y="332" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600">Reflection</text>
+                <rect x="322" y="289" width="76" height="22" rx="11" fill="rgba(103,169,255,0.18)" stroke="rgba(103,169,255,0.55)" />
+                <text x="360" y="304" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600">Reflection</text>
               </g>
               <path id="metricLoop" d="M235 222 C290 274, 430 274, 485 222" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-dasharray="4 6"/>
               <g class="metricHot metricProto" data-focus="dot" data-card="dot">
@@ -1125,18 +1154,18 @@
                 <text class="metricProtoGoal" x="132" y="78" text-anchor="start" fill="rgba(255,255,255,0.7)" font-size="11">comfort &amp; trust</text>
               </g>
               <g class="metricHot metricNodeItem" data-focus="iteration" data-node="iteration">
-                <rect x="156" y="104" width="88" height="22" rx="11" fill="rgba(103,169,255,0.18)" stroke="rgba(103,169,255,0.55)" />
+                <rect x="164" y="104" width="72" height="22" rx="11" fill="rgba(103,169,255,0.18)" stroke="rgba(103,169,255,0.55)" />
                 <text x="200" y="119" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600">Iteration</text>
               </g>
             </svg>
             <div class="metricLegend">
-              <div><strong>Kant</strong> emphasizes autonomy, dignity, and intent.</div>
-              <div><strong>Schopenhauer</strong> emphasizes will, suffering, and relief.</div>
-              <div><strong>KSEM</strong> evaluates humane resonance between both poles.</div>
-              <div><strong>AWCM</strong> shades the alignment of autonomy with will.</div>
-              <div><strong>Experience loop</strong> is shaped by feedback and reinforcement via dot, letty, and davie.</div>
+              <div><strong>Kant:</strong> Emphasizes autonomy, dignity, and intent.</div>
+              <div><strong>Schopenhauer:</strong> Emphasizes will, suffering, and relief.</div>
+              <div><strong>KSEM:</strong> Evaluates humane resonance between poles.</div>
+              <div><strong>AWCM:</strong> Shades the alignment of autonomy with will.</div>
+              <div class="span-2"><strong>Experience loop:</strong> Shaped by feedback and reinforcement via dot, letty, and davie.</div>
             </div>
-            <div class="metricDetail" id="metricDetail">Explore the diagram: hover or tap a label to reveal its role in the KSEM loop.</div>
+            <div class="metricDetail" id="metricDetail">Explore the diagram: Hover or tap a label to reveal its role in the KSEM loop.</div>
           </div>
           <p class="metricText">KSEM is the primary lens, with the Autonomy–Will Concordance Metric (AWCM) as its shade. We ask whether interactions respect autonomy (Kant) while easing the pressures of will and suffering (Schopenhauer). It measures not efficiency but humane resonance—clarity of intent, dignity preserved, and reduction of needless distress.</p>
         </div>
@@ -1481,14 +1510,14 @@
       if(!detail || !nodes.length) return;
 
       const copy = {
-        experience: { text: "Experience: the lived moment of interaction and feeling.", tone: "blue" },
-        feedback: { text: "Feedback: the companion’s response shapes interpretation and meaning.", tone: "pink" },
-        reinforcement: { text: "Reinforcement: patterns stabilize through repetition and reward.", tone: "pink" },
-        reflection: { text: "Reflection: the user re-reads the experience and updates their sense of self.", tone: "blue" },
-        iteration: { text: "Iteration: refinement of behaviors and signals over time.", tone: "blue" },
-        dot: { text: "dot: attention cues and gentle reflection at desk-scale. It draws the loop from Experience into Feedback, then returns through Reflection.", tone: "blue" },
-        letty: { text: "letty: routine and movement support with low-friction prompts. It shapes Iteration into Reinforcement, then steadies Reflection.", tone: "blue" },
-        davie: { text: "davie: comfort and trust signals in a huggable form. It deepens Feedback into Reinforcement and eases the return to Reflection.", tone: "pink" }
+        experience: { text: "Experience: The lived moment of interaction and feeling.", tone: "blue" },
+        feedback: { text: "Feedback: The companion’s response shapes interpretation and meaning.", tone: "pink" },
+        reinforcement: { text: "Reinforcement: Patterns stabilize through repetition and reward.", tone: "pink" },
+        reflection: { text: "Reflection: The user re-reads the experience and updates their sense of self.", tone: "blue" },
+        iteration: { text: "Iteration: Refinement of behaviors and signals over time.", tone: "blue" },
+        dot: { text: "Dot: Attention cues and gentle reflection at desk-scale. It draws the loop from Experience into Feedback, then returns through Reflection.", tone: "blue" },
+        letty: { text: "Letty: Routine and movement support with low-friction prompts. It shapes Iteration into Reinforcement, then steadies Reflection.", tone: "blue" },
+        davie: { text: "Davie: Comfort and trust signals in a huggable form. It deepens Feedback into Reinforcement and eases the return to Reflection.", tone: "pink" }
       };
       const impacts = {
         dot: ["experience", "feedback", "reflection"],
@@ -1511,7 +1540,7 @@
         const node = nodes.find(n => n.dataset.focus === key);
         if(node) node.classList.add("is-active");
         const info = copy[key];
-        detail.textContent = info ? info.text : "Explore the diagram: hover or tap a label to reveal its role in the KSEM loop.";
+        detail.textContent = info ? info.text : "Explore the diagram: Hover or tap a label to reveal its role in the KSEM loop.";
         const impactList = impacts[key] || [];
         impactList.forEach(name => {
           const target = impactNodes.find(n => n.dataset.node === name);
