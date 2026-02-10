@@ -158,6 +158,9 @@
       transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
       user-select: none;
       white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .btn:active{ transform: translateY(1px) scale(.99); }
     .btn-primary{
@@ -1275,7 +1278,7 @@
           <div class="ctaInner">
             <h3>Follow the research</h3>
             <p>We share field notes, prototype findings, and updates as the work evolves.</p>
-            <button class="btn btn-primary btn-wide" id="buyNowBottom">GET UPDATES</button>
+            <a class="btn btn-primary btn-wide" href="https://github.com/emotional-toys" target="_blank" rel="noreferrer">GET UPDATES</a>
           </div>
         </div>
       </div>
@@ -1323,7 +1326,6 @@
           <p id="modalCopy"></p>
           <div class="pillRow" id="modalPills"></div>
           <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-primary" id="modalBuy">GET UPDATES</button>
             <button class="btn btn-ghost" id="modalClose2">CLOSE</button>
           </div>
         </div>
@@ -1415,7 +1417,10 @@
       modalArt.innerHTML = `
         <div style="
           border: 1px solid rgba(20,24,32,.10);
-          background: rgba(255,255,255,.75);
+          background:
+            radial-gradient(600px 260px at 50% 0%, rgba(255,255,255,.22), transparent 60%),
+            linear-gradient(135deg, rgba(91,91,232,.35), rgba(138,108,255,.18), rgba(255,123,178,.14)),
+            rgba(255,255,255,.75);
           border-radius: 18px;
           padding: 14px;
           box-shadow: 0 18px 40px rgba(20,24,32,.10);
@@ -1464,8 +1469,6 @@
     if(heroBuy){
       heroBuy.addEventListener("click", buyNow);
     }
-    $("#buyNowBottom").addEventListener("click", buyNow);
-    $("#modalBuy").addEventListener("click", buyNow);
 
     // Learn more scroll
     $("#heroLearn").addEventListener("click", () => {
