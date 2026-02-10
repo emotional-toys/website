@@ -6,34 +6,34 @@ The Kant–Schopenhauer Emotive Metric (KSEM) is proposed as an evaluative frame
 **Keywords:** affective computing, social robotics, ethics, autonomy, emotional support, artificial animals, KSEM, AWCM
 
 ## Introduction
-Artificial companions are increasingly explored for emotional support, yet the ethical evaluation of such systems remains fragmented across safety, efficacy, privacy, and autonomy concerns [CITE:Ethics_AI_Overview]. KSEM is introduced to address this gap by unifying the evaluation of autonomy and suffering into a single ethical lens. The metric is designed for synthetic animal companions that are intentionally non-human in form, designed to reduce intimidation while inviting reflection and emotional attunement [CITE:Social_Robotics_Companions]. This paper presents KSEM in the context of SMTWAA and Cartheur Research’s Volatco principles, proposing that their combined architecture, interaction design, and long-life computing ethos can meet ethical obligations in emotional support systems.
+Artificial companions are increasingly explored for emotional support, yet the ethical evaluation of such systems remains fragmented across safety, efficacy, privacy, and autonomy concerns. KSEM is introduced to address this gap by unifying the evaluation of autonomy and suffering into a single ethical lens. The metric is designed for synthetic animal companions that are intentionally non-human in form, designed to reduce intimidation while inviting reflection and emotional attunement. This paper presents KSEM in the context of SMTWAA and Cartheur Research’s Volatco principles, proposing that their combined architecture, interaction design, and long-life computing ethos can meet ethical obligations in emotional support systems.
 
 We proceed by grounding the metric in philosophical foundations, detailing the SMTWAA platform and Volatco principles, presenting the KSEM/AWCM framework, and proposing an evaluation methodology with measurable indicators. We conclude with limitations and future work, including clinical validation, governance, and longitudinal impact assessment.
 
 ## Background and Related Work
-The ethics of human–machine emotional interaction intersects several areas: affective computing, social robotics, medical/therapeutic intervention, and privacy/security. Affective computing research establishes methods for emotion detection and response in computational systems [CITE:Affective_Computing_Foundational]. Social robotics literature documents attachment, acceptance, and user experience in companion-like systems [CITE:Social_Robots_Trust_Attachment]. In healthcare, assistive and therapeutic robots show promise, but also raise concerns about agency, dependency, and misdiagnosis of emotional state [CITE:Therapeutic_Robotics_Review].
+The ethics of human–machine emotional interaction intersects several areas: affective computing, social robotics, medical/therapeutic intervention, and privacy/security. Affective computing research establishes methods for emotion detection and response in computational systems. Social robotics literature documents attachment, acceptance, and user experience in companion-like systems. In healthcare, assistive and therapeutic robots show promise, but also raise concerns about agency, dependency, and misdiagnosis of emotional state.
 
-Ethical AI frameworks emphasize transparency, accountability, and respect for autonomy [CITE:Ethical_AI_Frameworks]. In clinical contexts, ethics require clear boundaries between support and therapy, and careful consideration of consent, privacy, and harm reduction [CITE:Clinical_Ethics_Digital_Interventions]. These bodies of work motivate a metric that can evaluate not only functional outcomes but also the quality of ethical alignment in emotional interaction—especially for systems that are designed to be emotionally salient by default.
+Ethical AI frameworks emphasize transparency, accountability, and respect for autonomy. In clinical contexts, ethics require clear boundaries between support and therapy, and careful consideration of consent, privacy, and harm reduction. These bodies of work motivate a metric that can evaluate not only functional outcomes but also the quality of ethical alignment in emotional interaction—especially for systems that are designed to be emotionally salient by default.
 
 ## Philosophical Foundations
 KSEM derives from two philosophical anchors.
 
-**Kantian autonomy.** Kantian ethics emphasizes the intrinsic dignity of persons and the moral imperative to treat individuals as ends rather than means. Autonomy is not merely freedom of choice, but the preservation of rational self-determination and respect [CITE:Kant_Groundwork]. In an interaction context, KSEM evaluates whether the system preserves the user’s agency: does it coerce, manipulate, or subtly direct behavior contrary to the user’s self-determined goals? Ethical alignment demands that emotional interaction does not override or obscure the user’s autonomy.
+**Kantian autonomy.** Kantian ethics emphasizes the intrinsic dignity of persons and the moral imperative to treat individuals as ends rather than means. Autonomy is not merely freedom of choice, but the preservation of rational self-determination and respect. In an interaction context, KSEM evaluates whether the system preserves the user’s agency: does it coerce, manipulate, or subtly direct behavior contrary to the user’s self-determined goals? Ethical alignment demands that emotional interaction does not override or obscure the user’s autonomy.
 
-**Schopenhauerian compassion.** Schopenhauer positions the will as the driver of suffering and places compassion at the center of ethical response [CITE:Schopenhauer_Compassion]. For emotional companions, this translates to a commitment to reduce needless suffering, avoid intensifying distress, and provide a stabilizing presence when the user experiences compulsion or anxiety. KSEM therefore evaluates whether interactions actively reduce distress rather than merely entertain or distract.
+**Schopenhauerian compassion.** Schopenhauer positions the will as the driver of suffering and places compassion at the center of ethical response. For emotional companions, this translates to a commitment to reduce needless suffering, avoid intensifying distress, and provide a stabilizing presence when the user experiences compulsion or anxiety. KSEM therefore evaluates whether interactions actively reduce distress rather than merely entertain or distract.
 
 Together, these dimensions create a dual-axis: autonomy (dignity, agency) and relief (reducing suffering, easing compulsion). KSEM is the primary lens that evaluates the integrated outcome; AWCM is the shade metric that measures concordance between autonomy and relief.
 
 ## SMTWAA: Research Platform and Scope
-SMTWAA (Social and Mental Therapy with Artificial Animals) is a proposal to build interactive synthetic animals for emotional companionship. It positions the human–machine interface as central, emphasizing naturalistic engagement through auditory, gestural, and analogue signals. The platform focuses on non-human companion forms to encourage emotional engagement without the uncanny or deceptive qualities associated with humanoid simulation [CITE:Uncanny_Valley_Study].
+SMTWAA (Social and Mental Therapy with Artificial Animals) is a proposal to build interactive synthetic animals for emotional companionship. It positions the human–machine interface as central, emphasizing naturalistic engagement through auditory, gestural, and analogue signals. The platform focuses on non-human companion forms to encourage emotional engagement without the uncanny or deceptive qualities associated with humanoid simulation.
 
 Key elements of SMTWAA include:
 
-1. **Interaction paradigm.** The interface prioritizes low-friction, multimodal cues—voice tone, gesture, and proxemic response—over conversational intelligence. This reduces the risk of deceptive anthropomorphism while maintaining emotional resonance [CITE:Nonverbal_Interaction_Robotics].
-2. **Emotion detection.** SMTWAA proposes a privacy-first approach to mood and emotion identification, using local processing and minimal retention to reduce surveillance risk [CITE:Privacy_Preserving_Affect].
-3. **Embodied design.** Artificial animals are huggable and soft, emphasizing touch and comfort while avoiding human-like appearance. This supports attachment without misleading identity cues [CITE:Companion_Form_Factors].
-4. **Hardware longevity.** The platform prioritizes long-life computing: durable, repairable systems with minimal cloud dependency, reducing forced upgrades and preserving user trust [CITE:Long_Life_Computing].
-5. **Clinical collaboration.** SMTWAA calls for collaboration with healthcare providers and clinicians to align interaction design with therapeutic boundaries and safety considerations [CITE:Clinical_Robotics_Collaboration].
+1. **Interaction paradigm.** The interface prioritizes low-friction, multimodal cues—voice tone, gesture, and proxemic response—over conversational intelligence. This reduces the risk of deceptive anthropomorphism while maintaining emotional resonance.
+2. **Emotion detection.** SMTWAA proposes a privacy-first approach to mood and emotion identification, using local processing and minimal retention to reduce surveillance risk.
+3. **Embodied design.** Artificial animals are huggable and soft, emphasizing touch and comfort while avoiding human-like appearance. This supports attachment without misleading identity cues.
+4. **Hardware longevity.** The platform prioritizes long-life computing: durable, repairable systems with minimal cloud dependency, reducing forced upgrades and preserving user trust.
+5. **Clinical collaboration.** SMTWAA calls for collaboration with healthcare providers and clinicians to align interaction design with therapeutic boundaries and safety considerations.
 
 These features position SMTWAA as a research platform capable of supporting ethical evaluation frameworks like KSEM, with built-in constraints that reduce coercion, privacy invasion, and deception.
 
@@ -45,7 +45,7 @@ Volatco (as articulated by Cartheur Research) emphasizes resilient, transparent,
 - **Privacy and minimal data exposure:** systems should limit data capture and avoid cloud dependency.
 - **Human-scale design:** interaction should respect cognitive and emotional limits, favoring calm presence.
 
-Within KSEM, these principles operationalize the ethical requirements: autonomy is preserved through transparency and agency; suffering is reduced through calm interaction and reliable performance. Volatco therefore provides the architectural and organizational backbone needed to implement KSEM as a practical evaluation framework rather than a purely theoretical construct [CITE:Ethical_By_Design_Systems].
+Within KSEM, these principles operationalize the ethical requirements: autonomy is preserved through transparency and agency; suffering is reduced through calm interaction and reliable performance. Volatco therefore provides the architectural and organizational backbone needed to implement KSEM as a practical evaluation framework rather than a purely theoretical construct.
 
 ## The Kant–Schopenhauer Emotive Metric (KSEM)
 KSEM is a composite metric that evaluates the ethical quality of emotional interaction. It consists of two primary constructs:
@@ -59,22 +59,22 @@ KSEM is not a scalar measure of “performance.” It is a structured lens that 
 Below is a proposed indicator set for KSEM. Each indicator is rated on a qualitative or quantitative scale depending on the evaluation context.
 
 **Autonomy Preservation (Kant):**
-- **Intent clarity:** the system’s purpose and actions are transparent [CITE:Transparency_Ethics].
-- **Non-coercive guidance:** prompts avoid manipulative framing or pressure [CITE:Nudging_Ethics].
-- **User control:** opt-out and override options are clear and effective [CITE:Human_Control].
-- **Dignity preservation:** interaction avoids infantilization or humiliation [CITE:Dignity_Design].
+- **Intent clarity:** the system’s purpose and actions are transparent.
+- **Non-coercive guidance:** prompts avoid manipulative framing or pressure.
+- **User control:** opt-out and override options are clear and effective.
+- **Dignity preservation:** interaction avoids infantilization or humiliation.
 
 **Suffering Reduction (Schopenhauer):**
-- **Distress reduction:** interaction reduces negative affect without suppression or avoidance [CITE:Affect_Regulation].
-- **Compulsion easing:** reduces repetitive or compulsive patterns [CITE:Compulsion_Interventions].
-- **Comfort continuity:** maintains calm presence without dependency escalation [CITE:Dependency_Risks].
-- **Recovery support:** encourages reflective recovery rather than mere distraction [CITE:Therapeutic_Engagement].
+- **Distress reduction:** interaction reduces negative affect without suppression or avoidance.
+- **Compulsion easing:** reduces repetitive or compulsive patterns.
+- **Comfort continuity:** maintains calm presence without dependency escalation.
+- **Recovery support:** encourages reflective recovery rather than mere distraction.
 
 **AWCM (Shade Metric):**
 - **Concordance index:** degree to which autonomy-preserving measures also reduce suffering.
 - **Tension index:** degree to which one dimension increases at the expense of the other.
 
-These indicators can be measured through user studies, clinician observation, and qualitative self-report. For more rigorous evaluation, physiological measures (stress markers, sleep quality) and behavioral signals (interaction consistency, avoidance behaviors) may be incorporated with appropriate consent [CITE:Physiological_Ethics].
+These indicators can be measured through user studies, clinician observation, and qualitative self-report. For more rigorous evaluation, physiological measures (stress markers, sleep quality) and behavioral signals (interaction consistency, avoidance behaviors) may be incorporated with appropriate consent.
 
 ## Prototypes as Ethical Instruments
 The SMTWAA companions—dot, letty, and davie—are not simply product variations; each prototype is an instrument for exploring different ethical dynamics within KSEM.
@@ -121,29 +121,3 @@ These obligations are not automatic; they require continuous evaluation, governa
 - **Cross-cultural studies:** to test autonomy and suffering constructs across cultural contexts.
 - **Governance frameworks:** to formalize ethical oversight for emotional companions.
 - **Open benchmarks:** shared datasets and protocols for transparent evaluation.
-
-## References (Placeholders)
-- [CITE:Ethics_AI_Overview]
-- [CITE:Affective_Computing_Foundational]
-- [CITE:Social_Robotics_Companions]
-- [CITE:Therapeutic_Robotics_Review]
-- [CITE:Ethical_AI_Frameworks]
-- [CITE:Clinical_Ethics_Digital_Interventions]
-- [CITE:Kant_Groundwork]
-- [CITE:Schopenhauer_Compassion]
-- [CITE:Uncanny_Valley_Study]
-- [CITE:Nonverbal_Interaction_Robotics]
-- [CITE:Privacy_Preserving_Affect]
-- [CITE:Companion_Form_Factors]
-- [CITE:Long_Life_Computing]
-- [CITE:Clinical_Robotics_Collaboration]
-- [CITE:Ethical_By_Design_Systems]
-- [CITE:Transparency_Ethics]
-- [CITE:Nudging_Ethics]
-- [CITE:Human_Control]
-- [CITE:Dignity_Design]
-- [CITE:Affect_Regulation]
-- [CITE:Compulsion_Interventions]
-- [CITE:Dependency_Risks]
-- [CITE:Therapeutic_Engagement]
-- [CITE:Physiological_Ethics]
