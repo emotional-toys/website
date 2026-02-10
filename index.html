@@ -3,32 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="dark" />
   <title>Emotional Toys — Interactive Emotional Companions</title>
-  <meta name="description" content="Machine-intelligent toys that feel and connect with you. Portable, energy-efficient companions with emotive personalities designed for meaningful interactions and the ability to perform useful work." />
+  <meta name="description" content="Explorations in emotional companionship: research prototypes that invite discovery about self, society, and the meaning of emotions." />
   <link rel="icon" href="assets/toys.ico" sizes="any" />
 
   
 <style>
   :root{
-    /* Core theme tokens (LIGHT by default) */
-    --bg: #f7f6fb;
-    --ink: #1f2430;
-    --muted: #4b5366;
+    /* Core theme tokens (DARK) */
+    --bg: #07080c;
+    --ink: rgba(255,255,255,.92);
+    --muted: rgba(255,255,255,.74);
 
-    --surface: rgba(255,255,255,.80);
-    --surface2: rgba(255,255,255,.92);
+    --surface: rgba(255,255,255,.06);
+    --surface2: rgba(255,255,255,.10);
 
     /* Back-compat aliases */
     --card: var(--surface);
     --card2: var(--surface2);
 
-    --stroke: rgba(20,24,32,.10);
-    --shadow: 0 18px 50px rgba(20,24,32,.12);
-    --shadow2: 0 10px 30px rgba(20,24,32,.10);
+    --stroke: rgba(255,255,255,.14);
+    --shadow: 0 18px 70px rgba(0,0,0,.55);
+    --shadow2: 0 10px 30px rgba(0,0,0,.45);
 
-    --glass: rgba(255,255,255,.65);
-    --glass2: rgba(255,255,255,.90);
+    --glass: rgba(255,255,255,.06);
+    --glass2: rgba(255,255,255,.10);
 
     --radius-xl: 24px;
     --radius-lg: 18px;
@@ -44,96 +44,7 @@
 
     --max: 1120px;
 
-    /* Toy palette (LIGHT) — used by inline SVGs */
-    --dot-hi: #3f4453;
-    --dot-lo: #141826;
-    --dot-shadow: rgba(15,18,32,.65);
-    --dot-eye-hi: #d7f7ff;
-    --dot-eye-lo: #4aa9ff;
-
-    --davie-hi: #eef1f7;
-    --davie-lo: #b6becf;
-    --davie-core: #151a27;
-    --davie-eye-hi: #fff2b3;
-    --davie-eye-lo: #ffb74a;
-
-    --letty-hi: #ffe9f4;
-    --letty-lo: #ffb9d8;
-    --letty-accent: #ff6fa9;
-    --letty-eye: #2b2f3a;
-  
-    --bg1: rgba(91,91,232,.16);
-    --bg2: rgba(103,169,255,.14);
-    --bg3: rgba(255,123,178,.12);
-    --bg-noise: .18;
-  }
-
-  /* System dark mode */
-  @media (prefers-color-scheme: dark){
-    :root{
-    --bg1: rgba(140,120,255,.22);
-    --bg2: rgba(80,220,255,.18);
-    --bg3: rgba(255,120,180,.14);
-    --bg-noise: .42;
-
-      --bg: #07080c;
-      --ink: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.74);
-
-      --surface: rgba(255,255,255,.06);
-      --surface2: rgba(255,255,255,.10);
-
-      --card: var(--surface);
-      --card2: var(--surface2);
-
-      --stroke: rgba(255,255,255,.14);
-      --shadow: 0 18px 70px rgba(0,0,0,.55);
-      --shadow2: 0 10px 30px rgba(0,0,0,.45);
-
-      --glass: rgba(255,255,255,.06);
-      --glass2: rgba(255,255,255,.10);
-
-      /* Toy palette (DARK) — a touch brighter for contrast */
-      --dot-hi: #5b6073;
-      --dot-lo: #0f1320;
-      --dot-shadow: rgba(0,0,0,.55);
-      --dot-eye-hi: #e9fbff;
-      --dot-eye-lo: #67c6ff;
-
-      --davie-hi: #f2f5ff;
-      --davie-lo: #b8c2da;
-      --davie-core: rgba(0,0,0,.78);
-      --davie-eye-hi: #fff6c7;
-      --davie-eye-lo: #ffc46b;
-
-      --letty-hi: #ffe9f4;
-      --letty-lo: #ff9fcb;
-      --letty-accent: #ff6fa9;
-      --letty-eye: rgba(0,0,0,.70);
-    }
-  }
-
-  /* Manual override: set <html data-theme="dark|light"> */
-  html[data-theme="light"]{ color-scheme: light; }
-  html[data-theme="dark"]{
-    color-scheme: dark;
-    --bg: #07080c;
-    --ink: rgba(255,255,255,.92);
-    --muted: rgba(255,255,255,.74);
-
-    --surface: rgba(255,255,255,.06);
-    --surface2: rgba(255,255,255,.10);
-
-    --card: var(--surface);
-    --card2: var(--surface2);
-
-    --stroke: rgba(255,255,255,.14);
-    --shadow: 0 18px 70px rgba(0,0,0,.55);
-    --shadow2: 0 10px 30px rgba(0,0,0,.45);
-
-    --glass: rgba(255,255,255,.06);
-    --glass2: rgba(255,255,255,.10);
-
+    /* Toy palette (DARK) — a touch brighter for contrast */
     --dot-hi: #5b6073;
     --dot-lo: #0f1320;
     --dot-shadow: rgba(0,0,0,.55);
@@ -150,7 +61,7 @@
     --letty-lo: #ff9fcb;
     --letty-accent: #ff6fa9;
     --letty-eye: rgba(0,0,0,.70);
-  
+
     --bg1: rgba(140,120,255,.22);
     --bg2: rgba(80,220,255,.18);
     --bg3: rgba(255,120,180,.14);
@@ -305,6 +216,12 @@
       line-height: 1.55;
       max-width: 56ch;
     }
+    .heroNote{
+      margin: -10px 0 24px;
+      font-size: 14px;
+      color: rgba(255,255,255,.72);
+      max-width: 60ch;
+    }
 
     .heroGrid{
       display: grid;
@@ -438,6 +355,236 @@
     }
     .sectionTitle p{
       margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .aboutNote{
+      max-width: 72ch;
+      margin: 12px auto 0;
+      color: var(--muted);
+      font-size: 15px;
+      text-align: center;
+    }
+    .metricBlock{
+      max-width: 78ch;
+      margin: 18px auto 0;
+      padding: 20px 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(20,24,32,.12);
+      background:
+        radial-gradient(640px 240px at 10% -20%, rgba(91,91,232,.18), transparent 60%),
+        radial-gradient(520px 220px at 90% 120%, rgba(255,123,178,.14), transparent 60%),
+        var(--card2);
+      box-shadow: var(--shadow2);
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+    .metricBlock:before{
+      content:"";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,.10), transparent 40%);
+      pointer-events: none;
+    }
+    .metricHeader{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .metricBadge{
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      border: 1px solid rgba(20,24,32,.18);
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.65);
+      font-weight: 700;
+    }
+    .metricTitle{
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .metricText{
+      margin: 0;
+      color: var(--ink);
+      font-size: 15.5px;
+      line-height: 1.65;
+    }
+    .metricDiagram{
+      margin: 18px 0 20px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(8,10,16,.55);
+      padding: 18px;
+    }
+    .metricSvg{
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .metricPulse{
+      stroke-dasharray: 4 6;
+      animation: pulseDash 2.2s linear infinite;
+    }
+    .metricPulse.pulse-blue{
+      stroke: rgba(103,169,255,0.85);
+    }
+    .metricPulse.pulse-pink{
+      stroke: rgba(255,123,178,0.85);
+    }
+    .metricProto .metricProtoGoal{
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity .25s ease, transform .25s ease;
+    }
+    .metricProto:hover .metricProtoGoal,
+    .metricProto.is-active .metricProtoGoal{
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .metricProto .metricProtoLine{
+      opacity: 0;
+      transition: opacity .25s ease;
+    }
+    .metricProto:hover .metricProtoLine,
+    .metricProto.is-active .metricProtoLine{
+      opacity: 1;
+    }
+    @keyframes pulseDash{
+      0%{ stroke-dashoffset: 0; opacity: .35; }
+      50%{ opacity: .75; }
+      100%{ stroke-dashoffset: -20; opacity: .35; }
+    }
+    .metricHot{
+      cursor: pointer;
+    }
+    .metricHot.is-active rect,
+    .metricHot.is-active text,
+    .metricHot.is-active circle,
+    .metricHot.is-active line,
+    .metricHot.is-active path{
+      filter: drop-shadow(0 0 10px rgba(138,108,255,.55));
+      stroke: rgba(138,108,255,.9);
+    }
+    .metricNodeItem.is-impact rect,
+    .metricNodeItem.is-impact text{
+      filter: drop-shadow(0 0 12px rgba(103,169,255,.65));
+      stroke: rgba(103,169,255,.85);
+    }
+    .metricDetail{
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(15,18,26,.55);
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+    .metricLegend{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 14px;
+      margin-top: 14px;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+    .metricLegend strong{
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .goalNote{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(15,18,26,.55);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .goalDot{
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand2);
+      box-shadow: 0 0 12px rgba(138,108,255,.65);
+    }
+    .cardFocus{
+      border-color: rgba(138,108,255,.6);
+      box-shadow: 0 18px 50px rgba(138,108,255,.2);
+    }
+    @media (max-width: 760px){
+      .metricLegend{
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .originGrid{
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .originCard{
+      background: var(--card2);
+      border: 1px solid rgba(20,24,32,.08);
+      border-radius: var(--radius-xl);
+      padding: 22px;
+      box-shadow: var(--shadow2);
+    }
+    .originCard h3{
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+    }
+    .originCard p{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .originList{
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .originActions{
+      display: grid;
+      gap: 10px;
+    }
+    .statusCard{
+      margin-top: 18px;
+      background: var(--card2);
+      border: 1px solid rgba(20,24,32,.08);
+      border-radius: var(--radius-xl);
+      padding: 22px;
+      box-shadow: var(--shadow2);
+    }
+    .statusCard h3{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .statusCard p{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .statusList{
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
       color: var(--muted);
       font-size: 15px;
     }
@@ -617,6 +764,7 @@
       .feature:nth-child(2){ border-right: 0; }
       .feature:nth-child(1), .feature:nth-child(2){ border-bottom: 1px solid rgba(20,24,32,.06); }
       .cards{ grid-template-columns: 1fr; }
+      .originGrid{ grid-template-columns: 1fr; }
       .card{ grid-template-rows: 240px auto; }
       .modalBody{ grid-template-columns: 1fr; }
     }
@@ -633,9 +781,9 @@
     /* --- Theme + SVG refinements (added) --- */
     :root{
       --accent: var(--brand3);
-      --svg-ink: #0f1220;
-      --svg-ink2: #1b1f2a;
-      --svg-paper: #ffffff;
+      --svg-ink: rgba(255,255,255,.94);
+      --svg-ink2: rgba(255,255,255,.78);
+      --svg-paper: rgba(255,255,255,.94);
       --toy-shadow: drop-shadow(0 12px 22px rgba(20,24,32,.18));
     }
 
@@ -644,48 +792,9 @@
       border: 1px solid var(--stroke);
       color: var(--ink);
     }
-    .btn-ghost:hover{ background: rgba(255,255,255,.35); }
+    .btn-ghost:hover{ background: rgba(255,255,255,.10); }
 
-    /* Dark mode tokens (system preference) */
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg: #07080c;
-        --ink: rgba(255,255,255,.92);
-        --muted: rgba(255,255,255,.74);
-        --card: rgba(255,255,255,.06);
-        --card2: rgba(255,255,255,.10);
-        --stroke: rgba(255,255,255,.12);
-        --shadow: 0 22px 70px rgba(0,0,0,.55);
-        --shadow2: 0 12px 40px rgba(0,0,0,.45);
-        --svg-ink: rgba(255,255,255,.94);
-        --svg-ink2: rgba(255,255,255,.78);
-        --svg-paper: rgba(255,255,255,.94);
-      }
-      .btn-ghost:hover{ background: rgba(255,255,255,.10); }
-      .modal.modal-companion{
-        background:
-          linear-gradient(180deg, rgba(20,24,32,.92), rgba(12,15,22,.88)),
-          rgba(15,18,26,.90);
-      }
-    }
-
-    /* Manual overrides: set html[data-theme="dark|light"] */
-    html[data-theme="light"]{ color-scheme: light; }
-    html[data-theme="dark"]{
-      color-scheme: dark;
-      --bg: #07080c;
-      --ink: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.74);
-      --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.10);
-      --stroke: rgba(255,255,255,.12);
-      --shadow: 0 22px 70px rgba(0,0,0,.55);
-      --shadow2: 0 12px 40px rgba(0,0,0,.45);
-      --svg-ink: rgba(255,255,255,.94);
-      --svg-ink2: rgba(255,255,255,.78);
-      --svg-paper: rgba(255,255,255,.94);
-    }
-    html[data-theme="dark"] .modal.modal-companion{
+    .modal.modal-companion{
       background:
         linear-gradient(180deg, rgba(20,24,32,.92), rgba(12,15,22,.88)),
         rgba(15,18,26,.90);
@@ -729,68 +838,30 @@
     }
 
 
-  /* Make theme switching visually obvious */
-  @media (prefers-color-scheme: dark){
-    body{
-      background: radial-gradient(1200px 900px at 30% -10%, rgba(138,108,255,.14), transparent 60%),
-                  radial-gradient(900px 700px at 85% 10%, rgba(255,123,178,.10), transparent 65%),
-                  var(--bg);
-    }
-    header{
-      background: linear-gradient(to bottom, rgba(7,8,12,.82), rgba(7,8,12,.55));
-      border-bottom: 1px solid rgba(255,255,255,.10);
-    }
-    nav a:hover{ background: rgba(255,255,255,.08); color: var(--ink); }
-    .heroCard{ border-color: rgba(255,255,255,.12); }
-    .toyBadge{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.14); }
-    .features{
-      background: rgba(15,18,26,.72);
-      border-color: rgba(255,255,255,.12);
-    }
-    .ctaBanner{
-      background:
-        radial-gradient(900px 420px at 50% 0%, rgba(255,255,255,.06), transparent 60%),
-        linear-gradient(180deg, rgba(20,24,32,.55), rgba(12,15,22,.65)),
-        rgba(15,18,26,.72);
-      border-color: rgba(255,255,255,.12);
-    }
-    .icon{
-      background:
-        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.24), rgba(255,255,255,.10)),
-        rgba(255,255,255,.06);
-      border-color: rgba(255,255,255,.18);
-      color: rgba(255,255,255,.92);
-      box-shadow: 0 10px 22px rgba(0,0,0,.45);
-    }
-    .feature:nth-child(1), .feature:nth-child(2){ border-bottom-color: rgba(255,255,255,.10); }
-    .feature{ border-right-color: rgba(255,255,255,.10); }
-    .feature p{ color: var(--muted); }
-  }
-
-  html[data-theme="dark"] body{
+  body{
     background: radial-gradient(1200px 900px at 30% -10%, rgba(138,108,255,.14), transparent 60%),
                 radial-gradient(900px 700px at 85% 10%, rgba(255,123,178,.10), transparent 65%),
                 var(--bg);
   }
-  html[data-theme="dark"] header{
+  header{
     background: linear-gradient(to bottom, rgba(7,8,12,.82), rgba(7,8,12,.55));
     border-bottom: 1px solid rgba(255,255,255,.10);
   }
-  html[data-theme="dark"] nav a:hover{ background: rgba(255,255,255,.08); color: var(--ink); }
-  html[data-theme="dark"] .heroCard{ border-color: rgba(255,255,255,.12); }
-  html[data-theme="dark"] .toyBadge{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.14); }
-  html[data-theme="dark"] .features{
+  nav a:hover{ background: rgba(255,255,255,.08); color: var(--ink); }
+  .heroCard{ border-color: rgba(255,255,255,.12); }
+  .toyBadge{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.14); }
+  .features{
     background: rgba(15,18,26,.72);
     border-color: rgba(255,255,255,.12);
   }
-  html[data-theme="dark"] .ctaBanner{
+  .ctaBanner{
     background:
       radial-gradient(900px 420px at 50% 0%, rgba(255,255,255,.06), transparent 60%),
       linear-gradient(180deg, rgba(20,24,32,.55), rgba(12,15,22,.65)),
       rgba(15,18,26,.72);
     border-color: rgba(255,255,255,.12);
   }
-  html[data-theme="dark"] .icon{
+  .icon{
     background:
       radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.24), rgba(255,255,255,.10)),
       rgba(255,255,255,.06);
@@ -798,9 +869,9 @@
     color: rgba(255,255,255,.92);
     box-shadow: 0 10px 22px rgba(0,0,0,.45);
   }
-  html[data-theme="dark"] .feature:nth-child(1),
-  html[data-theme="dark"] .feature:nth-child(2){ border-bottom-color: rgba(255,255,255,.10); }
-  html[data-theme="dark"] .feature{ border-right-color: rgba(255,255,255,.10); }
+  .feature:nth-child(1), .feature:nth-child(2){ border-bottom-color: rgba(255,255,255,.10); }
+  .feature{ border-right-color: rgba(255,255,255,.10); }
+  .feature p{ color: var(--muted); }
 
   
     body::before{
@@ -840,21 +911,19 @@
       </a>
 
       <nav aria-label="Primary navigation">
-        <a href="pages/dot.html">dot</a>
-        <a href="pages/davie.html">davie</a>
-        <a href="pages/letty.html">letty</a>
-        <a href="pages/about.html">about</a>
-        <a href="pages/contact.html">contact</a>
+        <a href="#about">about</a>
+        <a href="#origin">origin</a>
+        <a href="#prototypes">prototypes</a>
+        <a href="pages/smtwaa/index.html">smtwaa</a>
+        <a href="#contact">contact</a>
       </nav>
 
       <div class="cta">
-        <button id="themeToggle" class="btn btn-ghost" type="button" aria-label="Toggle theme" title="Toggle theme">Theme</button>
         <button class="hamburger" id="menuBtn" aria-label="Open menu" title="Menu">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </button>
-        <button class="btn btn-primary" id="buyNowTop">BUY NOW</button>
       </div>
     </div>
   </header>
@@ -874,31 +943,33 @@
         <div class="heroInner">
           <div class="heroGrid">
             <div>
-              <h1>Interactive Emotional Companions</h1>
-              <p>Machine-intelligent toys that feel and connect with you. Portable, energy-efficient companions with emotive personalities designed for meaningful interactions and the ability to perform useful work.</p>
+              <h1>SMTWAA-Born Emotional Exploration</h1>
+              <p>From SMTWAA (Social and Mental Therapy with Artificial Animals), we build research companions that invite discovery—about self, society, and the meaning of emotions.</p>
+              <p class="heroNote">A proposal for huggable, animal-inspired companions as gentle mirrors for emotional life.</p>
               <div class="heroButtons">
                 <button class="btn btn-ghost" id="heroLearn">LEARN MORE</button>
+                <a class="btn btn-ghost" href="pages/smtwaa/index.html">SMTWAA</a>
               </div>
             </div>
 
-            <div class="toysRow" aria-label="Companion preview">
-              <div class="toyBadge" role="button" tabindex="0" data-open="dot" aria-label="Open Dot details">
+            <div class="toysRow" aria-label="Prototype preview">
+              <div class="toyBadge" role="button" tabindex="0" data-open="dot" aria-label="Open Dot prototype details">
                 <div class="ovalFrame ovalFrame--badge" style="--img: url('assets/dot.jpg');">
-                  <img src="assets/dot.jpg" alt="Dot companion" />
+                  <img src="assets/dot.jpg" alt="Dot prototype study" />
                 </div>
                 <div class="name">dot</div>
               </div>
 
-              <div class="toyBadge" role="button" tabindex="0" data-open="letty" aria-label="Open Letty details">
+              <div class="toyBadge" role="button" tabindex="0" data-open="letty" aria-label="Open Letty prototype details">
                 <div class="ovalFrame ovalFrame--badge" style="--img: url('assets/letty-09.jpg');">
-                  <img src="assets/letty-09.jpg" alt="Letty companion" />
+                  <img src="assets/letty-09.jpg" alt="Letty prototype study" />
                 </div>
                 <div class="name">letty</div>
               </div>
 
-              <div class="toyBadge" role="button" tabindex="0" data-open="davie" aria-label="Open Davie details">
+              <div class="toyBadge" role="button" tabindex="0" data-open="davie" aria-label="Open Davie prototype details">
                 <div class="ovalFrame ovalFrame--badge" style="--img: url('assets/davie.jpg');">
-                  <img src="assets/davie.jpg" alt="Davie companion" />
+                  <img src="assets/davie.jpg" alt="Davie prototype study" />
                 </div>
                 <div class="name">davie</div>
               </div>
@@ -919,8 +990,8 @@
               </svg>
             </div>
             <div>
-              <h3>Emotive Personalities</h3>
-              <p>They feel and express emotions in a way that supports attachment and engagement.</p>
+              <h3>Emotional Cues</h3>
+              <p>Studying how subtle expression builds comfort without overpromising intelligence.</p>
             </div>
           </div>
 
@@ -933,8 +1004,8 @@
               </svg>
             </div>
             <div>
-              <h3>Emotionally-Aware</h3>
-              <p>Responds to cues in tone and interaction patterns to adapt in real time.</p>
+              <h3>Multi-Modal Interaction</h3>
+              <p>Auditory, gestural, and analogue signals for a calm, low-friction loop.</p>
             </div>
           </div>
 
@@ -947,8 +1018,8 @@
               </svg>
             </div>
             <div>
-              <h3>Portable &amp; Adaptive</h3>
-              <p>Designed to go anywhere and grow with your routines and preferences.</p>
+              <h3>Long-Life Design</h3>
+              <p>Durable, repairable systems that prioritize resilience over cloud dependency.</p>
             </div>
           </div>
 
@@ -962,34 +1033,167 @@
               </svg>
             </div>
             <div>
-              <h3>Supportive Communication</h3>
-              <p>Encouraging interactions that aim to feel calm, present, and responsive.</p>
+              <h3>Trust &amp; Privacy</h3>
+              <p>Designed to feel safe: clear boundaries, minimal data, transparent behavior.</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      </div>
 
-    <!-- Meet our companions -->
-    <section id="companions">
+    <!-- About -->
+    <section id="about">
       <div class="wrap">
         <div class="sectionTitle">
-          <h2>Meet Our Companions</h2>
-          <p>Engaging, playful friends designed to connect.</p>
+          <h2>About</h2>
+          <p>An exploration into how synthetic companions can help us reflect on emotion, meaning, and social connection. This work builds on SMTWAA: Social and Mental Therapy with Artificial Animals.</p>
+        </div>
+        <div class="metricBlock">
+          <div class="metricHeader">
+            <span class="metricBadge">Primary Lens</span>
+            <h3 class="metricTitle">Kant–Schopenhauer Emotive Metric (KSEM)</h3>
+          </div>
+          <div class="metricDiagram" aria-hidden="true">
+            <svg class="metricSvg" viewBox="0 0 720 360" role="img" aria-label="KSEM visual diagram">
+              <defs>
+                <radialGradient id="ksem-core" cx="50%" cy="50%" r="60%">
+                  <stop offset="0%" stop-color="rgba(255,255,255,0.9)"/>
+                  <stop offset="60%" stop-color="rgba(138,108,255,0.35)"/>
+                  <stop offset="100%" stop-color="rgba(255,123,178,0.15)"/>
+                </radialGradient>
+                <radialGradient id="ksem-ring" cx="50%" cy="50%" r="60%">
+                  <stop offset="0%" stop-color="rgba(103,169,255,0.5)"/>
+                  <stop offset="100%" stop-color="rgba(255,123,178,0.35)"/>
+                </radialGradient>
+              </defs>
+
+              <circle cx="160" cy="180" r="90" fill="rgba(14,18,28,0.9)" stroke="rgba(103,169,255,0.7)" stroke-width="2"/>
+              <circle cx="560" cy="180" r="90" fill="rgba(14,18,28,0.9)" stroke="rgba(255,123,178,0.7)" stroke-width="2"/>
+
+              <circle cx="360" cy="225" r="92" fill="none" stroke="url(#ksem-ring)" stroke-width="10" opacity="0.9"/>
+              <circle cx="360" cy="225" r="70" fill="url(#ksem-core)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+
+              <line x1="250" y1="180" x2="285" y2="202" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+              <line x1="470" y1="180" x2="435" y2="202" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+
+              <text x="160" y="165" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="16" font-weight="700">Kant</text>
+              <text x="160" y="188" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">Autonomy</text>
+              <text x="160" y="206" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">Dignity / Intent</text>
+
+              <text x="560" y="165" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="16" font-weight="700">Schopenhauer</text>
+              <text x="560" y="188" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">Will</text>
+              <text x="560" y="206" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="12">Suffering / Relief</text>
+
+              <text x="360" y="220" text-anchor="middle" fill="rgba(255,255,255,0.95)" font-size="18" font-weight="800">KSEM</text>
+              <text x="360" y="243" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-size="12">Humane resonance</text>
+
+              <text x="360" y="356" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="12">AWCM is the shade: autonomy–will concordance</text>
+
+              <g class="metricHot metricNodeItem" data-focus="experience" data-node="experience">
+                <rect x="314" y="111" width="92" height="22" rx="11" fill="rgba(103,169,255,0.18)" stroke="rgba(103,169,255,0.55)" />
+                <text x="360" y="126" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600">Experience</text>
+              </g>
+              <g class="metricHot metricNodeItem" data-focus="feedback" data-node="feedback">
+                <rect x="474" y="104" width="92" height="22" rx="11" fill="rgba(255,123,178,0.18)" stroke="rgba(255,123,178,0.55)" />
+                <text x="520" y="119" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600">Feedback</text>
+              </g>
+              <g class="metricHot metricNodeItem" data-focus="reinforcement" data-node="reinforcement">
+                <rect x="456" y="224" width="128" height="22" rx="11" fill="rgba(255,123,178,0.18)" stroke="rgba(255,123,178,0.55)" />
+                <text x="520" y="239" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600">Reinforcement</text>
+              </g>
+              <g class="metricHot metricNodeItem" data-focus="reflection" data-node="reflection">
+                <rect x="312" y="317" width="96" height="22" rx="11" fill="rgba(103,169,255,0.18)" stroke="rgba(103,169,255,0.55)" />
+                <text x="360" y="332" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600">Reflection</text>
+              </g>
+              <path id="metricLoop" d="M235 222 C290 274, 430 274, 485 222" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-dasharray="4 6"/>
+              <g class="metricHot metricProto" data-focus="dot" data-card="dot">
+                <rect x="20" y="8" width="92" height="22" rx="11" fill="rgba(103,169,255,0.18)" stroke="rgba(103,169,255,0.55)" />
+                <text x="66" y="23" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600">dot</text>
+                <line class="metricProtoLine" x1="112" y1="19" x2="124" y2="19" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+                <text class="metricProtoGoal" x="132" y="30" text-anchor="start" fill="rgba(255,255,255,0.7)" font-size="11">attention cues</text>
+              </g>
+              <g class="metricHot metricProto" data-focus="letty" data-card="letty">
+                <rect x="20" y="32" width="92" height="22" rx="11" fill="rgba(103,169,255,0.18)" stroke="rgba(103,169,255,0.55)" />
+                <text x="66" y="47" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600">letty</text>
+                <line class="metricProtoLine" x1="112" y1="43" x2="124" y2="43" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+                <text class="metricProtoGoal" x="132" y="54" text-anchor="start" fill="rgba(255,255,255,0.7)" font-size="11">routine &amp; movement</text>
+              </g>
+              <g class="metricHot metricProto" data-focus="davie" data-card="davie">
+                <rect x="20" y="56" width="92" height="22" rx="11" fill="rgba(103,169,255,0.18)" stroke="rgba(103,169,255,0.55)" />
+                <text x="66" y="71" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600">davie</text>
+                <line class="metricProtoLine" x1="112" y1="67" x2="124" y2="67" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+                <text class="metricProtoGoal" x="132" y="78" text-anchor="start" fill="rgba(255,255,255,0.7)" font-size="11">comfort &amp; trust</text>
+              </g>
+              <g class="metricHot metricNodeItem" data-focus="iteration" data-node="iteration">
+                <rect x="156" y="104" width="88" height="22" rx="11" fill="rgba(103,169,255,0.18)" stroke="rgba(103,169,255,0.55)" />
+                <text x="200" y="119" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-size="11" font-weight="600">Iteration</text>
+              </g>
+            </svg>
+            <div class="metricLegend">
+              <div><strong>Kant</strong> emphasizes autonomy, dignity, and intent.</div>
+              <div><strong>Schopenhauer</strong> emphasizes will, suffering, and relief.</div>
+              <div><strong>KSEM</strong> evaluates humane resonance between both poles.</div>
+              <div><strong>AWCM</strong> shades the alignment of autonomy with will.</div>
+              <div><strong>Experience loop</strong> is shaped by feedback and reinforcement via dot, letty, and davie.</div>
+            </div>
+            <div class="metricDetail" id="metricDetail">Explore the diagram: hover or tap a label to reveal its role in the KSEM loop.</div>
+          </div>
+          <p class="metricText">KSEM is the primary lens, with the Autonomy–Will Concordance Metric (AWCM) as its shade. We ask whether interactions respect autonomy (Kant) while easing the pressures of will and suffering (Schopenhauer). It measures not efficiency but humane resonance—clarity of intent, dignity preserved, and reduction of needless distress.</p>
+        </div>
+      </div>
+    </section>
+
+      <section id="origin">
+        <div class="wrap">
+          <div class="sectionTitle">
+            <h2>Origin: SMTWAA Research</h2>
+            <p>Social and Mental Therapy with Artificial Animals — the research proposal behind this exploration.</p>
+          </div>
+          <div class="originGrid">
+            <div class="originCard">
+              <h3>What it proposes</h3>
+              <p>Exploring emotional interaction: studies in trust signals, reflective companionship, and what synthetic presence can teach us about ourselves.</p>
+              <ul class="originList">
+                <li>Huggable, animal-inspired forms that invite reflection.</li>
+                <li>Auditory, gestural, and analogue interaction for calm presence.</li>
+                <li>Emotive cues designed for trust, ease, and privacy-first use.</li>
+                <li>Self-programming behaviors without cloud dependency.</li>
+              </ul>
+            </div>
+
+            <div class="originCard">
+              <h3>Explore the deck</h3>
+              <p>Read the SMTWAA proposal and design rationale.</p>
+              <div class="originActions">
+                <a class="btn btn-primary btn-wide" href="pages/smtwaa/SMTWAA-deck.pdf" target="_blank" rel="noreferrer">VIEW DECK (PDF)</a>
+                <a class="btn btn-ghost btn-wide" href="pages/smtwaa/index.html">READ SMTWAA PAGE</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Prototype studies -->
+    <section id="prototypes">
+      <div class="wrap">
+        <div class="sectionTitle">
+          <h2>Prototype Studies</h2>
+          <p>Named companions presented as research artifacts for discovery about emotion, self, and society.</p>
         </div>
 
         <div class="cards">
           <article class="card" id="dot">
             <div class="cardMedia">
               <div class="ovalFrame ovalFrame--card" style="--img: url('assets/dot.jpg');">
-                <img src="assets/dot.jpg" alt="Dot companion" />
+                <img src="assets/dot.jpg" alt="Dot prototype study" />
               </div>
             </div>
             <div class="cardBody">
               <h3 class="cardName">dot</h3>
-              <p class="cardTag">The curious little robot.</p>
+              <p class="cardTag">Prototype A — desk-scale presence focused on attention cues and gentle reflection.</p>
+              <span class="goalNote"><span class="goalDot"></span>Goal: attention cues</span>
               <div class="cardActions">
-                <button class="btn btn-primary btn-wide" data-open="dot">BELIEVE</button>
+                <button class="btn btn-primary btn-wide" data-open="dot">READ NOTES</button>
               </div>
             </div>
           </article>
@@ -997,14 +1201,15 @@
           <article class="card" id="davie">
             <div class="cardMedia">
               <div class="ovalFrame ovalFrame--card" style="--img: url('assets/davie.jpg');">
-                <img src="assets/davie.jpg" alt="Davie companion" />
+                <img src="assets/davie.jpg" alt="Davie prototype study" />
               </div>
             </div>
             <div class="cardBody">
               <h3 class="cardName">davie</h3>
-              <p class="cardTag">The enhanced plush companion.</p>
+              <p class="cardTag">Prototype B — huggable format exploring trust signals and nonverbal comfort.</p>
+              <span class="goalNote"><span class="goalDot"></span>Goal: comfort &amp; trust</span>
               <div class="cardActions">
-                <button class="btn btn-primary btn-wide" data-open="davie">NEED</button>
+                <button class="btn btn-primary btn-wide" data-open="davie">READ NOTES</button>
               </div>
             </div>
           </article>
@@ -1012,50 +1217,51 @@
           <article class="card" id="letty">
             <div class="cardMedia">
               <div class="ovalFrame ovalFrame--card" style="--img: url('assets/letty-09.jpg');">
-                <img src="assets/letty-09.jpg" alt="Letty companion" />
+                <img src="assets/letty-09.jpg" alt="Letty prototype study" />
               </div>
             </div>
             <div class="cardBody">
               <h3 class="cardName">letty</h3>
-              <p class="cardTag">The robotic adaptive fawn.</p>
+              <p class="cardTag">Prototype C — mobile study focused on routines, prompts, and long-life resilience.</p>
+              <span class="goalNote"><span class="goalDot"></span>Goal: routine &amp; movement</span>
               <div class="cardActions">
-                <button class="btn btn-primary btn-wide" data-open="letty">UNDERSTAND</button>
+                <button class="btn btn-primary btn-wide" data-open="letty">READ NOTES</button>
               </div>
             </div>
           </article>
         </div>
-      </div>
-    </section>
 
-    <!-- About -->
-    <section id="about">
-      <div class="wrap">
-        <div class="sectionTitle">
-          <h2>About</h2>
-          <p>Companions designed for warmth, presence, and continuity.</p>
+        <div class="statusCard">
+          <h3>Current status &amp; limitations</h3>
+          <p>These are research prototypes. Behaviors are exploratory and intentionally limited.</p>
+          <ul class="statusList">
+            <li>No clinical claims or therapeutic guarantees.</li>
+            <li>Limited context awareness; designed for simple, calm interaction loops.</li>
+            <li>Privacy-first by design; minimal data retention.</li>
+            <li>Durability, safety, and long-life repair are ongoing research concerns.</li>
+          </ul>
         </div>
 
-        <div class="ctaBanner">
+        <div class="ctaBanner" style="margin-top:18px;">
           <div class="ctaInner">
-            <h3>Experience the Future of Interactive Machine Intelligence</h3>
-            <p>Bring home a companion that learns your patterns and responds with supportive and intuitive interactions.</p>
-            <button class="btn btn-primary btn-wide" id="buyNowBottom">ORDER NOW</button>
+            <h3>Follow the research</h3>
+            <p>We share field notes, prototype findings, and updates as the work evolves.</p>
+            <button class="btn btn-primary btn-wide" id="buyNowBottom">GET UPDATES</button>
           </div>
         </div>
       </div>
     </section>
 
+
     <!-- Contact -->
     <section id="contact">
       <div class="wrap">
-        <div class="sectionTitle">
-          <h2>Contact</h2>
-          <p>Questions, partnerships, or press inquiries.</p>
-        </div>
-
         <div class="ctaBanner">
           <div class="ctaInner">
-            <h3>Get in touch</h3>
+            <div class="sectionTitle">
+              <h2>Contact</h2>
+              <p>Questions, partnerships, or press inquiries.</p>
+            </div>
             <p>Email: <strong>toys@ratio.club</strong></p>
             <button class="btn btn-ghost btn-wide" id="copyEmail">COPY EMAIL</button>
           </div>
@@ -1067,8 +1273,8 @@
       <div class="wrap foot">
         <div>© 2016 - <span id="year"></span> cartheur. All rights reserved.</div>
         <div style="display:flex; gap:14px; flex-wrap:wrap;">
-          <a href="pages/about.html">About</a>
-          <a href="pages/contact.html">Contact</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
           <a href="#top">Back to top</a>
         </div>
       </div>
@@ -1076,10 +1282,10 @@
   </main>
 
   <!-- Modal -->
-  <div class="modalBackdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-label="Companion details">
+  <div class="modalBackdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-label="Prototype details">
     <div class="modal modal-companion">
       <div class="modalHead">
-        <strong id="modalTitle">Companion</strong>
+        <strong id="modalTitle">Prototype</strong>
         <button class="x" id="closeModal" aria-label="Close">X</button>
       </div>
       <div class="modalBody">
@@ -1088,7 +1294,7 @@
           <p id="modalCopy"></p>
           <div class="pillRow" id="modalPills"></div>
           <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-primary" id="modalBuy">ORDER NOW</button>
+            <button class="btn btn-primary" id="modalBuy">GET UPDATES</button>
             <button class="btn btn-ghost" id="modalClose2">CLOSE</button>
           </div>
         </div>
@@ -1105,12 +1311,12 @@
       </div>
       <div class="modalBody" style="grid-template-columns: 1fr;">
         <div style="display:grid; gap:10px;">
-          <a class="btn btn-ghost" href="pages/dot.html">dot</a>
-          <a class="btn btn-ghost" href="pages/davie.html">davie</a>
-          <a class="btn btn-ghost" href="pages/letty.html">letty</a>
-          <a class="btn btn-ghost" href="pages/about.html">about</a>
-          <a class="btn btn-ghost" href="pages/contact.html">contact</a>
-          <button class="btn btn-primary" id="menuBuy">ORDER NOW</button>
+          <a class="btn btn-ghost" href="#about">about</a>
+          <a class="btn btn-ghost" href="#origin">origin</a>
+          <a class="btn btn-ghost" href="#prototypes">prototypes</a>
+          <a class="btn btn-ghost" href="pages/smtwaa/index.html">smtwaa</a>
+          <a class="btn btn-ghost" href="#contact">contact</a>
+          <button class="btn btn-primary" id="menuBuy">GET UPDATES</button>
         </div>
       </div>
     </div>
@@ -1120,21 +1326,21 @@
     // Basic content model
     const COMPANIONS = {
       dot: {
-        title: "dot",
-        copy: "Dot is curious, observant, and responsive. Designed to feel like a small presence on your desk or shelf—ready to react to your attention and patterns.",
-        pills: ["Curious personality", "Expressive eyes", "Adaptive routines", "Calm presence"],
+        title: "dot (Prototype A)",
+        copy: "Desk-scale study focused on attention cues, low-intensity feedback, and reducing overstimulation.",
+        pills: ["Quiet presence", "Simple gestures", "Attention-aware", "Low stimulation"],
         art: document.querySelector('[data-open="dot"] .ovalFrame').outerHTML
       },
       davie: {
-        title: "davie",
-        copy: "Davie is your personal companion, built for highly-engaging and complex interactions--ideal for gentle emotional assurances throughout the day.",
-        pills: ["Enhanced companion", "Warm feedback", "Quick interactions", "Low-friction"],
+        title: "davie (Prototype B)",
+        copy: "Huggable form factor exploring trust signals, comfort rituals, and nonverbal reassurance.",
+        pills: ["Huggable shell", "Trust cues", "Soft feedback", "Privacy-first"],
         art: document.querySelector('[data-open="davie"] .ovalFrame').outerHTML
       },
       letty: {
-        title: "letty",
-        copy: "Letty is a robotic fawn with a gentle, affectionate presence - mobile and strong.",
-        pills: ["Work ethic", "Affectionate", "Gentle prompts", "Soft aesthetic"],
+        title: "letty (Prototype C)",
+        copy: "Mobile study for routine support, gentle prompts, and long-life resilience.",
+        pills: ["Mobile", "Routine support", "Durable build", "Long-life values"],
         art: document.querySelector('[data-open="letty"] .ovalFrame').outerHTML
       }
     };
@@ -1223,9 +1429,8 @@
 
     // ORDER NOW (demo)
     function buyNow(){
-      alert("When the product is ready for ordering, this button will be active.");
+      alert("We will share updates as the research progresses.");
     }
-    $("#buyNowTop").addEventListener("click", buyNow);
     const heroBuy = $("#heroBuy");
     if(heroBuy){
       heroBuy.addEventListener("click", buyNow);
@@ -1235,7 +1440,7 @@
 
     // Learn more scroll
     $("#heroLearn").addEventListener("click", () => {
-      $("#companions").scrollIntoView({ behavior: "smooth", block: "start" });
+      $("#prototypes").scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     // Copy email
@@ -1266,41 +1471,88 @@
 
     // Year
     $("#year").textContent = new Date().getFullYear();
-  
-    // Theme: system by default, toggle cycles light/dark, right-click resets to system.
-    (function(){
-      const root = document.documentElement;
-      const btn = document.getElementById("themeToggle");
-      if(!btn) return;
 
-      const key = "et_theme";
-      const apply = (mode) => {
-        if(mode === "system"){
-          root.removeAttribute("data-theme");
-          btn.textContent = "Theme";
-          return;
-        }
-        root.setAttribute("data-theme", mode);
-        btn.textContent = mode === "dark" ? "☀︎" : "☾";
+    // KSEM diagram interactivity
+    (function(){
+      const detail = document.getElementById("metricDetail");
+      const nodes = Array.from(document.querySelectorAll(".metricHot"));
+      const impactNodes = Array.from(document.querySelectorAll(".metricNodeItem"));
+      const loop = document.getElementById("metricLoop");
+      if(!detail || !nodes.length) return;
+
+      const copy = {
+        experience: { text: "Experience: the lived moment of interaction and feeling.", tone: "blue" },
+        feedback: { text: "Feedback: the companion’s response shapes interpretation and meaning.", tone: "pink" },
+        reinforcement: { text: "Reinforcement: patterns stabilize through repetition and reward.", tone: "pink" },
+        reflection: { text: "Reflection: the user re-reads the experience and updates their sense of self.", tone: "blue" },
+        iteration: { text: "Iteration: refinement of behaviors and signals over time.", tone: "blue" },
+        dot: { text: "dot: attention cues and gentle reflection at desk-scale. It draws the loop from Experience into Feedback, then returns through Reflection.", tone: "blue" },
+        letty: { text: "letty: routine and movement support with low-friction prompts. It shapes Iteration into Reinforcement, then steadies Reflection.", tone: "blue" },
+        davie: { text: "davie: comfort and trust signals in a huggable form. It deepens Feedback into Reinforcement and eases the return to Reflection.", tone: "pink" }
+      };
+      const impacts = {
+        dot: ["experience", "feedback", "reflection"],
+        letty: ["iteration", "reinforcement", "reflection"],
+        davie: ["feedback", "reinforcement", "reflection"]
       };
 
-      const stored = localStorage.getItem(key) || "system";
-      apply(stored);
+      let pinned = null;
 
-      btn.addEventListener("click", () => {
-        const current = localStorage.getItem(key) || "system";
-        const next = current === "dark" ? "light" : "dark";
-        localStorage.setItem(key, next);
-        apply(next);
+      function clearActive(){
+        nodes.forEach(n => n.classList.remove("is-active"));
+        document.querySelectorAll(".cardFocus").forEach(c => c.classList.remove("cardFocus"));
+        impactNodes.forEach(n => n.classList.remove("is-impact"));
+        if(loop) loop.classList.remove("metricPulse");
+        if(loop) loop.classList.remove("pulse-blue", "pulse-pink");
+      }
+
+      function activate(key){
+        clearActive();
+        const node = nodes.find(n => n.dataset.focus === key);
+        if(node) node.classList.add("is-active");
+        const info = copy[key];
+        detail.textContent = info ? info.text : "Explore the diagram: hover or tap a label to reveal its role in the KSEM loop.";
+        const impactList = impacts[key] || [];
+        impactList.forEach(name => {
+          const target = impactNodes.find(n => n.dataset.node === name);
+          if(target) target.classList.add("is-impact");
+        });
+        const cardId = node && node.dataset.card;
+        if(cardId){
+          const card = document.getElementById(cardId);
+          if(card) card.classList.add("cardFocus");
+        }
+        if(loop && key){
+          loop.classList.add("metricPulse");
+          if(info && info.tone === "blue") loop.classList.add("pulse-blue");
+          if(info && info.tone === "pink") loop.classList.add("pulse-pink");
+        }
+      }
+
+      nodes.forEach(node => {
+        const key = node.dataset.focus;
+        node.addEventListener("mouseenter", () => { if(!pinned) activate(key); });
+        node.addEventListener("mouseleave", () => { if(!pinned) activate(""); });
+        node.addEventListener("click", () => {
+          pinned = pinned === key ? null : key;
+          if(pinned) activate(pinned);
+          else activate("");
+        });
+        node.setAttribute("role", "button");
+        node.setAttribute("tabindex", "0");
+        node.addEventListener("keydown", (e) => {
+          if(e.key === "Enter" || e.key === " "){
+            e.preventDefault();
+            pinned = pinned === key ? null : key;
+            if(pinned) activate(pinned);
+            else activate("");
+          }
+        });
       });
 
-      btn.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-        localStorage.setItem(key, "system");
-        apply("system");
-      });
+      activate("");
     })();
-
+  
   </script>
 </body>
 </html>
