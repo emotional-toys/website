@@ -276,9 +276,12 @@
 
     .heroGrid{
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
       gap: 22px;
       align-items: center;
+    }
+    .heroGrid > *{
+      min-width: 0;
     }
 
     .heroButtons{
@@ -289,12 +292,14 @@
 
     .toysRow{
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
       margin-top: 14px;
       position: relative;
       left: clamp(-118px, -10vw, -44px);
       top: 20px;
+      width: min(100%, 460px);
+      max-width: 100%;
     }
 
     .toyBadge{
@@ -307,6 +312,7 @@
       text-align: center;
       display: grid;
       place-items: center;
+      min-width: 0;
     }
     .toyBadge .name{
       margin-top: 10px;
@@ -923,8 +929,8 @@
       --oval-pad-x: 18px;
     }
     .ovalFrame--badge{
-      --oval-w: 112px;
-      --oval-h: 112px;
+      --oval-w: clamp(80px, 8vw, 112px);
+      --oval-h: clamp(80px, 8vw, 112px);
     }
 
 
