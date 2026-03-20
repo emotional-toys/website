@@ -289,6 +289,11 @@
       gap: 12px;
       flex-wrap: wrap;
     }
+    .narrationStatus{
+      font-size: 12px;
+      color: var(--muted);
+      align-self: center;
+    }
 
     .toysRow{
       display: grid;
@@ -1050,7 +1055,9 @@
               <p>From SMTWAA (Social and Mental Therapy with Artificial Animals), we build research companions that invite discovery—about self, society, and the meaning of emotions.</p>
               <p class="heroNote">A proposal for huggable, animal-inspired companions as gentle mirrors for emotional life.</p>
               <div class="heroButtons">
+                <button class="btn btn-primary" id="narrationToggle" aria-pressed="false">PLAY NARRATION</button>
                 <button class="btn btn-ghost" id="heroLearn">LEARN MORE</button>
+                <span class="narrationStatus" id="narrationStatus">Loop-ready voice track</span>
               </div>
             </div>
 
@@ -1382,6 +1389,10 @@
     </footer>
   </main>
 
+  <audio id="mythNarration" loop preload="auto">
+    <source src="assets/myth-henry-aeonvoice.wav" type="audio/wav" />
+  </audio>
+
   <!-- Modal -->
   <div class="modalBackdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-label="Prototype details">
     <div class="modal modal-companion">
@@ -1448,6 +1459,64 @@
     // Helpers
     const $ = (sel) => document.querySelector(sel);
     const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+    // Looping narration
+    const narrationAudio = $("#mythNarration");
+    const narrationToggle = $("#narrationToggle");
+    const narrationStatus = $("#narrationStatus");
+    let narrationPrimed = false;
+
+    function setNarrationUi(isPlaying){
+      if(!narrationToggle) return;
+      narrationToggle.textContent = isPlaying ? "PAUSE NARRATION" : "PLAY NARRATION";
+      narrationToggle.setAttribute("aria-pressed", String(isPlaying));
+      if(narrationStatus){
+        narrationStatus.textContent = isPlaying
+          ? "Narration looping"
+          : "Loop-ready voice track";
+      }
+    }
+
+    async function tryStartNarration(){
+      if(!narrationAudio) return;
+      try{
+        await narrationAudio.play();
+        setNarrationUi(true);
+      }catch{
+        if(narrationStatus){
+          narrationStatus.textContent = "Tap play to start narration";
+        }
+      }
+    }
+
+    if(narrationAudio && narrationToggle){
+      narrationToggle.addEventListener("click", async () => {
+        if(narrationAudio.paused){
+          await tryStartNarration();
+          return;
+        }
+        narrationAudio.pause();
+        setNarrationUi(false);
+      });
+
+      narrationAudio.addEventListener("ended", () => setNarrationUi(true));
+      narrationAudio.addEventListener("pause", () => setNarrationUi(false));
+      narrationAudio.addEventListener("play", () => setNarrationUi(true));
+      narrationAudio.addEventListener("error", () => {
+        if(narrationStatus){
+          narrationStatus.textContent = "Narration file missing";
+        }
+      });
+
+      // Browsers require a gesture before starting unmuted audio.
+      ["click", "keydown", "touchstart"].forEach((evt) => {
+        document.addEventListener(evt, async () => {
+          if(narrationPrimed) return;
+          narrationPrimed = true;
+          await tryStartNarration();
+        }, { once: true });
+      });
+    }
 
     // Smooth scroll for anchor clicks
     $$('a[href^="#"]').forEach(a => {
