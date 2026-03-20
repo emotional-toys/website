@@ -1,4 +1,4 @@
-Website for `emotional.toys`.
+Website for `Supertoys` (`emotional.toys`).
 
 ## Story Narration Workflow (For Next Agent)
 
