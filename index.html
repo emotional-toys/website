@@ -4,16 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark" />
-  <title>Emotional Toys - Interactive Intuitive Companions</title>
+  <title>Supertoys - Interactive Intuitive Companions</title>
   <meta name="description" content="Explorations in emotional companionship: research prototypes that invite discovery about self, society, and the meaning of emotions." />
+  <meta name="keywords" content="Supertoys, AI toys, intelligent toys, NuGet, AeonVoice, AeonVoice.Native, Supertoys.PocketSphinx, Aeon.Supertoy.Tools, Cartheur, free tools, toy companions" />
   <link rel="canonical" href="https://emotional.toys/" />
-  <meta property="og:title" content="Emotional Toys - Interactive Intuitive Companions" />
+  <meta property="og:title" content="Supertoys - Interactive Intuitive Companions" />
   <meta property="og:description" content="Explorations in emotional companionship: research prototypes that invite discovery about self, society, and the meaning of emotions." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://emotional.toys/" />
   <meta property="og:image" content="https://emotional.toys/assets/toys.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Emotional Toys - Interactive Intuitive Companions" />
+  <meta name="twitter:title" content="Supertoys - Interactive Intuitive Companions" />
   <meta name="twitter:description" content="Explorations in emotional companionship: research prototypes that invite discovery about self, society, and the meaning of emotions." />
   <meta name="twitter:image" content="https://emotional.toys/assets/toys.png" />
   <link rel="icon" href="assets/toys.ico" sizes="any" />
@@ -21,7 +22,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Emotional Toys",
+    "name": "Supertoys",
     "url": "https://emotional.toys/",
     "description": "Explorations in emotional companionship: research prototypes that invite discovery about self, society, and the meaning of emotions.",
     "publisher": {
@@ -29,6 +30,39 @@
       "name": "cartheur",
       "url": "https://cartheur.com/"
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Supertoys AI Developer Tools",
+    "itemListElement": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "AeonVoice",
+        "applicationCategory": "DeveloperApplication",
+        "url": "https://www.nuget.org/packages/AeonVoice"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "AeonVoice.Native",
+        "applicationCategory": "DeveloperApplication",
+        "url": "https://www.nuget.org/packages/AeonVoice.Native"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Supertoys.PocketSphinx",
+        "applicationCategory": "DeveloperApplication",
+        "url": "https://www.nuget.org/packages/Supertoys.PocketSphinx"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "AEON Supertoy Tools",
+        "applicationCategory": "DeveloperApplication",
+        "url": "https://marketplace.visualstudio.com/items?itemName=cartheur.aeon-supertoy-tools"
+      }
+    ]
   }
   </script>
 
@@ -673,6 +707,51 @@
       color: var(--muted);
       font-size: 15px;
     }
+    .productGrid{
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .productCard{
+      background: var(--card2);
+      border: 1px solid rgba(20,24,32,.08);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      box-shadow: var(--shadow2);
+      text-align: left;
+    }
+    .productCard h4{
+      margin: 0 0 6px;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+    .productCard p{
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .productCard a{
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .tagRow{
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .tag{
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.08);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      color: var(--ink);
+      letter-spacing: .01em;
+    }
 
     /* Cards */
     .cards{
@@ -860,6 +939,7 @@
       .feature:nth-child(2){ border-right: 0; }
       .feature:nth-child(1), .feature:nth-child(2){ border-bottom: 1px solid rgba(20,24,32,.06); }
       .cards{ grid-template-columns: 1fr; }
+      .productGrid{ grid-template-columns: 1fr; }
       .originGrid{ grid-template-columns: 1fr; }
       .card{ grid-template-rows: 240px auto; }
       .modalBody{ grid-template-columns: 1fr; }
@@ -1013,9 +1093,9 @@
   <!-- BUILD: v4 unique-svg-ids + visible-theming -->
   <header>
     <div class="wrap topbar">
-      <a class="brand" href="/" aria-label="Emotional Toys Home">
+      <a class="brand" href="/" aria-label="Supertoys Home">
         <div class="mark" aria-hidden="true"></div>
-        <span>emotional toys</span>
+        <span>supertoys</span>
       </a>
 
       <nav aria-label="Primary navigation">
@@ -1357,6 +1437,45 @@
             <h3>Follow the research</h3>
             <p>We share field notes, prototype findings, and updates as the work evolves.</p>
             <a class="btn btn-primary btn-wide" href="https://github.com/emotional-toys" target="_blank" rel="noreferrer">GET UPDATES</a>
+          </div>
+        </div>
+
+        <div class="ctaBanner" id="supertoys-tools" style="margin-top:18px;">
+          <div class="ctaInner">
+            <h3>Supertoys AI Tools &amp; Free Goodies</h3>
+            <p>We publish free developer tools that bring new life to ordinary toys, prototypes, and playful devices.</p>
+            <div class="productGrid">
+              <article class="productCard">
+                <h4>AeonVoice (NuGet)</h4>
+                <p>.NET speech synthesis for Supertoys-enhanced devices.</p>
+                <a href="https://www.nuget.org/packages/AeonVoice" target="_blank" rel="noreferrer">View package</a>
+              </article>
+              <article class="productCard">
+                <h4>AeonVoice.Native (NuGet)</h4>
+                <p>Native runtime assets used by AeonVoice.</p>
+                <a href="https://www.nuget.org/packages/AeonVoice.Native" target="_blank" rel="noreferrer">View package</a>
+              </article>
+              <article class="productCard">
+                <h4>Supertoys.PocketSphinx (NuGet)</h4>
+                <p>Speech recognition components for embedded toy interaction.</p>
+                <a href="https://www.nuget.org/packages/Supertoys.PocketSphinx" target="_blank" rel="noreferrer">View package</a>
+              </article>
+              <article class="productCard">
+                <h4>AEON Supertoy Tools (VS Code)</h4>
+                <p>VS Code extension for AEON authoring and tooling.<br>Install ID: <code>Cartheur.aeon-supertoy-tools</code></p>
+                <a href="https://marketplace.visualstudio.com/items?itemName=cartheur.aeon-supertoy-tools" target="_blank" rel="noreferrer">View extension</a>
+              </article>
+            </div>
+            <div class="tagRow" aria-label="AI tags">
+              <span class="tag">#Supertoys</span>
+              <span class="tag">#AIToys</span>
+              <span class="tag">#NuGet</span>
+              <span class="tag">#AeonVoice</span>
+              <span class="tag">#AeonVoiceNative</span>
+              <span class="tag">#PocketSphinx</span>
+              <span class="tag">#VSCodeExtension</span>
+              <span class="tag">#FreeTools</span>
+            </div>
           </div>
         </div>
       </div>
