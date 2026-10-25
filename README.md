@@ -6,7 +6,7 @@ The site includes a local AeonVoice-based synthesizer for story narration audio.
 
 - Story input (default): `docs/myth-henry-the-supertoy`
 - Narration output (default): `assets/myth-henry-aeonvoice.wav`
-- Website playback integration: `index.html` (`#mythNarration`, loop enabled)
+- Website playback integration: `index.html` (the Stories section; native controls, no automatic playback)
 - Synthesizer project: `synthesizer/story-audio-synth`
 - Regeneration script: `scripts/synthesize-story-audio.sh`
 
@@ -46,3 +46,8 @@ VOICE_PROFILE=Leena make story-audio-default
 - The synthesizer depends on `AeonVoice` and `AeonVoice.Native` NuGet packages.
 - Native libraries are copied by `synthesizer/story-audio-synth/AeonVoiceSynth.csproj`.
 - If narration fails to load on site, first verify the output WAV exists at the expected path and then reload the page.
+
+## Published Stories
+
+- `stories/star-mouse/The Star Mouse - AeonVoice.mp3` is featured as *The Star Mouse*.
+- `assets/myth-henry-aeonvoice.wav` is featured as *Toptygin*.
