@@ -1,0 +1,18 @@
+# Supertoys
+
+> Supertoys explores emotional companionship through research prototypes and self-produced audio stories.
+
+## Main page
+
+- [Supertoys](https://emotional.toys/): Research companions, prototype studies, free developer tools, and stories.
+
+## Audio stories
+
+- [The Star Mouse](https://emotional.toys/#stories): A 48-minute audio story by Fredric Brown, presented by Supertoys. Audio: [MP3](https://emotional.toys/stories/star-mouse/The%20Star%20Mouse%20-%20AeonVoice.mp3).
+- [Toptygin](https://emotional.toys/#stories): A short Supertoys narration produced with [AeonVoice](https://github.com/cartheur-voice/aeon-voice). Audio: [WAV](https://emotional.toys/assets/myth-henry-aeonvoice.wav).
+
+## Context
+
+- The work includes exploratory, animal-inspired research companions: dot, letty, and pavie.
+- These are research prototypes; the site makes no clinical claims or therapeutic guarantees.
+- Contact: [toys@ratio.club](mailto:toys@ratio.club)

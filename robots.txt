@@ -1,3 +1,4 @@
+# Public site content, including its stories, may be crawled and indexed.
 User-agent: *
 Allow: /
 
