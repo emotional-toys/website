@@ -75,7 +75,8 @@ VOICE_PROFILE=Leena make story-audio-default
 - `stories/star-mouse/The Star Mouse - AeonVoice.mp3` — *The Star Mouse*
 - `stories/star-mouse/star-mouse.jpg` — story cover artwork
 - `stories/henry/henry-guardian-night.png` — story cover artwork
-- `stories/henry/Henry - AeonVoice.wav` — mastered web playback for *The Myth of Henry the Supertoy*
+- `stories/henry/Henry - AeonVoice.wav` — mastered narration source
+- `stories/henry/Henry - AeonVoice Prelude.wav` — web playback master, with the voiced title followed by a seven-second atmosphere prelude
 
 ### Maintenance notes
 
