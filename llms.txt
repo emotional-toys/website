@@ -9,7 +9,7 @@
 ## Audio stories
 
 - [The Star Mouse](https://emotional.toys/#stories): A 48-minute audio story by Fredric Brown, presented by Supertoys. Audio: [MP3](https://emotional.toys/stories/star-mouse/The%20Star%20Mouse%20-%20AeonVoice.mp3).
-- [Toptygin](https://emotional.toys/#stories): A short Supertoys narration produced with [AeonVoice](https://github.com/cartheur-voice/aeon-voice). Audio: [WAV](https://emotional.toys/assets/myth-henry-aeonvoice.wav).
+- [The Myth of Henry the Supertoy](https://emotional.toys/#stories): A short Supertoys narration about Henry, a Supertoy bear, produced with [AeonVoice](https://github.com/cartheur-voice/aeon-voice). Audio: [WAV](https://emotional.toys/stories/henry/Henry%20-%20AeonVoice.wav).
 
 ## Context
 

@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>Cadencer</AssemblyName>
+    <RootNamespace>Cadencer</RootNamespace>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- The story tool deliberately follows the checked-out AeonVoice source, not a published package. -->
+    <AeonVoiceSourceRoot Condition="'$(AeonVoiceSourceRoot)' == ''">$(MSBuildThisFileDirectory)../../../../voice/aeon-voice/</AeonVoiceSourceRoot>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(AeonVoiceSourceRoot)dotnet/AeonVoice/AeonVoice.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AeonVoiceNativeLibs Include="$(AeonVoiceSourceRoot)build/linux/lib/libAeonVoice.so*" />
+    <AeonVoiceNativeLibs Include="$(AeonVoiceSourceRoot)build/linux/core/libAeonVoice_core.so*" />
+    <AeonVoiceNativeLibs Include="$(AeonVoiceSourceRoot)build/linux/audio/libAeonVoice_audio.so*" />
+    <AeonVoiceLanguageResources Include="$(AeonVoiceSourceRoot)data/languages/English/**/*" />
+    <AeonVoiceVoiceResources Include="$(AeonVoiceSourceRoot)data/voices/leena/**/*" />
+    <AeonVoiceConfig Include="$(AeonVoiceSourceRoot)config/AeonVoice.conf" />
+    <AeonVoiceDictionaryResources Include="$(AeonVoiceSourceRoot)config/dicts/english/**/*" />
+  </ItemGroup>
+
+  <Target Name="ValidateAeonVoiceSource" BeforeTargets="Build">
+    <Error Condition="!Exists('$(AeonVoiceSourceRoot)dotnet/AeonVoice/AeonVoice.csproj')"
+           Text="AeonVoice source was not found at $(AeonVoiceSourceRoot). Set /p:AeonVoiceSourceRoot to the aeon-voice checkout." />
+    <Error Condition="!Exists('$(AeonVoiceSourceRoot)build/linux/lib/libAeonVoice.so')"
+           Text="AeonVoice native libraries are missing. Build the Linux runtime in $(AeonVoiceSourceRoot) before running story synthesis." />
+  </Target>
+
+  <Target Name="CopyAeonVoiceRuntime" AfterTargets="Build">
+    <Copy SourceFiles="@(AeonVoiceNativeLibs)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(AeonVoiceLanguageResources)"
+          DestinationFiles="@(AeonVoiceLanguageResources->'$(OutDir)aeonvoice/data/languages/English/%(RecursiveDir)%(Filename)%(Extension)')"
+          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(AeonVoiceVoiceResources)"
+          DestinationFiles="@(AeonVoiceVoiceResources->'$(OutDir)aeonvoice/data/voices/leena/%(RecursiveDir)%(Filename)%(Extension)')"
+          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(AeonVoiceConfig)"
+          DestinationFiles="@(AeonVoiceConfig->'$(OutDir)aeonvoice/config/%(Filename)%(Extension)')"
+          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(AeonVoiceDictionaryResources)"
+          DestinationFiles="@(AeonVoiceDictionaryResources->'$(OutDir)aeonvoice/config/dicts/english/%(RecursiveDir)%(Filename)%(Extension)')"
+          SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

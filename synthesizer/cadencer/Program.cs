@@ -1,11 +1,10 @@
-using System.Buffers.Binary;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using AeonVoice;
 
 var repoRoot = FindRepoRoot(Directory.GetCurrentDirectory());
 var defaultInput = Path.Combine(repoRoot, "docs", "myth-henry-the-supertoy");
-var defaultOutput = Path.Combine(repoRoot, "assets", "myth-henry-aeonvoice.wav");
+var defaultOutput = Path.Combine(repoRoot, "stories", "henry", "Henry - AeonVoice.wav");
 
 string inputPath = defaultInput;
 string outputPath = defaultOutput;
@@ -55,9 +54,9 @@ try
     PreloadAeonVoiceNativeLibraries();
     using var engine = new AeonVoiceEngine();
     SynthesisResult result = cadenceMode.Equals("raw", StringComparison.OrdinalIgnoreCase)
-        ? engine.SynthesizeToPcm16(text, voiceProfile)
+        ? engine.SynthesizeToPcm16(PrepareForNarration(text), voiceProfile)
         : SynthesizeWithCadence(engine, text, voiceProfile);
-    WriteWav(outputPath, result.SampleRate, result.Samples);
+    result.WriteWave(outputPath);
 
     Console.WriteLine($"Synthesized narration: {outputPath}");
     Console.WriteLine($"SampleRate: {result.SampleRate} Hz, Samples: {result.Samples.Length}");
@@ -94,8 +93,8 @@ static void PreloadAeonVoiceNativeLibraries()
 
 static void PrintUsage(string defaultInput, string defaultOutput)
 {
-    Console.WriteLine("AeonVoiceSynth usage:");
-    Console.WriteLine("  dotnet run --project synthesizer/story-audio-synth -- [--input <path>] [--output <path>] [--voice <profile>] [--cadence adaptive|raw]");
+    Console.WriteLine("Cadencer usage:");
+    Console.WriteLine("  dotnet run --project synthesizer/cadencer -- [--input <path>] [--output <path>] [--voice <profile>] [--cadence adaptive|raw]");
     Console.WriteLine($"  Default input:  {defaultInput}");
     Console.WriteLine($"  Default output: {defaultOutput}");
     Console.WriteLine("  Default voice:  Leena");
@@ -121,38 +120,6 @@ static string FindRepoRoot(string start)
     return start;
 }
 
-static void WriteWav(string outputPath, int sampleRate, short[] samples)
-{
-    var sampleBytes = samples.Length * sizeof(short);
-    var totalSize = 44 + sampleBytes;
-
-    using var fs = new FileStream(outputPath, FileMode.Create, FileAccess.Write, FileShare.None);
-    using var bw = new BinaryWriter(fs);
-
-    bw.Write("RIFF"u8.ToArray());
-    bw.Write(totalSize - 8);
-    bw.Write("WAVE"u8.ToArray());
-
-    bw.Write("fmt "u8.ToArray());
-    bw.Write(16);
-    bw.Write((short)1);
-    bw.Write((short)1);
-    bw.Write(sampleRate);
-    bw.Write(sampleRate * sizeof(short));
-    bw.Write((short)sizeof(short));
-    bw.Write((short)16);
-
-    bw.Write("data"u8.ToArray());
-    bw.Write(sampleBytes);
-
-    Span<byte> buffer = stackalloc byte[sampleBytes];
-    for (int i = 0; i < samples.Length; i++)
-    {
-        BinaryPrimitives.WriteInt16LittleEndian(buffer[(i * 2)..], samples[i]);
-    }
-    bw.Write(buffer);
-}
-
 static SynthesisResult SynthesizeWithCadence(AeonVoiceEngine engine, string text, string voiceProfile)
 {
     var segments = BuildCadenceSegments(text);
@@ -163,7 +130,7 @@ static SynthesisResult SynthesizeWithCadence(AeonVoiceEngine engine, string text
     {
         if (!string.IsNullOrWhiteSpace(segment.Text))
         {
-            var partial = engine.SynthesizeToPcm16(segment.Text, voiceProfile);
+            var partial = engine.SynthesizeToPcm16(PrepareForNarration(segment.Text), voiceProfile);
             if (sampleRate == 0)
             {
                 sampleRate = partial.SampleRate;
@@ -243,6 +210,14 @@ static int CalculatePauseMs(string sentence)
     };
 
     return basePause + lengthBoost;
+}
+
+static string PrepareForNarration(string text)
+{
+    // Keep the Supertoys brand intact in authored text while giving the voice
+    // engine an unambiguous spoken form. Some voices can otherwise soften the
+    // /t/ in "Supertoy" toward "Superboy".
+    return Regex.Replace(text, @"\bSupertoy\b", "Super toy", RegexOptions.IgnoreCase);
 }
 
 internal sealed record CadenceSegment(string Text, int PauseMs);

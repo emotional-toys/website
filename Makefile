@@ -1,5 +1,5 @@
 STORY ?= docs/myth-henry-the-supertoy
-OUTPUT ?= assets/myth-henry-aeonvoice.wav
+OUTPUT ?= stories/henry/Henry - AeonVoice.wav
 CADENCE ?= adaptive
 VOICE_PROFILE ?= Leena
 

@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark" />
   <title>Supertoys - Interactive Intuitive Companions</title>
-  <meta name="description" content="Supertoys explores emotional companionship through research prototypes and self-produced audio stories, including The Star Mouse and Toptygin." />
-  <meta name="keywords" content="Supertoys, AI toys, intelligent toys, audio stories, The Star Mouse, Toptygin, AeonVoice, AeonVoice.Native, Supertoys.PocketSphinx, Aeon.Supertoy.Tools, Cartheur, free tools, toy companions" />
+  <meta name="description" content="Supertoys explores emotional companionship through research prototypes and self-produced audio stories, including The Star Mouse and The Myth of Henry the Supertoy." />
+  <meta name="keywords" content="Supertoys, AI toys, intelligent toys, audio stories, The Star Mouse, Henry the Supertoy, AeonVoice, AeonVoice.Native, Supertoys.PocketSphinx, Aeon.Supertoy.Tools, Cartheur, free tools, toy companions" />
   <link rel="canonical" href="https://emotional.toys/" />
   <meta property="og:title" content="Supertoys - Interactive Intuitive Companions" />
-  <meta property="og:description" content="Research companions and self-produced audio stories for reflection, including The Star Mouse and Toptygin." />
+  <meta property="og:description" content="Research companions and self-produced audio stories for reflection, including The Star Mouse and The Myth of Henry the Supertoy." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://emotional.toys/" />
   <meta property="og:image" content="https://emotional.toys/assets/toys.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Supertoys - Interactive Intuitive Companions" />
-  <meta name="twitter:description" content="Research companions and self-produced audio stories for reflection, including The Star Mouse and Toptygin." />
+  <meta name="twitter:description" content="Research companions and self-produced audio stories for reflection, including The Star Mouse and The Myth of Henry the Supertoy." />
   <meta name="twitter:image" content="https://emotional.toys/assets/toys.png" />
   <link rel="icon" href="assets/toys.ico" sizes="any" />
   <script type="application/ld+json">
@@ -52,12 +52,12 @@
       {
         "@type": "AudioObject",
         "position": 2,
-        "name": "Toptygin",
-        "description": "A short Supertoys audio narration produced with AeonVoice.",
-        "contentUrl": "https://emotional.toys/assets/myth-henry-aeonvoice.wav",
+        "name": "The Myth of Henry the Supertoy",
+        "description": "A short Supertoys audio narration about Henry, a Supertoy bear, produced with AeonVoice.",
+        "contentUrl": "https://emotional.toys/stories/henry/Henry%20-%20AeonVoice.wav",
         "encodingFormat": "audio/wav",
         "duration": "PT2M49S",
-        "thumbnailUrl": "https://emotional.toys/stories/toptygin/toptygin.jpg"
+        "thumbnailUrl": "https://emotional.toys/stories/henry/henry-guardian-night.png"
       }
     ]
   }
@@ -369,10 +369,13 @@
     .storyArtwork{ width:128px; aspect-ratio:1; object-fit:cover; display:block; border-radius:16px; border:1px solid rgba(255,255,255,.18); box-shadow:0 12px 28px rgba(0,0,0,.35); }
     .storyKicker{ margin:0 0 10px; color:var(--cool); font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
     .storyTitle{ margin:0; max-width:9ch; color:#fff; font-size:clamp(34px,5vw,58px); line-height:.96; letter-spacing:-.045em; }
+    .storyTitle--long{ max-width:15ch; font-size:clamp(27px,3.5vw,42px); line-height:1.02; letter-spacing:-.035em; }
     .storyMeta{ margin:18px 0 0; color:rgba(255,255,255,.68); font-size:14px; }
     .storyPlayer{ padding:22px; border:1px solid rgba(255,255,255,.12); border-radius:var(--radius-lg); background:rgba(5,7,14,.42); backdrop-filter:blur(12px); }
     .storyPlayer h3{ margin:0 0 7px; font-size:18px; letter-spacing:-.01em; }
     .storyPlayer p{ margin:0 0 18px; color:var(--muted); font-size:14px; line-height:1.5; }
+    .storyPlayer .storyPlayerNote{ display:flex; align-items:center; gap:9px; white-space:nowrap; }
+    .storyPlayer .storyPlayerNote::after{ content:""; height:1px; flex:1; min-width:18px; background:linear-gradient(90deg, rgba(138,108,255,.5), transparent); }
     .storyPlayer a{ color:var(--ink); text-decoration:underline; text-decoration-color:var(--brand2); text-underline-offset:3px; }
     .storyPlayer audio{ display:block; width:100%; min-height:48px; accent-color:var(--brand2); }
 
@@ -1296,12 +1299,12 @@
               <div>
                 <p class="storyKicker">Supertoys listening room</p>
                 <h3 class="storyTitle">The Star Mouse</h3>
-                <p class="storyMeta">A story by Fredric Brown · approximately 49 minutes</p>
+              <p class="storyMeta">A story by Fredric Brown · 49 minutes</p>
               </div>
             </div>
             <div class="storyPlayer">
               <h3>Listen now</h3>
-              <p>Press play to begin. Your place is retained while you explore the page.</p>
+              <p class="storyPlayerNote">A little traveler beneath an enormous sky.</p>
               <audio controls preload="metadata">
                 <source src="stories/star-mouse/The%20Star%20Mouse%20-%20AeonVoice.mp3" type="audio/mpeg" />
                 Your browser does not support audio playback. <a href="stories/star-mouse/The%20Star%20Mouse%20-%20AeonVoice.mp3">Download the story</a>.
@@ -1312,19 +1315,19 @@
         <article class="storyCard" style="margin-top:18px;">
           <div class="storyGrid">
             <div class="storyLead">
-              <img class="storyArtwork" src="stories/toptygin/toptygin.jpg" alt="Cover artwork for Toptygin: a bear standing in snowy woods" />
+              <img class="storyArtwork" src="stories/henry/henry-guardian-night.png" alt="Cover artwork for Henry the Supertoy: a teddy bear guardian beside a rain-lit nursery window" />
               <div>
                 <p class="storyKicker">Supertoys listening room</p>
-                <h3 class="storyTitle">Toptygin</h3>
-                <p class="storyMeta">A short Supertoys narration · approximately 3 minutes</p>
+                <h3 class="storyTitle storyTitle--long">The Myth of Henry the Supertoy</h3>
+                <p class="storyMeta">A narrated tale · 3 minutes</p>
               </div>
             </div>
             <div class="storyPlayer">
               <h3>Listen now</h3>
-              <p>A compact companion story, produced with <a href="https://github.com/cartheur-voice/aeon-voice" target="_blank" rel="noreferrer">AeonVoice</a>.</p>
+              <p class="storyPlayerNote">A small guardian for the dark hours.</p>
               <audio controls preload="metadata">
-                <source src="assets/myth-henry-aeonvoice.wav" type="audio/wav" />
-                Your browser does not support audio playback. <a href="assets/myth-henry-aeonvoice.wav">Download the story</a>.
+                <source src="stories/henry/Henry%20-%20AeonVoice.wav" type="audio/wav" />
+                Your browser does not support audio playback. <a href="stories/henry/Henry%20-%20AeonVoice.wav">Download the story</a>.
               </audio>
             </div>
           </div>

@@ -9,7 +9,7 @@
 The site currently features two stories in its listening room:
 
 - **[The Star Mouse](https://emotional.toys/#stories)** — Fredric Brown’s cosmic tale, presented as a 48-minute audio story.
-- **[Toptygin](https://emotional.toys/#stories)** — a short Supertoys narration produced with [AeonVoice](https://github.com/cartheur-voice/aeon-voice).
+- **[The Myth of Henry the Supertoy](https://emotional.toys/#stories)** — a short Supertoys narration about Henry, a Supertoy bear, produced with [AeonVoice](https://github.com/cartheur-voice/aeon-voice).
 
 Each story has its own artwork and browser-native playback controls, so listeners can settle in without leaving the page.
 
@@ -31,12 +31,12 @@ This repository contains the static site for [emotional.toys](https://emotional.
 
 ## Internal narration handoff
 
-The site includes a local AeonVoice-based synthesizer for story narration audio.
+The site includes a cadence-focused story synthesizer that builds against the local [AeonVoice source](https://github.com/cartheur-voice/aeon-voice), rather than a published NuGet package. In the standard workspace layout, that checkout is `../../voice/aeon-voice`. AeonVoice owns engine synthesis and WAV encoding; this project owns story segmentation and deliberate pauses.
 
 - Story input (default): `docs/myth-henry-the-supertoy`
-- Narration output (default): `assets/myth-henry-aeonvoice.wav`
+- Narration output (default): `stories/henry/Henry - AeonVoice.wav`
 - Website playback integration: `index.html` (the Stories section; native controls, no automatic playback)
-- Synthesizer project: `synthesizer/story-audio-synth`
+- Cadence project: `synthesizer/cadencer`
 - Regeneration script: `scripts/synthesize-story-audio.sh`
 
 ### Regenerate narration
@@ -74,11 +74,13 @@ VOICE_PROFILE=Leena make story-audio-default
 
 - `stories/star-mouse/The Star Mouse - AeonVoice.mp3` — *The Star Mouse*
 - `stories/star-mouse/star-mouse.jpg` — story cover artwork
-- `stories/toptygin/toptygin.jpg` — story cover artwork
-- `assets/myth-henry-aeonvoice.wav` — *Toptygin*
+- `stories/henry/henry-guardian-night.png` — story cover artwork
+- `stories/henry/Henry - AeonVoice.wav` — mastered web playback for *The Myth of Henry the Supertoy*
 
 ### Maintenance notes
 
-- The synthesizer depends on `AeonVoice` and `AeonVoice.Native` NuGet packages.
-- Native libraries are copied by `synthesizer/story-audio-synth/AeonVoiceSynth.csproj`.
+- Build the local AeonVoice Linux runtime before synthesizing; the story tool copies its current native libraries and the Leena/English resources into its output at build time.
+- If AeonVoice lives elsewhere, pass its checkout path with `dotnet run --project synthesizer/cadencer -p:AeonVoiceSourceRoot=/absolute/path/to/aeon-voice -- ...`.
+- Cadence is implemented in `synthesizer/cadencer/Program.cs`; evolve its pause and segmentation rules there.
+- `PrepareForNarration` keeps the branded spelling `Supertoy` in source text while passing the unambiguous spoken form “Super toy” to the voice engine.
 - If narration fails to load, first verify that the referenced audio file exists, then reload the page.

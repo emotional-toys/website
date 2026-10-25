@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 STORY_PATH="${1:-$ROOT_DIR/docs/myth-henry-the-supertoy}"
-OUTPUT_PATH="${2:-$ROOT_DIR/assets/myth-henry-aeonvoice.wav}"
+OUTPUT_PATH="${2:-$ROOT_DIR/stories/henry/Henry - AeonVoice.wav}"
 VOICE_PROFILE="${VOICE_PROFILE:-Leena}"
 CADENCE_MODE="${3:-${CADENCE_MODE:-adaptive}}"
 
@@ -19,7 +19,7 @@ echo "  output: $OUTPUT_PATH"
 echo "  voice:  $VOICE_PROFILE"
 echo "  cadence:$CADENCE_MODE"
 
-dotnet run --project "$ROOT_DIR/synthesizer/story-audio-synth" -- \
+dotnet run --project "$ROOT_DIR/synthesizer/cadencer" -- \
   --input "$STORY_PATH" \
   --output "$OUTPUT_PATH" \
   --voice "$VOICE_PROFILE" \
