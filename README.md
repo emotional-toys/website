@@ -34,7 +34,7 @@ This repository contains the static site for [emotional.toys](https://emotional.
 The site includes a cadence-focused story synthesizer that builds against the local [AeonVoice source](https://github.com/cartheur-voice/aeon-voice), rather than a published NuGet package. In the standard workspace layout, that checkout is `../../voice/aeon-voice`. AeonVoice owns engine synthesis and WAV encoding; this project owns story segmentation and deliberate pauses.
 
 - Story input (default): `docs/myth-henry-the-supertoy`
-- Narration output (default): `stories/henry/Henry - AeonVoice.wav`
+- Narration output (default): `stories/henry/henry-aeonvoice.wav`
 - Website playback integration: `index.html` (the Stories section; native controls, no automatic playback)
 - Cadence project: `synthesizer/cadencer`
 - Regeneration script: `scripts/synthesize-story-audio.sh`
@@ -72,11 +72,12 @@ VOICE_PROFILE=Leena make story-audio-default
 
 ### Published story assets
 
-- `stories/star-mouse/The Star Mouse - AeonVoice.mp3` — *The Star Mouse*
+- `stories/star-mouse/star-mouse-aeonvoice.mp3` — *The Star Mouse*
 - `stories/star-mouse/star-mouse.jpg` — story cover artwork
-- `stories/henry/henry-guardian-night.png` — story cover artwork
-- `stories/henry/Henry - AeonVoice.wav` — mastered narration source
-- `stories/henry/Henry - AeonVoice Prelude.wav` — web playback master, with the voiced title followed by a seven-second atmosphere prelude
+- `stories/henry/henry-guardian-night.avif` — optimized story cover artwork
+- `stories/henry/henry-guardian-night.webp` — fallback story cover artwork
+- `stories/henry/henry-aeonvoice.wav` — mastered narration source
+- `stories/henry/henry-aeonvoice-prelude.wav` — web playback master, with the voiced title followed by a seven-second atmosphere prelude
 
 ### Maintenance notes
 

@@ -4,7 +4,7 @@ using AeonVoice;
 
 var repoRoot = FindRepoRoot(Directory.GetCurrentDirectory());
 var defaultInput = Path.Combine(repoRoot, "docs", "myth-henry-the-supertoy");
-var defaultOutput = Path.Combine(repoRoot, "stories", "henry", "Henry - AeonVoice.wav");
+var defaultOutput = Path.Combine(repoRoot, "stories", "henry", "henry-aeonvoice.wav");
 
 string inputPath = defaultInput;
 string outputPath = defaultOutput;

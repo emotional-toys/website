@@ -43,7 +43,7 @@
         "position": 1,
         "name": "The Star Mouse",
         "description": "An audio story presented by Supertoys, written by Fredric Brown.",
-        "contentUrl": "https://emotional.toys/stories/star-mouse/The%20Star%20Mouse%20-%20AeonVoice.mp3",
+        "contentUrl": "https://emotional.toys/stories/star-mouse/star-mouse-aeonvoice.mp3",
         "encodingFormat": "audio/mpeg",
         "duration": "PT48M32S",
         "thumbnailUrl": "https://emotional.toys/stories/star-mouse/star-mouse.jpg",
@@ -54,10 +54,10 @@
         "position": 2,
         "name": "The Myth of Henry the Supertoy",
         "description": "A short Supertoys audio narration about Henry, a Supertoy bear, produced with AeonVoice.",
-        "contentUrl": "https://emotional.toys/stories/henry/Henry%20-%20AeonVoice%20Prelude.wav",
+        "contentUrl": "https://emotional.toys/stories/henry/henry-aeonvoice-prelude.wav",
         "encodingFormat": "audio/wav",
         "duration": "PT2M49S",
-        "thumbnailUrl": "https://emotional.toys/stories/henry/henry-guardian-night.png"
+        "thumbnailUrl": "https://emotional.toys/stories/henry/henry-guardian-night.webp"
       }
     ]
   }
@@ -1306,8 +1306,8 @@
               <h3>Listen now</h3>
               <p class="storyPlayerNote">A little traveler beneath an enormous sky.</p>
               <audio controls preload="metadata">
-                <source src="stories/star-mouse/The%20Star%20Mouse%20-%20AeonVoice.mp3" type="audio/mpeg" />
-                Your browser does not support audio playback. <a href="stories/star-mouse/The%20Star%20Mouse%20-%20AeonVoice.mp3">Download the story</a>.
+                <source src="stories/star-mouse/star-mouse-aeonvoice.mp3" type="audio/mpeg" />
+                Your browser does not support audio playback. <a href="stories/star-mouse/star-mouse-aeonvoice.mp3">Download the story</a>.
               </audio>
             </div>
           </div>
@@ -1315,7 +1315,10 @@
         <article class="storyCard" style="margin-top:18px;">
           <div class="storyGrid">
             <div class="storyLead">
-              <img class="storyArtwork" src="stories/henry/henry-guardian-night.png" alt="Cover artwork for Henry the Supertoy: a teddy bear guardian beside a rain-lit nursery window" />
+              <picture>
+                <source srcset="stories/henry/henry-guardian-night.avif" type="image/avif" />
+                <img class="storyArtwork" src="stories/henry/henry-guardian-night.webp" width="384" height="384" decoding="async" alt="Cover artwork for Henry the Supertoy: a teddy bear guardian beside a rain-lit nursery window" />
+              </picture>
               <div>
                 <p class="storyKicker">Supertoys listening room</p>
                 <h3 class="storyTitle storyTitle--long">The Myth of Henry the Supertoy</h3>
@@ -1326,8 +1329,8 @@
               <h3>Listen now</h3>
               <p class="storyPlayerNote">A small guardian for the dark hours.</p>
               <audio controls preload="metadata">
-                <source src="stories/henry/Henry%20-%20AeonVoice%20Prelude.wav" type="audio/wav" />
-                Your browser does not support audio playback. <a href="stories/henry/Henry%20-%20AeonVoice%20Prelude.wav">Download the story</a>.
+                <source src="stories/henry/henry-aeonvoice-prelude.wav" type="audio/wav" />
+                Your browser does not support audio playback. <a href="stories/henry/henry-aeonvoice-prelude.wav">Download the story</a>.
               </audio>
             </div>
           </div>
